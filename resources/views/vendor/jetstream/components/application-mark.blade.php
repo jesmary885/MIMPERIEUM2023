@@ -1,0 +1,1 @@
+<img src="{{Storage::url('img/MIPERIUM.png') }}" alt="" class="block h-16 w-28">

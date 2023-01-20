@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+
+    {{-- Base Meta Tags --}}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    {{-- Custom Meta Tags --}}
+    @yield('meta_tags')
+
+    {{-- Title --}}
+    <title>
+        @yield('title_prefix', config('adminlte.title_prefix', ''))
+        @yield('title', config('adminlte.title', 'AdminLTE 3'))
+        @yield('title_postfix', config('adminlte.title_postfix', ''))
+    </title>
+
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
+    {{-- Custom stylesheets (pre AdminLTE) --}}
+    @yield('adminlte_css_pre')
+
+    {{-- Base Stylesheets --}}
+    @if(!config('adminlte.enabled_laravel_mix'))
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+
+        {{-- Configured Stylesheets --}}
+        @include('adminlte::plugins', ['type' => 'css'])
+
+        <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
+
+        @if(config('adminlte.google_fonts.allowed', true))
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        @endif
+    @else
+        <link rel="stylesheet" href="{{ mix(config('adminlte.laravel_mix_css_path', 'css/app.css')) }}">
+    @endif
+
+    {{-- Livewire Styles --}}
+    @if(config('adminlte.livewire'))
+        @if(app()->version() >= 7)
+            @livewireStyles
+        @else
+            <livewire:styles />
+        @endif
+    @endif
+
+    {{-- Custom Stylesheets (post AdminLTE) --}}
+    @yield('adminlte_css')
+
+    {{-- Favicon --}}
+    @if(config('adminlte.use_ico_only'))
+        <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />
+    @elseif(config('adminlte.use_full_favicon'))
+        <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('favicons/apple-icon-57x57.png') }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('favicons/apple-icon-60x60.png') }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('favicons/apple-icon-72x72.png') }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('favicons/apple-icon-76x76.png') }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('favicons/apple-icon-114x114.png') }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('favicons/apple-icon-120x120.png') }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('favicons/apple-icon-144x144.png') }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('favicons/apple-icon-152x152.png') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-icon-180x180.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('favicons/favicon-96x96.png') }}">
+        <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('favicons/android-icon-192x192.png') }}">
+        <link rel="manifest" crossorigin="use-credentials" href="{{ asset('favicons/manifest.json') }}">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
+    @endif
+
+    {{-- datetimepicker --}}
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">   
+    <script src="https://unpkg.com/moment"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+
+    {{-- flatpickr--}}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+       <!-- Fonts -->
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+
+<!-- Styles -->
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+{{-- Fontawesome --}}
+<link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
+
+{{-- Glider --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.css" integrity="sha512-YM6sLXVMZqkCspZoZeIPGXrhD9wxlxEF7MzniuvegURqrTGV2xTfqq1v9FJnczH+5OGFl5V78RgHZGaK34ylVg==" crossorigin="anonymous" />
+
+{{-- FlexSlider --}}
+<link rel="stylesheet" href="{{ asset('vendor/FlexSlider/flexslider.css') }}">
+
+{{-- dropzone --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+@livewireStyles
+
+<!-- Scripts -->
+<script src="{{ mix('js/app.js') }}" defer></script>
+
+{{-- Glider --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js" integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA==" crossorigin="anonymous"></script>
+
+{{-- jquery --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+{{-- FlexSlider --}}
+<script src="{{ asset('vendor/FlexSlider/jquery.flexslider-min.js') }}"></script>
+
+{{-- sweetalert2 --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{{-- dropzone --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js" integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    {{-- flatpickr--}}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+{{-- datetimepicker --}}
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">   
+    <script src="https://unpkg.com/moment"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+
+</head>
+
+<body class="@yield('classes_body')" @yield('body_data')>
+
+    {{-- Body Content --}}
+    @yield('body')
+
+    {{-- Base Scripts --}}
+    @if(!config('adminlte.enabled_laravel_mix'))
+        <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+
+        {{-- Configured Scripts --}}
+        @include('adminlte::plugins', ['type' => 'js'])
+
+        <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
+    @else
+        <script src="{{ mix(config('adminlte.laravel_mix_js_path', 'js/app.js')) }}"></script>
+    @endif
+
+    {{-- Livewire Script --}}
+    @if(config('adminlte.livewire'))
+        @if(app()->version() >= 7)
+            @livewireScripts
+        @else
+            <livewire:scripts />
+        @endif
+    @endif
+
+    {{-- Custom Scripts --}}
+    @yield('adminlte_js')
+
+    @stack('modals')
+
+
+
+
+    @stack('script')
+
+    
+    <script>
+        Livewire.on('errorSize', mensaje => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: mensaje,
+            }) /*  */
+        });
+    </script>
+
+<script>
+        livewire.on('alert', function(ms){
+        Swal.fire(
+            ms,
+            '',
+            'success')
+        })
+    </script>
+
+</body>
+
+</html>
