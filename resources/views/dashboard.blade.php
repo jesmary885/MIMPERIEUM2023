@@ -75,7 +75,7 @@
         <div>
             
         <header>
-        <div class="container flex items-center h-16 mb-2 justify-between justify-start">
+        <div class="container flex items-center h-16 mb-2 justify-between">
 
 
             <a href="/" class="mx-6">
@@ -102,7 +102,7 @@
 
                 <div class="flex" >
 
-                <a href="{{ route('login') }}" class="font-semibold mr-4 text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Iniciar sesión</a>
+                <a href="{{ route('login') }}" class="font-semibold mr-4 text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Ingresar</a>
                 <a href="{{ route('Registro') }}" class="font-semibold text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Registrarse</a>
                 </div>
 
