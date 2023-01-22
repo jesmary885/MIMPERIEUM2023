@@ -190,7 +190,7 @@
                     <div class="p-8 flex flex-col items-center w-1/2 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
                     <img class="object-cover sm:w-full sm:h-full md:w-80 md:h-80 rounded-full ring-4 ring-gray-300" src="img/Juan.jpeg" alt="">
                         
-                        <h3 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Juan Huaman</h3>
+                        <h3 class="mt-4 sm:text-md md:text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Juan Huaman</h3>
                         
                         <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Fundador</p>
                         
