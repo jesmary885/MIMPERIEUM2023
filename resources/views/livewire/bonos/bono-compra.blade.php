@@ -69,7 +69,7 @@
                     <h3 class="card-title text-gray-600 font-bold">Buscador por fecha</h3>
                 </div> 
                 <div class="card-body">
-                    <div class="flex items-center justify-items-start">
+                    <div class="md:flex items-center justify-items-start">
                             <div class="mt-2">
                             <x-input.date wire:model="fecha_inicio" id="fecha_inicio" placeholder="Desde" class="px-4 outline-none"/>
                             </div>
