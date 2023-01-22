@@ -241,6 +241,6 @@
 
             });
         </script>
-        @endpush
+     @endpush
    
 </div>

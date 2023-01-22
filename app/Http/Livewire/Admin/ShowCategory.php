@@ -30,7 +30,7 @@ class ShowCategory extends Component
     ];
 
     public $editForm = [
-        'open' => true,
+        'open' => false,
         'name' => null,
         'slug' => null,
     ];
@@ -88,7 +88,6 @@ class ShowCategory extends Component
     }
 
     public function delete(Subcategory $subcategory){
-        dd('aqui');
         $subcategory->delete();
         $this->getSubcategories();
     }

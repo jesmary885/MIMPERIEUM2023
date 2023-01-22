@@ -60,14 +60,17 @@ class RegisterController extends Controller
 
             $digitos = strlen($user->id);
 
-                if($digitos == 1) $code = '0000000'.$user->id;
-                elseif ($digitos == 2) $code = '000000'.$user->id;
-                elseif ($digitos == 3) $code = '00000'.$user->id;
-                elseif ($digitos == 4) $code = '0000'.$user->id;
-                elseif ($digitos == 5) $code = '000'.$user->id;
-                elseif ($digitos == 6) $code = '00'.$user->id;
-                elseif ($digitos == 7) $code = '0'.$user->id;
-                elseif ($digitos == 8) $code = $user->id;
+                     if($digitos == 1) $code = '00000000000'.($user->id - 1);
+                elseif ($digitos == 2) $code = '0000000000'.($user->id - 1);
+                elseif ($digitos == 3) $code = '000000000'.($user->id - 1);
+                elseif ($digitos == 4) $code = '00000000'.($user->id - 1);
+                elseif ($digitos == 5) $code = '0000000'.($user->id - 1);
+                elseif ($digitos == 6) $code = '000000'.($user->id - 1);
+                elseif ($digitos == 7) $code = '0000'.($user->id - 1);
+                elseif ($digitos == 8) $code = '000'.($user->id - 1);
+                elseif ($digitos == 9) $code = '00'.($user->id - 1);
+                elseif ($digitos == 10) $code ='0'.($user->id - 1);
+                else $code = $user->id;
         
                 $user->update([
                     'code' => $code,

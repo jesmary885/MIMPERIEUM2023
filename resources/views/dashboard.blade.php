@@ -75,52 +75,36 @@
         <div>
             
         <header>
-        <div class="container flex items-center h-16 mb-2 justify-between md:justify-start">
+        <div class="container flex items-center h-16 mb-2 justify-between justify-start">
 
 
             <a href="/" class="mx-6">
                 <img src="img/MIPERIUM.png" class="block h-20 w-40 alt="">
             </a>
 
-            <div class="hidden md:block -mx-4 flex-1">
+            <div class="hidden lg:block -mx-4 flex-1">
                 <div class="flex">
-                    <a href="#nosotros" class="block mx-4 mt-2 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 dark:hover:text-indigo-400">Sobre Nosotros</a>
-                    <a href="#equipo" class="block mx-4 mt-2 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 dark:hover:text-indigo-400">Equipo</a>
-                    <a href="#productos" class="block mx-4 mt-2 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 dark:hover:text-indigo-400">Productos</a>                            
-                    <a href="#informacion" class="block mx-4 mt-2 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 dark:hover:text-indigo-400">Más información</a>
+                    <a href="#nosotros" class="block mx-4 mt-2 text-sm font-semibold text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 dark:hover:text-indigo-400">Nosotros</a>
+                    <a href="#equipo" class="block mx-4 mt-2 text-sm font-semibold text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 dark:hover:text-indigo-400">Equipo</a>
+                    <a href="#productos" class="block mx-4 mt-2 text-sm font-semibold text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 dark:hover:text-indigo-400">Productos</a>                            
+                    <a href="#informacion" class="block mx-4 mt-2 text-sm font-semibold text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 dark:hover:text-indigo-400">Información</a>
 
                 </div>
                 
             </div>
+            
 
-            <div class="mx-6  md:block">
+            <div class="block" align="right">
                 @auth
-                <a href="{{ route('home') }}" class="text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Oficina online</a>
+                <a href="{{ route('home') }}" class="font-semibold text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Oficina online</a>
                 
                 @else
 
-                    <x-jet-dropdown align="right" width="48">
+                <div class="flex" >
 
-                        <x-slot name="trigger">
-                        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <i class="fas fa-user-circle text-gray-600 text-3xl cursor-pointer"></i>
-                            <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                        </svg>
-                            </button>
-                        </x-slot>
-
-                        <x-slot name="content">
-                            <x-jet-dropdown-link href="{{ route('login') }}">
-                                {{ __('Login') }}
-                            </x-jet-dropdown-link>
-
-                            <x-jet-dropdown-link href="{{ route('Registro') }}">
-                                {{ __('Register') }}
-                            </x-jet-dropdown-link>
-                        </x-slot>
-
-                    </x-jet-dropdown>
+                <a href="{{ route('login') }}" class="font-semibold mr-4 text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Iniciar sesión</a>
+                <a href="{{ route('Registro') }}" class="font-semibold text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Registrarse</a>
+                </div>
 
                 @endauth
             </div>

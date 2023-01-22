@@ -48,7 +48,7 @@
                 </svg>
                 <input class="pl-2 w-full border-transparent focus:border-transparent focus:ring-0" type="password" name="password" id="password" placeholder="Contraseña" />
             </div>
-              <button type="submit" class="block w-full bg-lime-700 mt-5 py-2 rounded-2xl hover:bg-lime-800 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">Login</button>
+              <button type="submit" class="block w-full bg-lime-700 mt-5 py-2 rounded-2xl hover:bg-lime-800 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">Ingresar</button>
               <div class="flex justify-between mt-4">
               @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">

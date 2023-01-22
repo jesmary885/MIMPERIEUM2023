@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => bcrypt('12345678'),
             'dni' => '123456789',
-            'code' => '00000001',
+            'code' => '00000000000',
             'status' => 'activo',
             'points' => 0,
             'points_residual' => 0,
