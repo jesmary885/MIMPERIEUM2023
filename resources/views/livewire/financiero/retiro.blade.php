@@ -8,35 +8,40 @@
         </div>
     </div>
 
-    <section class="grid grid-cols-3 gap-6 text-white">
-    <div class="info-box mb-3 bg-info">
-<span class="info-box-icon"><i class="fas fa-money-bill-wave"></i></span>
-<div class="info-box-content">
-<span class="info-box-text font-bold">SALDO DISPONIBLE</span>
+  
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-money-bill-wave"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text font-bold">SALDO DISPONIBLE</span>
+                    <span class="info-box-text">Ganancia: S/ {{$disponible}}</span>
+                    @if($activar == 1)
+                        <hr class="m-2 text-gray-200">
+                        @livewire('financiero.retiro-create')
+                    @endif
+                </div>
 
-<span class="info-box-text">Ganancia: S/ {{$disponible}}</span>
-@if($activar == 1)
-<hr class="m-2 text-gray-200">
-@livewire('financiero.retiro-create')
+            </div>
+        </div>
 
-@endif
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-hand-holding-heart"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text font-bold">SALDO PAGADO</span>
+                    <span class="info-box-number">Ganancia: S/ {{$pagado}}</span>
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-<div class="info-box mb-3 bg-info">
-<span class="info-box-icon"><i class="fas fa-hand-holding-heart"></i></span>
-<div class="info-box-content">
-<span class="info-box-text font-bold">SALDO PAGADO</span>
-<span class="info-box-text">Ganancia: S/ {{$pagado}}</span>
+    </div>
 
 
-</div>
 
-</div>
 
-</section>
 
 <section class="content">
             <div class="card card-secondary card-outline">
