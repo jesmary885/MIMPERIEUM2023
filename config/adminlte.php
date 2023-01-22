@@ -416,7 +416,7 @@ return [
             'can' => 'home',
             'submenu' => [
                 [
-                    'text'    => 'Cuentas',
+                    'text'    => 'Cuenta bancaria',
                     'icon'    => '	fas fa-circle',
                     'icon_color' => 'gray',
                    'route'     => 'admin.cuentas',
