@@ -13,11 +13,14 @@ class indexController extends Controller
     public function index(){
 
         $user= User::where('id',auth()->id())->first();
+
+        $code_user = $user->code;
         $rango_id = $user->rango_id;
         $rango_nombre = $user->rango->name;
         $directos =  Partner::where('refer_id',auth()->id())->count(); 
 
         $ganancia_compra = ($user->points * 0.40);
+        $ganancia_global = $user->points_global;
         $ganancia_residual = $user->points_residual;
         $ptos_residual_compra = $user->acum_points;
 
@@ -142,6 +145,6 @@ class indexController extends Controller
         }
         
 
-        return view('admin.index',compact('indirectos','rango_id','refers_direct','width_barra','porcentaje_total','puntos_faltantes','saldo_disponible','saldo_pagado','rango_nombre','ganancia_compra','ganancia_residual','ptos_residual_compra','directos'));
+        return view('admin.index',compact('ganancia_global','code_user','indirectos','rango_id','refers_direct','width_barra','porcentaje_total','puntos_faltantes','saldo_disponible','saldo_pagado','rango_nombre','ganancia_compra','ganancia_residual','ptos_residual_compra','directos'));
     }
 }

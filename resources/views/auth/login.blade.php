@@ -2,7 +2,7 @@
 <x-guest-layout>
     <style>
     .login_img_section {
-    background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(img/img3.jpg) center center;
+    background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(img/fondo_login.jpg) center center;
     background-repeat: no-repeat;
     background-size: cover  
     }

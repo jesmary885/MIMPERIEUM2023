@@ -65,7 +65,7 @@ return [
 
     'logo' => null,
     'logo_img' => 'storage/img/MIPERIUM.png',
-    'logo_img_class' => 'w-full mx-auto my-0',
+    'logo_img_class' => 'w-44 mx-auto my-0',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'null',
     'logo_img_alt' => 'null',
@@ -375,7 +375,7 @@ return [
                     'route'     => 'admin.genealogia_directo',
                 ],
                 [
-                    'text' => 'Residual',
+                    'text' => 'Indirectos',
                     'icon'    => '	fas fa-circle',
                     'icon_color' => 'gray',
                     'route'  => 'admin.genealogia_residual',

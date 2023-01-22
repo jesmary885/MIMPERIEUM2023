@@ -57,6 +57,12 @@
             </div>
             
         @endforeach
+
+    @else
+    <div class="m-4">
+        <h3 class="font-semibold text-gray-600">Aún no posee referidos directos</h3>
+
+    </div>
     @endif
 
     

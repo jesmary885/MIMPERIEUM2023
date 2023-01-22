@@ -10,7 +10,7 @@
 
 <div class="callout callout-info">
     <h5 class="text-lg font-bold">Enlace de referencia:</h5>
-    <p class="text-gray-600 font-medium mt-2 ml-2 text-lg">https:\\mimperium\register\000000003</p>
+    <p class="sm:text-xs md:text-lg text-gray-600 font-medium mt-2 ml-2 ">http://mimperium.com/registro/{{$code_user}}</p>
 </div>
 
 <h2 class="text-gray-600 font-bold p-2 text-lg">
@@ -22,8 +22,8 @@
     <div class="col-lg-3 col-6">
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>S/ {{$saldo_disponible}}</h3>
-                <p class="text-md font-bold">SALDO DISPONIBLE</p>
+                <h3>S/{{$saldo_disponible}}</h3>
+                <p class="sm:text-xs md:text-md font-bold">SALDO DISPONIBLE</p>
             </div>
             <div class="icon">
                 <i class="fas fa-money-bill-wave"></i>
@@ -35,8 +35,8 @@
     <div class="col-lg-3 col-6">
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>S/ {{$saldo_pagado}}</h3>
-                <p class="text-md font-bold">SALDO PAGADO</p>
+                <h3>S/{{$saldo_pagado}}</h3>
+                <p class="sm:text-xs md:text-md font-bold">SALDO PAGADO</p>
             </div>
             <div class="icon">
                 <i class="fas fa-hand-holding-heart"></i>
@@ -49,7 +49,7 @@
         <div class="small-box bg-info">
             <div class="inner">
                 <h3>{{$directos}}</h3>
-                <p class="text-md font-bold">REFERIDOS DIRECTOS</p>
+                <p class="sm:text-xs md:text-md font-bold">REFERIDOS DIRECTOS</p>
             </div>
             <div class="icon">
                 <i class="fas fa-users"></i>
@@ -62,7 +62,7 @@
         <div class="small-box bg-info">
             <div class="inner">
                 <h3>{{$indirectos}}</h3>
-                <p class="text-md font-bold">REFERIDOS INDIRECTOS</p>
+                <p class="sm:text-xs md:text-md font-bold">REFERIDOS INDIRECTOS</p>
             </div>
             <div class="icon">
                 <i class="fas fa-users"></i>
@@ -82,8 +82,8 @@
 
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>S/ {{$ganancia_compra}}</h3>
-                <p class="text-md font-bold">BONO RECOMPRA</p>
+                <h3>S/{{$ganancia_compra}}</h3>
+                <p class="sm:text-xs md:text-md font-bold">BONO RECOMPRA</p>
             </div>
             <div class="icon">
                 <i class="fas fa-cart-arrow-down"></i>
@@ -96,8 +96,8 @@
     <div class="col-lg-3 col-6">
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>S/ {{$ganancia_residual}}</h3>
-                <p class="text-md font-bold">BONO RESIDUAL</p>
+                <h3>S/{{$ganancia_residual}}</h3>
+                <p class="sm:text-xs md:text-md font-bold">BONO RESIDUAL</p>
             </div>
             <div class="icon">
                 <i class="fas fa-project-diagram"></i>
@@ -109,8 +109,8 @@
     <div class="col-lg-3 col-6">
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>S/ 0</h3>
-                <p class="text-md font-bold">BONO GLOBAL</p>
+                <h3>S/{{$ganancia_global}}</h3>
+                <p class="sm:text-xs md:text-md font-bold">BONO GLOBAL</p>
             </div>
             <div class="icon">
                 <i class="fas fa-chess-queen"></i>
@@ -124,7 +124,7 @@
         <div class="small-box bg-info">
             <div class="inner">
                 <h3>{{$rango_nombre}}</h3>
-                <p class="text-md font-bold">RANGO</p>
+                <p class="sm:text-xs md:text-md font-bold">RANGO</p>
             </div>
             <div class="icon">
                 <i class="fas fa-trophy"></i>
