@@ -68,11 +68,7 @@
         <div class="small-box bg-info">
             <div class="inner">
                 <h3>{{$indirectos}}</h3>
-                <div class="flex">
-                <p class="sm:text-xs md:text-sm font-bold">REF. INDIRECTOS</p>
-
-                </div>
-                
+                <p class="sm:text-xs md:text-md font-bold">REF. INDIRECTOS</p>
             </div>
             <div class="icon">
                 <i class="fas fa-users"></i>
