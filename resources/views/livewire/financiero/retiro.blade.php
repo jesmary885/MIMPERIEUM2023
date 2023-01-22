@@ -49,8 +49,8 @@
                     <h3 class="card-title">Buscador</h3>
                 </div> 
                 <div class="card-body">
-                    <div class="flex items-center justify-between">
-                        <div class="w-1/5">
+                    <div class="md:flex items-center justify-between">
+                        <div class="w-full mb-2 md:mb-0 md:w-1/5">
                             <label class="text-gray-600 text-md">Vista de registro</label>
                             <select wire:model="vista_registros" id="vista_registros" class="form-control w-full" name="vista_registros">
                                 <option value="0">Pagados</option>
@@ -58,16 +58,16 @@
                             </select>
                         </div>
 
-                        <div class="flex-1 ml-4">
+                        <div class="md:flex-1 md:ml-4">
                             <label class="text-gray-600 text-md">Buscador por fecha</label>
-                            <div class="flex items-center justify-items-start">
-                            <div class="mt-2">
-                            <x-input.date wire:model="fecha_inicio" id="fecha_inicio" placeholder="Desde" class="px-4 outline-none"/>
+                            <div class="md:flex items-center justify-items-start">
+                                <div class="mt-2">
+                                    <x-input.date wire:model="fecha_inicio" id="fecha_inicio" placeholder="Desde" class="px-4 outline-none"/>
+                                </div>
+                                <div class= "mt-2">
+                                    <x-input.date wire:model="fecha_fin" id="fecha_fin" placeholder="Hasta" class="px-4 outline-none"/>
+                                </div>
                             </div>
-                            <div class= "mt-2">
-                            <x-input.date wire:model="fecha_fin" id="fecha_fin" placeholder="Hasta" class="px-4 outline-none"/>
-                            </div>
-                    </div>
                         </div>
                     </div>
                 </div>
