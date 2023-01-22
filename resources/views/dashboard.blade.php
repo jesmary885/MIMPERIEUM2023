@@ -204,7 +204,7 @@
            
                 <div class="flex flex-col items-center">
                     <div class="p-8 flex flex-col items-center w-1/2 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
-                    <img class="object-cover w-60 h-60 rounded-full ring-4 ring-gray-300" src="img/Juan.jpeg" alt="">
+                    <img class="object-cover sm:w-full sm:h-full md:w-80 md:h-80 rounded-full ring-4 ring-gray-300" src="img/Juan.jpeg" alt="">
                         
                         <h3 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Juan Huaman</h3>
                         
@@ -306,7 +306,7 @@
     <div id="informacion" class="container mx-auto px-6 py-10">
         <h2 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl">COMO GANAR DINERO CON NOSOTROS</h2>
 
-        <div class="w-full">
+        <!-- <div class="w-full">
         <p class=" text-gray-500 mt-6 text-justify">SOMOS UN PROYECTO QUE BUSCA JUNTAR TODAS LAS POSIBILIDADES
                                                                      PARA HACER NEGOCIO EN UN SOLO LUGAR.
 
@@ -322,11 +322,11 @@
                                                                     QUE SERAN PROMOCIONADOS POR NUESTROS CONSUMIDORES A TRAVES DEL NETWORK MARKETING.
                                                                     </p>
 
-        </div>
+        </div> -->
 
         
 
-        <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-3 xl:gap-12">
+        <!-- <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-3 xl:gap-12">
         <div>
             <img class="h-90 w-full rounded-lg object-cover" src="img/imagen7.jpg" alt="" />
             <h3 class="mt-4 text-2xl font-semibold capitalize text-gray-800 dark:text-white">Best website collections</h3>
@@ -359,7 +359,7 @@
             <h3 class="mt-4 text-2xl font-semibold capitalize text-gray-800 dark:text-white">Ton’s of mobile mockup</h3>
             <p class="mt-2 text-lg uppercase tracking-wider text-lime-700 ">Mockups</p>
         </div>
-        </div>
+        </div> -->
     </div>
     </section>
  

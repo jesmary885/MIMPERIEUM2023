@@ -10,7 +10,13 @@
 
 <div class="callout callout-info">
     <h5 class="text-lg font-bold">Enlace de referencia:</h5>
-    <p class="sm:text-xs md:text-lg text-gray-600 font-medium mt-2 ml-2 ">http://mimperium.com/registro/{{$code_user}}</p>
+    <div class="md:flex">
+    <p id="enlace_copy" class="sm:text-xs md:text-lg text-gray-600 font-medium mt-2">http://mimperium.com/registro/{{$code_user}}</p>
+
+    <button class="btn btn-sm mt-1 text-bold" title="Copiar" id="button_copy"><i class="fas fa-paste text-blue-500 text-lg"></i></button>
+
+    </div>
+    
 </div>
 
 <h2 class="text-gray-600 font-bold p-2 text-lg">
@@ -49,7 +55,7 @@
         <div class="small-box bg-info">
             <div class="inner">
                 <h3>{{$directos}}</h3>
-                <p class="sm:text-xs md:text-md font-bold">REFERIDOS DIRECTOS</p>
+                <p class="sm:text-xs md:text-md font-bold">REF. DIRECTOS</p>
             </div>
             <div class="icon">
                 <i class="fas fa-users"></i>
@@ -62,7 +68,11 @@
         <div class="small-box bg-info">
             <div class="inner">
                 <h3>{{$indirectos}}</h3>
-                <p class="sm:text-xs md:text-md font-bold">REFERIDOS INDIRECTOS</p>
+                <div class="flex">
+                <p class="sm:text-xs md:text-sm font-bold">REF. INDIRECTOS</p>
+
+                </div>
+                
             </div>
             <div class="icon">
                 <i class="fas fa-users"></i>
@@ -190,5 +200,17 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script>
+            var boton = document.getElementById("button_copy");
+            boton.addEventListener("click", copiarAlPortapapeles, false);
+            function copiarAlPortapapeles() {
+                var codigoACopiar = document.getElementById('enlace_copy');
+                var seleccion = document.createRange();
+                seleccion.selectNodeContents(codigoACopiar);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(seleccion);
+                var res = document.execCommand('copy');
+                window.getSelection().removeRange(seleccion);
+            }
+    </script>
 @stop
