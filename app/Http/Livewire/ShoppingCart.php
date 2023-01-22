@@ -45,9 +45,12 @@ class ShoppingCart extends Component
             if($item->options['category'] == 1) $puntos_category = ($item->options['points'] *  $item->qty) + $puntos_category;
         }
 
+        $caracter=",";
+        $subtotal_t = (str_replace($caracter,"",Cart::subtotal()));
+
         $order = new Order();
         $order->user_id = auth()->user()->id;
-        $order->total = Cart::subtotal();
+        $order->total = $subtotal_t;
         $order->content = Cart::content();
         $order->status = 1;
         $order->points_total = $puntos;
@@ -60,7 +63,7 @@ class ShoppingCart extends Component
 
         $data = [
             'productos' => Cart::content(),
-            'total' => Cart::subtotal(),
+            'total' => $subtotal_t,
             'fecha' => $fecha,
             'nro_orden' => $order->id,  
             'cliente' =>  auth()->user()->name,
