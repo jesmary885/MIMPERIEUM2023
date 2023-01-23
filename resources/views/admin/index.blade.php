@@ -13,9 +13,13 @@
     <div class="callout callout-info">
         <h5 class="text-lg font-bold">Enlace de referencia:</h5>
         <div class="md:flex">
-        <p id="enlace_copy" class="sm:text-xs md:text-lg text-gray-600 font-medium mt-2">http://mimperium.com/registro/{{$code_user}}</p>
+        <div class="overflow-x-auto">
+            <p id="enlace_copy" class="sm:text-xs md:text-lg text-gray-600 font-medium mt-2">http://mimperium.com/registro/{{$code_user}}</p>
 
-        <button class="btn btn-sm mt-1 text-bold" title="Copiar" id="button_copy"><i class="fas fa-paste text-blue-500 text-lg"></i></button>
+            <button class="btn btn-sm mt-1 text-bold" title="Copiar" id="button_copy"><i class="fas fa-paste text-blue-500 text-lg"></i></button>
+
+        </div>
+        
 
         </div>
     </div>
