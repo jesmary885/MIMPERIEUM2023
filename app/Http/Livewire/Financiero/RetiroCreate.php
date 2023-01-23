@@ -36,7 +36,7 @@ class RetiroCreate extends Component
 
         $user_solicitante = User::where('id',auth()->id())->first();
 
-        $this->disponible = $user_solicitante->points + $user_solicitante->points_residual  + $user_solicitante->points_global;
+        $this->disponible = ($user_solicitante->points * 0.40) + $user_solicitante->points_residual  + $user_solicitante->points_global;
         return view('livewire.financiero.retiro-create');
     }
 

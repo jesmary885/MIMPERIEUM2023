@@ -19,7 +19,7 @@
         </div>
 
         <div class="md:hidden flex justify-center">
-        <a href="/" class="mx-6 my-6">
+        <a href="/" class="mt-6 mb-2">
                 <img src="img/MIPERIUM.png" class="block h-20 w-40 alt="">
             </a>
         </div>

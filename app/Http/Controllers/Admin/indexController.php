@@ -204,7 +204,7 @@ class indexController extends Controller
         $cont = 0;
         $cont2 = 0;
 
-        $saldo_disponible = $user->points + $user->points_residual + $user->points_global;
+        $saldo_disponible = ($user->points * 0.40) + $user->points_residual + $user->points_global;
 
         $saldo_pagado = GananciaBono::where('user_id',auth()->id())
             ->where('status','pagado')
