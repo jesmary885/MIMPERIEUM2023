@@ -144,7 +144,7 @@
 
     @if (Cart::count())
 
-        <div class="bg-white rounded-lg shadow-lg px-6 py-4 mt-4">
+        <div class="bg-white rounded-lg shadow-lg px-6 py-4 mt-4 overflow-x-auto">
             <div class="flex justify-between items-center">
                 <div>
                     <p class="text-gray-700">
