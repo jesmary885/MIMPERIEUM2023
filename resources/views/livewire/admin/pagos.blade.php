@@ -58,18 +58,18 @@
                     <h3 class="card-title">Buscador</h3>
                 </div> 
                 <div class="card-body">
-                    <div class="flex items-center justify-between">
-                        <div class="w-1/5">
-                            <label class="text-gray-600 text-md">Vista de registro</label>
+                    <div class="md:flex items-center justify-between">
+                        <div class="w-full md:w-1/5">
+                            <label class="text-gray-600 text-sm md:text-md">Vista de registro</label>
                             <select wire:model="vista_registros" id="vista_registros" class="form-control w-full" name="vista_registros">
                                 <option value="0">Pendientes</option>
                                 <option value="1">Pagados</option>
                             </select>
                         </div>
 
-                        <div class="w-1/5 ml-4">
+                        <div class="w-full md:w-1/5 ml-0 md:ml-4">
 
-                            <label class="text-gray-600 text-md">Filtro del buscador</label>
+                            <label class="text-gray-600 text-sm md:text-md">Filtro del buscador</label>
 
                             <select wire:model="buscador" id="buscador" class="form-control" name="buscador">
                                 <option value="0">Por socio</option>
@@ -78,28 +78,20 @@
 
                         </div>
 
-                        <div class="flex-1 ml-4">
+                        <div class="md:flex-1 ml-0 md:ml-4">
                             <label class="text-gray-600 text-md">Buscador</label>
                             @if($buscador == 0)
                             <input wire:model="search" placeholder="Ingrese el nombre o código del socio a buscar" class="form-control">
                             @else
-                            <div wire:ignore x-data="datepicker()">
-                                <div class="flex flex-col">
-                                    <div class="flex items-center gap-2">
-                                        <input 
-                                                    type="text" 
-                                                    class="px-4 outline-none cursor-pointer" 
-                                                    x-ref="myDatepicker" 
-                                                    wire:model="fecha_inicio" 
-                                                    placeholder="Seleccione la fecha">
-                                            <span class="cursor-pointer underline" x-on:click="reset()">
-                                                <svg class="h-6 w-5 text-gray-400 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C5.44772 2 5 2.44772 5 3V4H4C2.89543 4 2 4.89543 2 6V16C2 17.1046 2.89543 18 4 18H16C17.1046 18 18 17.1046 18 16V6C18 4.89543 17.1046 4 16 4H15V3C15 2.44772 14.5523 2 14 2C13.4477 2 13 2.44772 13 3V4H7V3C7 2.44772 6.55228 2 6 2ZM6 7C5.44772 7 5 7.44772 5 8C5 8.55228 5.44772 9 6 9H14C14.5523 9 15 8.55228 15 8C15 7.44772 14.5523 7 14 7H6Z"/>
-                                                </svg>
-                                            </span>
-                                    </div>
+                            <div class="md:flex items-center justify-items-start">
+                                <div class="mt-2">
+                                    <x-input.date wire:model="fecha_inicio" id="fecha_inicio" placeholder="Desde" class="px-4 outline-none"/>
+                                </div>
+                                <div class= "mt-2">
+                                    <x-input.date wire:model="fecha_fin" id="fecha_fin" placeholder="Hasta" class="px-4 outline-none"/>
                                 </div>
                             </div>
+                           
                             @endif
                         </div>
                         
@@ -296,23 +288,4 @@
 
     </x-table-responsive>
 
-    @push('js')
-        <script>
-
-           
-            
-            document.addEventListener('alpine:init',()=>{
-                console.log('ajo');
-                Alpine.data('datepicker',()=>({
-            
-                    init(){
-                        flatpickr(this.$refs.myDatepicker, {dateFormat:'Y-m-d H:i', altInput:true, altFormat: 'F j, Y',})
-                    },
-                }))
-            })
-
-        </script>
-    @endpush
-
-    
 </div>

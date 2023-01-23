@@ -13,7 +13,7 @@ use Livewire\Component;
 class Pagos extends Component
 {
 
-    public $fecha_inicio,$select=1,$search,$vista_registros = 0,$buscador, $pagados, $pagados_soles, $pendientes, $pendientes_soles, $total_registros;
+    public $fecha_inicio,$fecha_fin,$select=1,$search,$vista_registros = 0,$buscador, $pagados, $pagados_soles, $pendientes, $pendientes_soles, $total_registros;
 
     public $createForm = [
         'registros_pendientes' => [],
@@ -24,46 +24,113 @@ class Pagos extends Component
     public function render()
     {
       
-        $this->pendientes = Payment::where('status','pendiente')->count();
-        $this->pendientes_soles  = Payment::where('status','pendiente')->sum('total');
-        $this->pagados = Payment::where('status','pagado')->count();
-        $this->pagados_soles  = Payment::where('status','pagado')->sum('total');
+        $this->pendientes = Payment::where('status','pendiente')
+            ->where('description','Pago de comisión')
+            ->count();
+
+        $this->pendientes_soles  = Payment::where('status','pendiente')
+            ->where('description','Pago de comisión')
+            ->sum('total');
+            
+        $this->pagados = Payment::where('status','pagado')
+            ->where('description','Pago de comisión')
+            ->count();
+
+        $this->pagados_soles  = Payment::where('status','pagado')
+            ->where('description','Pago de comisión')
+            ->sum('total');
       
 
         if($this->vista_registros == 0){
-            $registros_pendientes = Payment::whereHas('user',function(Builder $query){
-                $query->where('name','LIKE', '%' . $this->search . '%')
-                    ->orwhere('code','LIKE', '%' . $this->search . '%');
-            })
-            ->where('status','pendiente')
-            ->paginate(15);
-            $registros = [];
+            if($this->fecha_inicio && $this->fecha_fin){
+                $fecha_inicio = date("Y-m-d",strtotime($this->fecha_inicio));
+                $fecha_fin = date("Y-m-d",strtotime($this->fecha_fin));
+                $registros_pendientes = Payment::whereHas('user',function(Builder $query){
+                    $query->where('name','LIKE', '%' . $this->search . '%')
+                        ->orwhere('code','LIKE', '%' . $this->search . '%');
+                })
+                ->where('status','pendiente')
+                ->where('description','Pago de comisión')
+                ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
+                ->paginate(15);
+                $registros = [];
+    
+                if($this->createForm['registros_pendientes'] == []) $this->select = 1;
+    
+                $this->total_registros = Payment::whereHas('user',function(Builder $query){
+                    $query->where('name','LIKE', '%' . $this->search . '%')
+                        ->orwhere('code','LIKE', '%' . $this->search . '%');
+                })
+                ->where('status','pendiente')
+                ->where('description','Pago de comisión')
+                ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
+                ->count();
+            }
+            else{
+                $registros_pendientes = Payment::whereHas('user',function(Builder $query){
+                    $query->where('name','LIKE', '%' . $this->search . '%')
+                        ->orwhere('code','LIKE', '%' . $this->search . '%');
+                })
+                ->where('status','pendiente')
+                ->where('description','Pago de comisión')
+                ->paginate(15);
+                $registros = [];
+    
+                if($this->createForm['registros_pendientes'] == []) $this->select = 1;
+    
+                $this->total_registros = Payment::whereHas('user',function(Builder $query){
+                    $query->where('name','LIKE', '%' . $this->search . '%')
+                        ->orwhere('code','LIKE', '%' . $this->search . '%');
+                })
+                ->where('status','pendiente')
+                ->where('description','Pago de comisión')
+                ->count();
 
-            if($this->createForm['registros_pendientes'] == []) $this->select = 1;
-
-            $this->total_registros = Payment::whereHas('user',function(Builder $query){
-                $query->where('name','LIKE', '%' . $this->search . '%')
-                    ->orwhere('code','LIKE', '%' . $this->search . '%');
-            })
-            ->where('status','pendiente')
-            ->count();
+            }
+            
 
         }
 
         if($this->vista_registros == 1){
 
-            $registros = Payment::whereHas('user',function(Builder $query){
-                $query->where('name','LIKE', '%' . $this->search . '%')
-                    ->orwhere('code','LIKE', '%' . $this->search . '%');
-            })
-            ->where('status','pagado')
-            ->paginate(15);
+            if($this->fecha_inicio && $this->fecha_fin){
 
-            $this->total_registros = Payment::whereHas('user',function(Builder $query){
+                $fecha_inicio = date("Y-m-d",strtotime($this->fecha_inicio));
+                $fecha_fin = date("Y-m-d",strtotime($this->fecha_fin));
+
+                $registros = Payment::whereHas('user',function(Builder $query){
                 $query->where('name','LIKE', '%' . $this->search . '%')
-                    ->orwhere('code','LIKE', '%' . $this->search . '%');
-            })
-            ->where('status','pagado')->count();
+                        ->orwhere('code','LIKE', '%' . $this->search . '%');
+                })
+                ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
+                ->where('description','Pago de comisión')
+                ->where('status','pagado')
+                ->paginate(15);
+    
+                $this->total_registros = Payment::whereHas('user',function(Builder $query){
+                    $query->where('name','LIKE', '%' . $this->search . '%')
+                        ->orwhere('code','LIKE', '%' . $this->search . '%');
+                })
+                ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
+                ->where('description','Pago de comisión')
+                ->where('status','pagado')->count();
+            }
+            else{
+                $registros = Payment::whereHas('user',function(Builder $query){
+                    $query->where('name','LIKE', '%' . $this->search . '%')
+                        ->orwhere('code','LIKE', '%' . $this->search . '%');
+                })
+                ->where('status','pagado')
+                ->where('description','Pago de comisión')
+                ->paginate(15);
+    
+                $this->total_registros = Payment::whereHas('user',function(Builder $query){
+                    $query->where('name','LIKE', '%' . $this->search . '%')
+                        ->orwhere('code','LIKE', '%' . $this->search . '%');
+                })
+                ->where('description','Pago de comisión')
+                ->where('status','pagado')->count();
+            }
 
             $registros_pendientes=[];
         }

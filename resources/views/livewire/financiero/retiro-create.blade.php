@@ -1,5 +1,5 @@
 <div>
-    <button type="submit" class="uppercase text-md text-whith font-bold hover:text-blue-200" wire:click="open">
+    <button type="submit" class="uppercase text-xs md:text-md font-bold hover:text-blue-200" wire:click="open">
     Solicitar retiro
     </button>
     @if($isopen)
@@ -37,7 +37,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" wire:click="close">Cerrar</button>
                       
-                        <button type="button" class="btn btn-primary" wire:click="save" wire:loading.attr="disabled">Procesar socilitud</button>
+                        <button type="button" class="btn btn-primary" wire:click="save"  wire:loading.attr="disabled">Procesar socilitud</button>
                       
                     </div>
                 </div>

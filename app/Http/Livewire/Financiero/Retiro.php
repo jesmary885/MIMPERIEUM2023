@@ -28,10 +28,17 @@ class Retiro extends Component
         $user = User::where('id',auth()->id())->first();
 
         $this->disponible = $user->points + $user->points_residual + $user->points_global;
-        $dia = date('m');
+        $dia = date('d');
 
         if($this->disponible > 0){
-            if($dia == 1 || $dia == 2 || $dia == 3 || $dia == 4 || $dia ==5) $this->activar = 1;
+            
+            if($dia == 1 || $dia == 2 || $dia == 3 || $dia == 4 || $dia ==5) 
+            {
+                $this->activar = 1;
+            }
+        }
+        else{
+            $this->activar = 0;
         }
 
         if($this->vista_registros == 0){
