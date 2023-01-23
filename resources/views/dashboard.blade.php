@@ -78,8 +78,8 @@
         <div class="container flex items-center h-16 mb-2 justify-between">
 
 
-            <a href="/" class="mx-6">
-                <img src="img/MIPERIUM.png" class="block h-20 w-40 alt="">
+            <a href="/" class="mx-0 md:mx-6">
+                <img src="img/MIPERIUM.png" class="block h-12 md:h-14 w-28 md:w-32 alt="">
             </a>
 
             <div class="hidden lg:block -mx-4 flex-1">
@@ -102,7 +102,7 @@
 
                 <div class="flex" >
 
-                <a href="{{ route('login') }}" class="font-semibold mr-4 text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Ingresar</a>
+                <a href="{{ route('login') }}" class="font-semibold mr-4 text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Iniciar sesión</a>
                 <a href="{{ route('Registro') }}" class="font-semibold text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Registrarse</a>
                 </div>
 

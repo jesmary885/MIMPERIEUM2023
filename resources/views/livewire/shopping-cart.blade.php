@@ -1,7 +1,16 @@
 <div class="container">
     <x-table-responsive>
-        <div class="px-6 py-4 bg-white">
+        <div class="px-6 py-4 bg-white flex justify-between">
+           
             <h1 class="text-lg font-semibold text-gray-700">CARRO DE COMPRAS</h1>
+
+            
+
+            <button wire:click="volver">
+                <i class="text-lime-700 hover:text-lime-800 fas fa-backspace">
+                </i>
+            </button>
+
         </div>
 
         @if (Cart::count())
@@ -153,4 +162,15 @@
         </div>
 
     @endif
+
+    @push('js')
+
+    <script>
+        Livewire.on('volver', function(){
+            window.history.back();      
+        })
+    </script>
+
+    @endpush
+
 </div>

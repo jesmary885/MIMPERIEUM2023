@@ -46,14 +46,7 @@
                      <x-button-enlace href="{{ route('shopping-cart') }}" class="w-full bg-lime-700 hover:bg-lime-800">
                     Ir al carrito de compras
                     </x-button-enlace> 
-                    <!-- <a class="btn btn-md ml-auto btn-primary" href="{{route('shopping-cart') }}">
-                        Ir al carrito de compras
-                    </a> -->
-
-
-                    <!-- <x-button-enlace href="{{ route('shopping-cart') }}" class="w-full bg-lime-700 hover:bg-lime-800">
-
-                    </x-button-enlace> -->
+            
 
                 </div>
             @endif

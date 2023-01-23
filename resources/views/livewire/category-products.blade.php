@@ -7,22 +7,24 @@
                 @foreach ($products as $product)
                     
                     <li class="bg-white rounded-lg shadow {{ $loop->last ? '' : 'sm:mr-4' }}">
-                        <article>
+                    <a href="{{ route('products.show', $product) }}">
+                    <article>
                             <figure>
                                 <img class="h-52 w-full object-cover object-center" src="{{ Storage::url($product->images->first()->url) }}" alt="">
                             </figure>
 
                         <div class="py-4 px-6">
                                 <h1 class="text-md font-semibold">
-                                    <a href="{{ route('products.show', $product) }}">
+                                    
                                         {{Str::limit($product->name, 20)}}
-                                    </a>
+                                    
                                 </h1>
 
                                 <p class="font-bold text-trueGray-700">S/ {{$product->price}}</p>
                                 <p class="font-bold text-trueGray-700">{{$product->points}} Puntos</p>
                         </div>
                         </article>
+                        </a>
                     </li>
 
                 @endforeach

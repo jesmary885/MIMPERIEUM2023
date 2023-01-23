@@ -136,6 +136,15 @@
     <script src="https://unpkg.com/moment"></script>
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
 
+{{-- HIGHCHARTS--}}
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data')>

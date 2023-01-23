@@ -7,16 +7,22 @@
     background-size: cover  
     }
     </style>
-    <div class="h-screen flex">
-        <div class="hidden lg:flex w-full lg:w-1/2 login_img_section justify-around items-center">
+    <div class="h-screen md:flex">
+        <div class="hidden md:flex w-full lg:w-1/2 login_img_section justify-around items-center">
             <div class="bg-black opacity-20 inset-0 z-0"></div>
-            <div class="w-full mx-auto px-20 flex-col items-center space-y-6">
-              
-                <div class="flex justify-center lg:justify-start mt-6">
-                  
-                </div>
-            </div>
-          </div>
+              <div class="w-full mx-auto px-20 flex-col items-center space-y-6">
+                
+                  <div class="flex justify-center lg:justify-start mt-6">
+                    
+                  </div>
+              </div>
+        </div>
+
+        <div class="md:hidden flex justify-center">
+        <a href="/" class="mx-6">
+                <img src="img/MIPERIUM.png" class="block h-20 w-40 alt="">
+            </a>
+        </div>
 
 
           <div class="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">

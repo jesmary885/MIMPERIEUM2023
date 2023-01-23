@@ -8,15 +8,18 @@
     }
     </style>
 
-    <div class="h-screen flex mt-0 ">
+    <div class="h-screen md:flex mt-0 ">
         
-        <div class="hidden lg:flex w-full lg:w-1/2 login_img_section justify-around items-center">
+        <div class="hidden md:flex w-full lg:w-1/2 login_img_section justify-around items-center">
+        </div>
+
+        <div class="md:hidden flex justify-center">
+        <a href="/" class="mx-6">
+                <img src="img/MIPERIUM.png" class="h-20 w-40 alt="">
+            </a>
         </div>
 
    
-
-
-       
         <div class="w-full lg:w-1/2 items-center bg-white space-y-8">
             <div class="flex justify-center">
                 @if (session('info'))
@@ -29,7 +32,7 @@
            
             <div class="flex justify-center">
 
-                <form class="bg-white p-5 w-full" method="POST" action="{{ route('Registro_create') }}">
+                <form class="bg-white p-2 w-full" method="POST" action="{{ route('Registro_create') }}">
                 @csrf
             
                     <x-jet-input-error for="name" />

@@ -79,4 +79,8 @@ class ShoppingCart extends Component
             "Pedido de productos.pdf"
         );
     }
+
+    public function volver(){
+        $this->emit('volver');
+    }
 }
