@@ -1,4 +1,4 @@
-<div class="mx-4">
+<div class="ml-2">
     <x-jet-dropdown>
         <x-slot name="trigger">
             <span class="relative inline-block cursor-pointer mt-2 mr-2">
