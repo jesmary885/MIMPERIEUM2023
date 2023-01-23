@@ -14,7 +14,7 @@
         </div>
 
         <div class="md:hidden flex justify-center">
-        <a href="/" class="mx-6">
+        <a href="/" class="mx-6 my-6">
                 <img src="img/MIPERIUM.png" class="h-20 w-40 alt="">
             </a>
         </div>

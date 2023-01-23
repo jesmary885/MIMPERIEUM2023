@@ -1,5 +1,5 @@
 <div>
-    <x-jet-dropdown width="96">
+    <x-jet-dropdown width="72">
         <x-slot name="trigger">
             <span class="relative inline-block cursor-pointer mt-2 mr-2">
                 <x-cart color="black" size="30" />
