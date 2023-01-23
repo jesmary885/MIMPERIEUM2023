@@ -154,7 +154,7 @@
                 </div>
 
                 <div>
-                    <x-button class="bg-lime-700 hover:bg-lime-800" wire:click="finish" wire:loading.attr="disabled">
+                    <x-button class="bg-lime-700 hover:bg-lime-800 btn-sm md:btn-lg" wire:click="finish" wire:loading.attr="disabled">
                         Finalizar compra
                     </x-button>
                 </div>
