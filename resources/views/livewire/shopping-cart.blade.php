@@ -148,7 +148,7 @@
             <div class="flex justify-between items-center overflow-x-auto">
                 <div>
                     <p class="text-gray-700">
-                        <span class="font-bold text-lg">Total:</span>
+                        <span class="font-bold text-sm md:text-lg">Total:</span>
                         S/ {{ Cart::subTotal() }}
                     </p>
                 </div>
