@@ -13,10 +13,6 @@
     @php( $logout_url = $logout_url ? url($logout_url) : '' )
 @endif
 
-<li class="nav-item dropdown">
-     @livewire('dropdown-cart')
-</li>
-
 <li class="nav-item dropdown user-menu">
 
     {{-- User menu toggler --}}
@@ -88,4 +84,8 @@
 
     </ul>
 
+</li>
+
+<li class="nav-item dropdown">
+     @livewire('dropdown-cart')
 </li>
