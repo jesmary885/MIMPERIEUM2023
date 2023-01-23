@@ -144,7 +144,7 @@
 
     @if (Cart::count())
 
-        <div class="bg-white rounded-lg shadow-lg px-6 py-4 mt-4 ">
+        <div class="bg-white rounded-lg shadow-lg px-2 py-4 mt-4 ">
             <div class="flex justify-between items-center overflow-x-auto">
                 <div>
                     <p class="text-gray-700">
@@ -154,7 +154,7 @@
                 </div>
 
                 <div>
-                    <x-button class="bg-lime-700 hover:bg-lime-800 btn-sm md:btn-lg" wire:click="finish" wire:loading.attr="disabled">
+                    <x-button class="bg-lime-700 hover:bg-lime-800" wire:click="finish" wire:loading.attr="disabled">
                         Finalizar compra
                     </x-button>
                 </div>
