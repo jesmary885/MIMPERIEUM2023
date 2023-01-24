@@ -40,8 +40,13 @@ class BonoCompra extends Component
            ->where('status','pendiente')
            ->where('bono','compra')
            ->sum('total');
+
+        $solicitados = GananciaBono::where('user_id',$value)
+           ->where('status','solicitado')
+           ->where('bono','compra')
+           ->sum('total');
            
-           return $pendientes;
+           return $pendientes + $solicitados;
     }
 
     public function render()

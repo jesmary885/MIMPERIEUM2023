@@ -26,6 +26,7 @@ class BonoResidual extends Component
 
         $cobrados = GananciaBono::where('user_id',$value)
            ->where('bono','residual')
+           ->where('status','pagado')
            ->sum('total');
            
            return $cobrados;
@@ -35,9 +36,15 @@ class BonoResidual extends Component
 
         $pendientes = GananciaBono::where('user_id',$value)
            ->where('bono','residual')
+           ->where('status','pendiente')
+           ->sum('total');
+        
+        $solicitados = GananciaBono::where('user_id',$value)
+           ->where('bono','residual')
+           ->where('status','solicitado')
            ->sum('total');
            
-           return $pendientes;
+           return $pendientes + $solicitados;
     }
 
 
