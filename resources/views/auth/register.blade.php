@@ -2,16 +2,19 @@
 <x-guest-layout>
     <style>
     .login_img_section {
-    background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(img/fondo_2_login.jfif) center center;
+    background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(/storage/img/fondo_2_login.jfif) center center;
     background-repeat: no-repeat;
     background-size: cover  
     }
     </style>
 
     <div class="h-screen md:flex mt-0 ">
+
         
         <div class="hidden md:flex w-full lg:w-1/2 login_img_section justify-around items-center">
         </div>
+
+    
 
        
         <div class="w-full lg:w-1/2 items-center bg-white space-y-8">
@@ -19,7 +22,7 @@
             <div>
               <div class="flex justify-center">
                 <a href="/" class="mt-6">
-                        <img src="img/MIPERIUM.png" class="block h-20 w-40 alt="">
+                        <img src="/storage/img/MIPERIUM.png" class="block h-20 w-40 alt="">
                     </a>
               </div>
             </div>

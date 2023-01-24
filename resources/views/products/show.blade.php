@@ -7,10 +7,22 @@
                 <div class="flexslider">
                     <ul class="slides">
                         @foreach ($product->images as $image)
-                        
+
+                        @if ($product->images->count())
+             
                             <li data-thumb=" {{ Storage::url($image->url) }}">
                                 <img src=" {{ Storage::url($image->url) }}" />
                             </li>
+                            
+                            @else
+
+                            <li data-thumb="https://cdn.pixabay.com/photo/2017/02/15/11/05/texture-2068283_960_720.jpg">
+                                <img src="https://cdn.pixabay.com/photo/2017/02/15/11/05/texture-2068283_960_720.jpg" />
+                            </li>
+                          
+                            @endif
+                        
+                
 
                         @endforeach
                         

@@ -55,8 +55,12 @@
                     <tr>
                         <td>
                             <div class="flex">
-                                <img class="h-15 w-20 object-cover mr-4" src="{{ $item->options->image }}"
-                                    alt="">
+                                
+                                    @if ($item->options->image != '')
+                                        <img class="h-15 w-20 object-cover mr-4" src="{{ $item->options->image }}"
+                                        alt="">
+                                    @endif
+
                                 <article>
                                     <h1 class="font-bold">{{ $item->name }}</h1>
                                     

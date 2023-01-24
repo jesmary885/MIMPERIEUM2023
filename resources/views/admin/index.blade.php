@@ -504,7 +504,11 @@
 @stop
 
 @section('js')
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
+
             var boton = document.getElementById("button_copy");
             boton.addEventListener("click", copiarAlPortapapeles, false);
             function copiarAlPortapapeles() {
@@ -515,6 +519,14 @@
                 window.getSelection().addRange(seleccion);
                 var res = document.execCommand('copy');
                 window.getSelection().removeRange(seleccion);
+
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Enlace copiado',
+                    showConfirmButton: false,
+                    timer: 1500
+                    })
             }
     </script>
 @stop

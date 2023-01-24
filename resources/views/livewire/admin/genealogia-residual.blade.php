@@ -65,7 +65,7 @@
                                 {{ Auth::user()->points }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    {{Auth::user()->points_residual}}
+                                    {{$this->puntos_grupales(Auth::user()->id)}}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     {{Auth::user()->acum_points}}
@@ -95,7 +95,7 @@
                                         {{ $refer->refer->points }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            {{$refer->refer->points_residual}}
+                                        {{$this->puntos_grupales($refer->refer->id)}}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             {{$refer->refer->acum_points}}
@@ -124,7 +124,7 @@
                                                 {{ $r->refer->points }}
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                    {{$r->refer->points_residual}}
+                                                    {{$this->puntos_grupales($r->refer->id)}}
                                                 </td>
                                     
                                                 <td class="px-6 py-4 whitespace-nowrap">

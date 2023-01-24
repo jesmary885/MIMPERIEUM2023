@@ -14,7 +14,7 @@
                 {{ $r->refer->points }}
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
-                {{$r->refer->points_residual}}
+                {{$this->puntos_grupales($r->refer->id)}}
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
                 {{$r->refer->acum_points}}

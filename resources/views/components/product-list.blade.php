@@ -2,9 +2,16 @@
 
 <li class="bg-white rounded-lg shadow mb-4">
     <article class="md:flex">
-        <figure>
-            <img class="h-48 w-full md:w-56 object-cover object-center" src="{{ Storage::url($product->images->first()->url) }}" alt="">
-        </figure>
+    @if ($product->images->count())
+                                <figure>
+                                <img class="h-48 w-full md:w-56 object-cover object-center" src="{{ Storage::url($product->images->first()->url) }}" alt="">
+                                </figure>
+                                @else
+                                <figure>
+                                <img class="h-48 w-full md:w-56 object-cover object-center" src="https://cdn.pixabay.com/photo/2017/02/15/11/05/texture-2068283_960_720.jpg" alt="">
+                                    </figure>
+                                @endif
+    
 
         <div class="flex-1 py-4 px-6 flex flex-col">
             <div class="lg:flex justify-between">

@@ -17,7 +17,8 @@ class AddCartItem extends Component
 
     public function mount(){
         $this->quantity = qty_available($this->product->id);
-        $this->options['image'] = Storage::url($this->product->images->first()->url);
+        if($this->product->images->count())$this->options['image'] = Storage::url($this->product->images->first()->url);
+        else $this->options['image'] = '';
         $this->options['points'] = $this->product->points;
         $this->options['category'] = $this->product->subcategory->category->id;
         

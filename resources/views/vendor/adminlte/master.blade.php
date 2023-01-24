@@ -205,6 +205,21 @@
         })
     </script>
 
+    
+    <script>
+        livewire.on('alert', function(){
+            Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Enlace copiado',
+            showConfirmButton: false,
+            timer: 1500
+            })
+        })
+    </script>
+
+
+
 </body>
 
 </html>

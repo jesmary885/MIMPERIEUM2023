@@ -144,7 +144,7 @@
 <body>
     <header>
         <div>
-            <img src="storage/img/MIPERIUM.png" alt="logo">
+            <img src="/storage/img/MIPERIUM.png" alt="logo">
         </div>
         <div>
             <table id="datos">
@@ -156,12 +156,13 @@
                 <tbody>
                     <tr>
                         <th>
-                            <p>RUC: 88888888888888<br>
-                                {Av 55. Dirección falsa, Nº 55 <br>
-                                Telefono: 5555555555 <br>
-                                Email:  mimperium@gmail.com<br><br>
+                            <p>RUC: 20610374281<br>
+                            AV GRAU MZ H9 LT 8 COMITE 39 V.M.T. <br>
+                                Teléfono: 998287436<br>
+                                Email: soportemimperium@gmail.com<br>
+                                CUENTA BANCARIA BBVA: 0011-0057-0290550603<br>
+                                Nombre : Juan Manuel huaman candiotty<br><br><br>
                                 Fecha de compra: {{$fecha}} <br>
-                 
                             </p>
                         </th>
                     </tr>
