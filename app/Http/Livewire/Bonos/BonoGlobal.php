@@ -109,7 +109,6 @@ class BonoGlobal extends Component
     {
 
         $registros = GananciaBono::where('user_id',auth()->id())
-        ->where('status','pagado')
         ->where('bono','global')
         ->paginate(15);
 

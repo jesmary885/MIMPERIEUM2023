@@ -36,12 +36,11 @@ class indexController extends Controller
         ->where('rango_id','!=','1')
         ->count();
 
-        $c_pagar_mes= Payment::where('status','pendiente')
-            ->where('description','Pago de comisión')
+        $c_pagar_mes= GananciaBono::where('status','!=','pagado')
             ->whereMonth('created_at', $mes)
             ->whereYear('created_at', $ano)
             ->sum('total');
-        
+
         $c_pagadas_mes= Payment::where('status','pagado')
             ->where('description','Pago de comisión')
             ->whereMonth('created_at', $mes)

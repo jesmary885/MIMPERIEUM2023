@@ -51,13 +51,11 @@ class BonoCompra extends Component
             $fecha_fin = date("Y-m-d",strtotime($this->fecha_fin));
 
             $registros = GananciaBono::where('user_id',auth()->id())
-            ->where('status','pagado')
             ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
             ->where('bono','compra')
             ->paginate(15);
 
             $registro_total_pagados = GananciaBono::where('user_id',auth()->id())
-            ->where('status','pagado')
             ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
             ->where('bono','compra')
             ->where('created_at',$fecha_inicio)
@@ -67,12 +65,10 @@ class BonoCompra extends Component
         else{
 
             $registros = GananciaBono::where('user_id',auth()->id())
-            ->where('status','pagado')
             ->where('bono','compra')
             ->paginate(15);
 
             $registro_total_pagados = GananciaBono::where('user_id',auth()->id())
-            ->where('status','pagado')
             ->where('bono','compra')
             ->count();
         }

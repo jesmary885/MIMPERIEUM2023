@@ -25,7 +25,6 @@ class BonoResidual extends Component
     public function cobrados($value){
 
         $cobrados = GananciaBono::where('user_id',$value)
-           ->where('status','pagado')
            ->where('bono','residual')
            ->sum('total');
            
@@ -35,7 +34,6 @@ class BonoResidual extends Component
     public function pendientes($value){
 
         $pendientes = GananciaBono::where('user_id',$value)
-           ->where('status','pendiente')
            ->where('bono','residual')
            ->sum('total');
            
@@ -52,13 +50,11 @@ class BonoResidual extends Component
             $fecha_fin = date("Y-m-d",strtotime($this->fecha_fin));
 
             $registros = GananciaBono::where('user_id',auth()->id())
-            ->where('status','pagado')
             ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
             ->where('bono','residual')
             ->paginate(15);
 
         $registro_total_pagados = GananciaBono::where('user_id',auth()->id())
-            ->where('status','pagado')
             ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
             ->where('bono','residual')
             ->count();
@@ -67,12 +63,10 @@ class BonoResidual extends Component
 
         else{
             $registros = GananciaBono::where('user_id',auth()->id())
-            ->where('status','pagado')
             ->where('bono','residual')
             ->paginate(15);
 
         $registro_total_pagados = GananciaBono::where('user_id',auth()->id())
-            ->where('status','pagado')
             ->where('bono','residual')
             ->count();
 

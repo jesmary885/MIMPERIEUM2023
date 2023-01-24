@@ -101,6 +101,11 @@
                             Total
                         </th>
                         <th scope="col"
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Estado
+                        </th>
+                        <th scope="col">
+                            
                           
                         </th>
                       
@@ -115,6 +120,9 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                             S/ {{$registro->total}}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                             {{$registro->status}}
                             </td>
                             <td>
                                 @livewire('bonos.description-compra', ['registro' => $registro],key(01.,'$registro->id'))
