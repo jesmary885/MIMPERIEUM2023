@@ -264,7 +264,7 @@ class StatusOrder extends Component
             $ganancia_bono->order_id = $this->order->id;
             $ganancia_bono->status= 'pendiente';
             $ganancia_bono->bono= 'compra';
-            $ganancia_bono->total= $this->order->points_total;
+            $ganancia_bono->total= ($this->order->points_total * 0.40);
             $ganancia_bono->save();
 
             $payment = new Payment();
