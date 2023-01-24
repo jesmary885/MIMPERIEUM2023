@@ -2,7 +2,7 @@
 <x-guest-layout>
     <style>
     .login_img_section {
-    background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(img/fondo_login.jpg) center center;
+    background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(img/fondo_2_login.jfif) center center;
     background-repeat: no-repeat;
     background-size: cover  
     }
@@ -13,24 +13,29 @@
         <div class="hidden md:flex w-full lg:w-1/2 login_img_section justify-around items-center">
         </div>
 
-        <div class="md:hidden flex justify-center">
-        <a href="/" class="mx-6 my-6">
-                <img src="img/MIPERIUM.png" class="h-20 w-40 alt="">
-            </a>
-        </div>
-
-   
+       
         <div class="w-full lg:w-1/2 items-center bg-white space-y-8">
+           
+            <div>
+              <div class="flex justify-center">
+                <a href="/" class="mt-6">
+                        <img src="img/MIPERIUM.png" class="block h-20 w-40 alt="">
+                    </a>
+              </div>
+            </div>
+
             <div class="flex justify-center">
                 @if (session('info'))
-                    <div class="mt-4 font-semibold text-sm text-red-600">
+                    <div class="mt-1 font-semibold text-sm text-red-600">
                         {{ session('info') }}
                     </div>
                 @endif 
             </div>
+
+            
             
            
-            <div class="flex justify-center">
+            <div class="flex justify-center mt-0">
 
                 <form class="bg-white p-2 w-full" method="POST" action="{{ route('Registro_create') }}">
                 @csrf

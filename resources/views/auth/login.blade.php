@@ -2,7 +2,7 @@
 <x-guest-layout>
     <style>
     .login_img_section {
-    background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(img/fondo_login.jpg) center center;
+    background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(img/fondo_2_login.jfif) center center;
     background-repeat: no-repeat;
     background-size: cover  
     }
@@ -18,15 +18,8 @@
               </div>
         </div>
 
-        <div class="md:hidden flex justify-center">
-        <a href="/" class="mt-6 mb-2">
-                <img src="img/MIPERIUM.png" class="block h-20 w-40 alt="">
-            </a>
-        </div>
-
-
           <div class="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">
-            <div class="w-full px-8 md:px-32 lg:px-24">
+            <div class="w-full px-8 md:px-12 ">
             @if (session('status'))
                 <div class="mb-4 font-medium text-sm text-lime-600">
                     {{ session('status') }}
@@ -35,10 +28,16 @@
 
             <form class="bg-white rounded-md shadow-2xl p-5" method="POST" action="{{ route('login') }}">
             @csrf
-            <div class="flex justify-center">
-                <h1 class="text-lime-700 font-bold text-3xl mb-6">Bienvenido</h1>
-
-                </div>
+            <div>
+              <div class="flex justify-center">
+                <a href="/" class="mt-6 mb-2">
+                        <img src="img/MIPERIUM.png" class="block h-20 w-40 alt="">
+                    </a>
+              </div>
+              <div class="flex justify-center" >
+                <h1 class="text-lime-700 font-bold text-3xl mb-6 mt-4">Bienvenido</h1>
+              </div>
+            </div>
               
 
             

@@ -35,7 +35,7 @@ class BonoResidual extends Component
     public function pendientes($value){
 
         $pendientes = GananciaBono::where('user_id',$value)
-           ->where('status','pendiete')
+           ->where('status','pendiente')
            ->where('bono','residual')
            ->sum('total');
            
