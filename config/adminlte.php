@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'MM Perium',
+    'title' => 'MIMPERIUM',
     'title_prefix' => '',
     'title_postfix' => '',
 

@@ -18,6 +18,8 @@ class ProductController extends Controller
         
         $url = Storage::put('products', $request->file('file'));
 
+        dd($url);
+
         $product->images()->create([
             'url' => $url
         ]);
