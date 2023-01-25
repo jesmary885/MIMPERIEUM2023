@@ -28,7 +28,7 @@ class Retiro extends Component
         $user = User::where('id',auth()->id())->first();
 
         $this->disponible = ($user->points*0.40) + $user->points_residual + $user->points_global;
-        $dia = date('d');
+        $dia = date('m');
 
         if($this->disponible > 0){
             
