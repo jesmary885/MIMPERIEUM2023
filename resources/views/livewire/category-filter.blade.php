@@ -66,7 +66,7 @@
                                 <div class="py-4 px-6">
                                         <h1 class="text-lg font-semibold">
                                             <a href="{{ route('products.show', $product) }}">
-                                                $product->name
+                                                {{$product->name}}
                                             </a>
                                         </h1>
 
