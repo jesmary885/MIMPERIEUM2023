@@ -9,12 +9,15 @@ use Livewire\Component;
 
 class EditUsers extends Component
 {
-    public $isopen = false, $user,$status,$roles, $roles_id,$codigo;
+    public $name,$email,$dni,$phone,$direction,$isopen = false, $user,$status,$roles, $roles_id,$codigo;
 
     protected $rules = [
         'codigo' => 'required',
         'status' => 'required|max:30',
         'roles_id' => 'required',
+        'name' => 'required',
+        'phone' => 'required',
+        'direction' => 'required', 
     ];
 
     public function mount(){
@@ -24,6 +27,11 @@ class EditUsers extends Component
         $this->status = $this->user->status;
         $this->roles_id = $this->user->roles->first()->id;
         $this->roles=Role::all();
+        $this->name = $this->user->name;
+        $this->email = $this->user->email;
+        $this->dni = $this->user->dni;
+        $this->phone = $this->user->phone;
+        $this->direction = $this->user->direction;
     }
 
     public function open()
@@ -45,11 +53,27 @@ class EditUsers extends Component
         $rules = $this->rules;
         $this->validate($rules);
 
+        $rule_email = [
+            'email' => 'required|email|unique:users,email,' .$this->user->id,
+        ];
+
+        $rule_documento = [
+            'dni' => 'required|unique:users,dni,' .$this->user->id,
+        ];
+
+        $this->validate($rule_email);
+        $this->validate($rule_documento);
+
         $codigo_select = User::where('code',$this->codigo)->first();
 
         if($codigo_select){
             $this->user->update([
-                'status' => $this->status
+                'status' => $this->status,
+                'name' => $this->name,
+                'email' => $this->email,
+                'dni' => $this->dni,
+                'phone' => $this->phone,
+                'direction' => $this->direction
             ]);
 
             $this->user->roles()->sync($this->roles_id);

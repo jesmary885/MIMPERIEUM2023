@@ -5,7 +5,7 @@
 
     @if ($isopen)
         <div class="modal d-block" tabindex="-1" role="dialog" style="overflow-y: auto; display: block;"
-            wire:click.self="$set('isopen', false)">
+          >
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -19,7 +19,47 @@
                         
                         <hr class="mt-2 mb-2">
 
-                            <div class="flex justify-between mt-4">
+                            <div class="flex justify-between">
+                                <div class="form-group w-full mr-2 mt-2">
+                                        <label class="w-full text-justify text-gray-600 text-md">Nombre</label>
+                                        <input type="text" wire:model="name" class="form-control rounded" id="formGroupExampleInput">
+                                        <x-jet-input-error for="name" />
+                                </div>
+                                <div class="form-group w-full mr-2 mt-2">
+                                    <label class="w-full text-justify text-gray-600 text-md">Email</label>
+                                    <input type="email" wire:model="email" class="form-control rounded" id="formGroupExampleInput">
+                                    <x-jet-input-error for="email" />
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <div class="form-group w-full mr-2 mt-2">
+                                        <label class="w-full text-justify text-gray-600 text-md">Teléfono</label>
+                                        <input type="number" wire:model="phone" class="form-control rounded" id="formGroupExampleInput">
+                                        <x-jet-input-error for="phone" />
+                                </div>
+                                <div class="form-group w-full mr-2 mt-2">
+                                    <label class="w-full text-justify text-gray-600 text-md">Dirección</label>
+                                    <input type="text" wire:model="direction" class="form-control rounded" id="formGroupExampleInput">
+                                    <x-jet-input-error for="direction" />
+                                </div>
+                            </div>
+
+                            
+                            <div class="flex justify-between">
+                                <div class="form-group w-full mr-2 mt-2">
+                                        <label class="w-full text-justify text-gray-600 text-md">Dni</label>
+                                        <input type="text" wire:model="dni" class="form-control rounded" id="formGroupExampleInput">
+                                        <x-jet-input-error for="dni" />
+                                </div>
+                                <div class="form-group w-full mr-2 mt-2">
+                                        <label class="w-full text-justify text-gray-600 text-md">Código de patrocinador</label>
+                                        <input type="number" wire:model="codigo" class="form-control rounded" id="formGroupExampleInput">
+                                        <x-jet-input-error for="codigo" />
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between mt-2">
                                 <div class="form-group w-full mr-2">
                                     <label class="w-full text-justify text-gray-600 text-md">Rol </label>
                                     <select wire:model="roles_id" title="Rol de usuario" class="block w-full text-gray-400 py-2 px-2 pr-8 leading-tight rounded focus:outline-none focus:border-gray-500">
@@ -40,12 +80,6 @@
                                     </select>
                                     <x-jet-input-error for="status" />
                                 </div>
-                            </div>
-
-                            <div class="form-group w-full mr-2 mt-2">
-                                    <label class="w-full text-justify text-gray-600 text-md">Código de patrocinador</label>
-                                    <input type="codigo" wire:model="codigo" class="form-control rounded" id="formGroupExampleInput">
-                                    <x-jet-input-error for="codigo" />
                             </div>
                            
 
