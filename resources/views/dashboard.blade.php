@@ -242,7 +242,7 @@
         <div class="mt-8 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-2 xl:grid-cols-3">
             <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
                 <div class="relative">
-                    <img class="h-64 w-full rounded-lg object-cover object-center lg:h-80" src="img/producto1.jpeg" alt="" />
+                    <img class="h-64 w-full rounded-lg object-cover object-center lg:h-80" src="img/moringa.jpeg" alt="" />
                 </div>
 
                   <div class="justify-center flex">
@@ -255,7 +255,7 @@
 
             <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
                 <div class="relative">
-                    <img class="h-64 w-full rounded-lg object-cover object-center lg:h-80" src="img/producto3.jpeg" alt="" />
+                    <img class="h-64 w-full rounded-lg object-cover object-center lg:h-80" src="img/espirulina.jpeg" alt="" />
                 </div>
                 <div class="justify-center flex">
                     <h3 class="mt-2 text-xl font-semibold  text-gray-700 group-hover:text-white ">¿Que es Spirulina?</h3>
@@ -267,7 +267,7 @@
 
             <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
                 <div class="relative">
-                    <img class="h-64 w-full rounded-lg object-cover object-center lg:h-80" src="img/producto5.jpeg" alt="" />
+                    <img class="h-64 w-full rounded-lg object-cover object-center lg:h-80" src="img/colageno.jpeg" alt="" />
                 </div>
                 <div class="justify-center flex">
                     <h3 class="mt-2 text-xl font-semibold  text-gray-700 group-hover:text-white  ">¿Que es Colágeno?</h3>
