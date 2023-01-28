@@ -86,6 +86,13 @@
 
 </li>
 
+
 <li class="nav-item dropdown">
      @livewire('dropdown-cart')
 </li>
+
+@if(Auth::user()->roles->first()->id == 1)
+<li class="nav-item dropdown">
+     @livewire('alert-order')
+</li>
+@endif

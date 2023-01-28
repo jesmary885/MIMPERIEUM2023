@@ -23,6 +23,60 @@ class indexController extends Controller
         $ano= date('Y');
         $dia= date('d');
 
+        $ptos_diarios = Order::where('status','2')
+        ->whereDay('created_at', $dia)
+        ->whereMonth('created_at', $mes)
+        ->whereYear('created_at', $ano)
+        ->sum('points_total');
+
+        if($mes == '1' || $mes == '2' || $mes == '3'){
+            $mes1 = '1';
+            $mes2 = '2';
+            $mes3 = '3';
+        }
+
+        if($mes == '4' || $mes == '5' || $mes == '6'){
+            $mes1 = '4';
+            $mes2 = '5';
+            $mes3 = '6';
+        }
+
+        if($mes == '7' || $mes == '8' || $mes == '9'){
+            $mes1 = '7';
+            $mes2 = '8';
+            $mes3 = '9';
+        }
+
+        if($mes == '10' || $mes == '11' || $mes == '12'){
+            $mes1 = '10';
+            $mes2 = '11';
+            $mes3 = '12';
+        }
+
+            $ptos_mes_1 = Order::where('status','2')
+            ->whereMonth('created_at', $mes1)
+            ->whereYear('created_at', $ano)
+            ->sum('points_total');
+
+            $ptos_mes_2 = Order::where('status','2')
+            ->whereMonth('created_at', $mes2)
+            ->whereYear('created_at', $ano)
+            ->sum('points_total');
+
+            $ptos_mes_3 = Order::where('status','2')
+            ->whereMonth('created_at', $mes3)
+            ->whereYear('created_at', $ano)
+            ->sum('points_total');
+
+        $ptos_trimestre = $ptos_mes_1 + $ptos_mes_2  + $ptos_mes_3;
+
+        $ptos_anual = Order::where('status','2')
+        ->whereYear('created_at', $ano)
+        ->sum('points_total');
+
+        $ptos_total = Order::where('status','2')
+        ->sum('points_total');
+
         $af_mes= User::whereMonth('created_at', $mes)
             ->whereYear('created_at', $ano)
             ->count();
@@ -318,6 +372,6 @@ class indexController extends Controller
             }
         }
 
-        return view('admin.index',compact('facturacion_dia','facturacion_mes','facturacion_ano','facturacion_total','data2','rol_user','ganancia_global','code_user','indirectos','rango_id','refers_direct','width_barra','porcentaje_total','puntos_faltantes','saldo_disponible','saldo_pagado','rango_nombre','ganancia_compra','ganancia_residual','ptos_residual_compra','directos','c_pagar_mes','c_pagadas_mes','c_pagadas_ano','c_pagadas_total','af_mes','af_act_mes','af_total','af_rango'));
+        return view('admin.index',compact('ptos_diarios','ptos_trimestre','ptos_anual','ptos_total','facturacion_dia','facturacion_mes','facturacion_ano','facturacion_total','data2','rol_user','ganancia_global','code_user','indirectos','rango_id','refers_direct','width_barra','porcentaje_total','puntos_faltantes','saldo_disponible','saldo_pagado','rango_nombre','ganancia_compra','ganancia_residual','ptos_residual_compra','directos','c_pagar_mes','c_pagadas_mes','c_pagadas_ano','c_pagadas_total','af_mes','af_act_mes','af_total','af_rango'));
     }
 }

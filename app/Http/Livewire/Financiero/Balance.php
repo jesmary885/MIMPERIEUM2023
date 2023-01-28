@@ -25,6 +25,8 @@ class Balance extends Component
 
         if($this->fecha_inicio && $this->fecha_fin){
 
+
+
             $fecha_inicio = date("Y-m-d",strtotime($this->fecha_inicio));
             $fecha_fin = date("Y-m-d",strtotime($this->fecha_fin));
 
@@ -46,6 +48,7 @@ class Balance extends Component
         }
 
         else{
+
             $registros = Payment::where('user_id',auth()->id())
             ->where('status','pagado')
             ->paginate(15);
@@ -57,7 +60,6 @@ class Balance extends Component
             $total_efectivo = Payment::where('user_id',auth()->id())
             ->where('description','Pago de comisión')
             ->sum('total');
-
         }
             
       

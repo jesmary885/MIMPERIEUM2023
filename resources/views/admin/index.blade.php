@@ -371,6 +371,65 @@
         </div>
     </div>
 
+    <h2 class="text-gray-600 font-bold p-2 text-lg">
+        Calculo de puntos:
+    </h2>
+
+    <div class="row">
+
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{$ptos_diarios}}</h3>
+                    <p class="sm:text-xs md:text-md font-bold">DEL DÍA</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <a href="# " class="small-box-footer">-</a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{$ptos_trimestre}}</h3>
+                    <p class="sm:text-xs md:text-md font-bold">DEL TRIMESTRE</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-calculator"></i>
+                </div>
+                <a href="# " class="small-box-footer">-</a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{$ptos_anual}}</h3>
+                    <p class="sm:text-xs md:text-md font-bold">DEL AÑO</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-calculator"></i>
+                </div>
+                <a href="# " class="small-box-footer">-</a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{$ptos_total}}</h3>
+                    <p class="sm:text-xs md:text-md font-bold">TOTAL</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-calculator"></i>
+                </div>
+                <a href="# " class="small-box-footer">-</a>
+            </div>
+        </div>
+    </div>
+
     @if ($data2)
 
             <figure class="highcharts-figure">

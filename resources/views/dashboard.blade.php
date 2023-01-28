@@ -290,6 +290,7 @@
     <div id="informacion" class="container mx-auto px-6 py-10">
         <h2 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl">COMO GANAR DINERO CON NOSOTROS</h2>
 
+        <video src="/video/videoplayback.mp4" class="w-full p-4 mt-2" controls></video>
         <!-- <div class="w-full">
         <p class=" text-gray-500 mt-6 text-justify">SOMOS UN PROYECTO QUE BUSCA JUNTAR TODAS LAS POSIBILIDADES
                                                                      PARA HACER NEGOCIO EN UN SOLO LUGAR.
