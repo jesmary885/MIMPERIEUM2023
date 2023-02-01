@@ -171,7 +171,7 @@ Contaremos con productos y servicio de alta demanda, que serán promocionados po
         <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-1 xl:mt-12 xl:grid-cols-1 xl:gap-12">
          
             <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
-                <img class="h-full w-1/2 rounded-lg object-cover" src="img/sdigital.jfif" alt="" />
+                <img class="h-full w-full md:w-1/2 rounded-lg object-cover" src="img/sdigital.jfif" alt="" />
                 <h3 class="mt-4 text-2xl font-bold capitalize  text-gray-600 group-hover:text-white">SERVICIOS DIGITALES</h3>
             </div>
      
