@@ -120,6 +120,20 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-info">
                 <div class="inner">
+                    <h3>0</h3>
+                    <p class="sm:text-xs md:text-md font-bold">BONO LIDERAZGO</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-child"></i>
+                    
+                </div>
+                    <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-info">
+                <div class="inner">
                     <h3>S/{{$ganancia_global}}</h3>
                     <p class="sm:text-xs md:text-md font-bold">BONO GLOBAL</p>
                 </div>
@@ -131,67 +145,96 @@
             </div>
         </div>
 
-        <div class="col-lg-3 col-6">
-            <div class="small-box bg-info">
-                <div class="inner">
-                    <h3>{{$rango_nombre}}</h3>
-                    <p class="sm:text-xs md:text-md font-bold">RANGO</p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <a href="#" class="small-box-footer">  - </a>
-            </div>
-        </div>
+        
     </div>
 
     @if($rango_id == 1 || $rango_id == 2 || $rango_id == 3 || $rango_id == 4  )
 
         <h2 class="text-gray-600 font-bold p-2 text-lg">
-            Calificación de rango:
+            Rango y calificación:
         </h2>
 
-        <span class=" text-gray-600 ml-2 font-semibold">{{$porcentaje_total}}% </span>
+        <div class="grid sm:grid-cols-1 lg:grid-cols-3 gap-6">
+        
+            <div >
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>{{$rango_nombre}}</h3>
+                        <p class="sm:text-xs md:text-md font-bold">RANGO</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">  - </a>
+                </div>
 
-        <div class="progress ml-2 mr-2 mt-0 mb-0">
-
-            
-            <div class="progress-bar bg-primary progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style=<?php echo $width_barra; ?>;>
-            
-            </div>
-        </div>
-
-        <div class="row mt-0 ml-2 mr-2">
-            <div class="small-box col-12">
-                <div class="row">
-
-                    
-
-                    <div class="col">
-                        <div class="description-block border-right">
-                            <h5 class="description-header font-normal">Puntos faltantes:</h5>
-                            <span class="description-text font-bold text-gray-500">{{$puntos_faltantes}} PV </span>
+                <div>
+                    <div class="card card-row card-default">
+                        <div class="card-header bg-info">
+                            <h3 class="card-title font-bold">
+                            CALIFICADOS POR RANGO
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="font-bold text-gray-600">DIAMANTES: {{$users_diamantes}}</p>
+                            <p class="font-bold text-gray-600">DIAMANTES CORONA: {{$users_corona}}</p>
+                            <p class="font-bold text-gray-600">DIAMANTES EMBAJADOR: {{$users_embajador}}</p>
+                            <p class="font-bold text-gray-600">DIAMANTES IMPERIAL: {{$users_imprerial}}</p>
                         </div>
                     </div>
-
-                    <div class="col">
-                        <div class="description-block border-right">
-                        
-                            <h5 class="description-header font-normal">Directos activos calificados :</h5>
-                            <span class="description-text font-bold text-gray-500">{{$refers_direct}} </span>
-                        </div>
-                    </div>
-
-                    <div class="col ">
-                        <div class="description-block border-blue-600">
-                            <h5 class="description-header font-bold">Puntos total acumulados: </h5>
-                            <span class="description-text text-gray-500 font-bold">{{$ptos_residual_compra}} PV</span>
-                        </div>
-                    </div>
-
                 </div>
             </div>
+
+            <div class="mt-0 md:col-span-2">
+                <span class=" text-gray-600 ml-2 font-semibold">{{$porcentaje_total}}% </span>
+
+                <div class="progress ml-2 mr-2 mt-0 mb-0">
+
+                    
+                    <div class="progress-bar bg-primary progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style=<?php echo $width_barra; ?>;>
+                    
+                    </div>
+                </div>
+
+                <div class="row mt-0 ml-2 mr-2 ">
+                    <div class="small-box col-12">
+                        <div class="row">
+
+                            
+
+                            <div class="col mt-3">
+                                <div class="description-block border-right">
+                                    <h5 class="description-header font-normal">Puntos faltantes:</h5>
+                                    <span class="description-text font-bold text-gray-500">{{$puntos_faltantes}} PV </span>
+                                </div>
+                            </div>
+
+                            <div class="col mt-3">
+                                <div class="description-block border-right">
+                                
+                                    <h5 class="description-header font-normal">Directos activos calificados :</h5>
+                                    <span class="description-text font-bold text-gray-500">{{$refers_direct}} </span>
+                                </div>
+                            </div>
+
+                            <div class="col mt-3">
+                                <div class="description-block border-blue-600">
+                                    <h5 class="description-header font-bold">Puntos total acumulados: </h5>
+                                    <span class="description-text text-gray-500 font-bold">{{$ptos_residual_compra}} PV</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+
         </div>
+
+        
     @endif
 @else
 
@@ -288,8 +331,8 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>{{$c_pagadas_ano}}</h3>
-                    <p class="sm:text-xs md:text-md font-bold">PAGADAS DEL AÑO</p>
+                    <h3>{{$c_pendientes_cobrar}}</h3>
+                    <p class="sm:text-xs md:text-md font-bold">PENDIENTES POR COBRAR</p>
                 </div>
                 <div class="icon">
                 <i class="fas fa-money-bill-wave"></i>

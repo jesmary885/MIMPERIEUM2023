@@ -95,6 +95,9 @@ class indexController extends Controller
             ->whereYear('created_at', $ano)
             ->sum('total');
 
+        $c_pendientes_cobrar= GananciaBono::where('status','!=','pagado')
+            ->sum('total');
+
         $c_pagadas_mes= Payment::where('status','pagado')
             ->where('description','Pago de comisión')
             ->whereMonth('created_at', $mes)
@@ -252,6 +255,11 @@ class indexController extends Controller
         $ganancia_residual = $user->points_residual;
         $ptos_residual_compra = $user->acum_points;
 
+        $users_diamantes = User::where('rango_id','2')->count();
+        $users_corona = User::where('rango_id','3')->count();
+        $users_embajador = User::where('rango_id','4')->count();
+        $users_imprerial = User::where('rango_id','5')->count();
+
         $user_directos = Partner::where('refer_id',auth()->id())->get(); 
         $indirectos = 0;
         $cont = 0;
@@ -372,6 +380,6 @@ class indexController extends Controller
             }
         }
 
-        return view('admin.index',compact('ptos_diarios','ptos_trimestre','ptos_anual','ptos_total','facturacion_dia','facturacion_mes','facturacion_ano','facturacion_total','data2','rol_user','ganancia_global','code_user','indirectos','rango_id','refers_direct','width_barra','porcentaje_total','puntos_faltantes','saldo_disponible','saldo_pagado','rango_nombre','ganancia_compra','ganancia_residual','ptos_residual_compra','directos','c_pagar_mes','c_pagadas_mes','c_pagadas_ano','c_pagadas_total','af_mes','af_act_mes','af_total','af_rango'));
+        return view('admin.index',compact('users_diamantes','users_corona','users_embajador','users_imprerial','c_pendientes_cobrar','ptos_diarios','ptos_trimestre','ptos_anual','ptos_total','facturacion_dia','facturacion_mes','facturacion_ano','facturacion_total','data2','rol_user','ganancia_global','code_user','indirectos','rango_id','refers_direct','width_barra','porcentaje_total','puntos_faltantes','saldo_disponible','saldo_pagado','rango_nombre','ganancia_compra','ganancia_residual','ptos_residual_compra','directos','c_pagar_mes','c_pagadas_mes','c_pagadas_ano','c_pagadas_total','af_mes','af_act_mes','af_total','af_rango'));
     }
 }
