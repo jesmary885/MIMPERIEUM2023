@@ -120,7 +120,7 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>0</h3>
+                    <h3>S/0</h3>
                     <p class="sm:text-xs md:text-md font-bold">BONO LIDERAZGO</p>
                 </div>
                 <div class="icon">
