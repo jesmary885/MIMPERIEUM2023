@@ -157,7 +157,7 @@ class StatusOrder extends Component
                 else $cont = 6;
             }
 
-            elseif($cont == 5){ 
+            else{ 
                 
                 //nivel 6
                     //voy a buscar el patrocinador de su patrocinador
@@ -182,10 +182,12 @@ class StatusOrder extends Component
                         $ganancia_bono->description= 'Comisión del 10% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
                         $ganancia_bono->total= ($ptos_order * 0.10);
                         $ganancia_bono->save();
+
+                        $cont = 6;
                     }
                 else $cont = 6;
             }
-            else{ //nivel 7
+           /* else{ //nivel 7
          
                     //voy a buscar el patrocinador de su patrocinador
                     $this->user_refer6 = Partner::where('user_id',$this->user_refer5->refer_id)->first();
@@ -212,7 +214,7 @@ class StatusOrder extends Component
                     }
 
                     else $cont = 6;
-            }
+            }*/
         }
         while($cont != 6);
 

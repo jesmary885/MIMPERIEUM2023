@@ -40,7 +40,7 @@ class cambiar_status_usuario extends Command
                 $points_total = Order::where('status','2')
                 ->where('user_id',$user->id)
                 ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
-                ->sum('points_total_category'); // saco el total en categoria de bienestar
+                ->sum('points_total'); // saco el total en categoria de bienestar
 
                 if($points_total < 10){
                     $user->update([
