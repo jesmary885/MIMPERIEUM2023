@@ -160,8 +160,8 @@
                             AV GRAU MZ H9 LT 8 COMITE 39 V.M.T. <br>
                                 Teléfono: 998287436<br>
                                 Email: soportemimperium@gmail.com<br>
-                                CUENTA BANCARIA BBVA: 0011-0057-0290550603<br>
-                                Nombre : Juan Manuel huaman candiotty<br><br><br>
+                                CUENTA BANCARIA BBVA: 0011-0323-0100040391<br>
+                                Nombre : MIMPERIUM EIRL<br><br><br>
                                 Fecha de compra: {{$fecha}} <br>
                             </p>
                         </th>

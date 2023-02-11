@@ -91,7 +91,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                          
                                 <div class="text-sm text-gray-500">
-                                    <span>USD {{ $item->price }}</span>
+                                    <span>S/ {{ $item->price }}</span>
                                     <a class="ml-6 cursor-pointer hover:text-red-600"
                                         wire:click="delete('{{$item->rowId}}')"
                                         wire:loading.class="text-red-600 opacity-25"
