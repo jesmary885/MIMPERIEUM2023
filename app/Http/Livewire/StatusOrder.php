@@ -221,76 +221,81 @@ class StatusOrder extends Component
     }
 
     public function update(){
-      
-       $this->order->status = $this->status;
-        $this->order->save();
 
-        //Agregando puntos al usuario de la compra
-        if($this->status == 2){
-            $user = User::where('id',$this->order->user_id)->first();
-            $this->add_points_partners($user->id,$this->order->points_total,$this->order->id);
-
-            $puntos_totales = $this->puntos_guardados + $this->order->points_total;
-            $puntos_acumu = $this->puntos_acumulados + $puntos_totales;
-
-            if($user->status == 'inactivo_para_comisionar'){
-                $items = json_decode($this->order->content);
-                $count_points = 0;
-
-                foreach($items as $item){
-                    if($item->options->category == 1){
-                        $count_points = $count_points + $item->options->points;
+        if($this->order->status != $this->status){
+            $this->order->status = $this->status;
+            $this->order->save();
+    
+            //Agregando puntos al usuario de la compra
+            if($this->status == 2){
+                $user = User::where('id',$this->order->user_id)->first();
+                $this->add_points_partners($user->id,$this->order->points_total,$this->order->id);
+    
+                $puntos_totales = $this->puntos_guardados + $this->order->points_total;
+                $puntos_acumu = $this->puntos_acumulados + $puntos_totales;
+    
+                if($user->status == 'inactivo_para_comisionar'){
+                    $items = json_decode($this->order->content);
+                    $count_points = 0;
+    
+                    foreach($items as $item){
+                        if($item->options->category == 1){
+                            $count_points = $count_points + $item->options->points;
+                        }
+                    }
+    
+                    if($count_points >= 10){
+                        $user->update([
+                            'status' => 'activo'
+                        ]);
+    
+                        $partner = Partner::where('user_id',$user->id)->first();
+                        $partner->update([
+                            'status' => 'activo',
+                        ]);
+    
                     }
                 }
-
-                if($count_points >= 10){
-                    $user->update([
-                        'status' => 'activo'
+    
+                $user->update([
+                    'points' => $puntos_totales,
+                    'acum_points' => $puntos_acumu
+                ]);
+    
+                $ganancia_bono = new GananciaBono();
+                $ganancia_bono->user_id = $this->order->user_id;
+                $ganancia_bono->order_id = $this->order->id;
+                $ganancia_bono->status= 'pendiente';
+                $ganancia_bono->bono= 'compra';
+                $ganancia_bono->total= ($this->order->points_total * 0.40);
+                $ganancia_bono->save();
+    
+                $payment = new Payment();
+                $payment->user_id = $this->order->user_id;
+                $payment->description = 'Compra de producto';
+                $payment->status= 'pagado';
+                $payment->total= $this->order->total;
+                $payment->save();
+            }
+        
+            if($this->status == 3){
+                $items = json_decode($this->order->content);
+    
+                foreach($items as $item){
+                    $producto = Product::where('id',$item->id)->first();
+                    $new_quantity = $producto->quantity + $item->qty;
+    
+                    $producto->update([
+                        'quantity' => $new_quantity,
                     ]);
-
-                    $partner = Partner::where('user_id',$user->id)->first();
-                    $partner->update([
-                        'status' => 'activo',
-                    ]);
-
                 }
             }
-
-            $user->update([
-                'points' => $puntos_totales,
-                'acum_points' => $puntos_acumu
-            ]);
-
-            $ganancia_bono = new GananciaBono();
-            $ganancia_bono->user_id = $this->order->user_id;
-            $ganancia_bono->order_id = $this->order->id;
-            $ganancia_bono->status= 'pendiente';
-            $ganancia_bono->bono= 'compra';
-            $ganancia_bono->total= ($this->order->points_total * 0.40);
-            $ganancia_bono->save();
-
-            $payment = new Payment();
-            $payment->user_id = $this->order->user_id;
-            $payment->description = 'Compra de producto';
-            $payment->status= 'pagado';
-            $payment->total= $this->order->total;
-            $payment->save();
-        }
     
-        if($this->status == 3){
-            $items = json_decode($this->order->content);
+            return redirect(route('admin.orders.index'));
 
-            foreach($items as $item){
-                $producto = Product::where('id',$item->id)->first();
-                $new_quantity = $producto->quantity + $item->qty;
-
-                $producto->update([
-                    'quantity' => $new_quantity,
-                ]);
-            }
         }
-
-        return redirect(route('admin.orders.index'));
+      
+       
     }
 
     public function render()
