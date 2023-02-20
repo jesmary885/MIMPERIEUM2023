@@ -36,7 +36,7 @@
 
                     <div class="col-sm-4 border-right">
                     <div class="description-block">
-                    <h5 class="description-header">{{$refer->refer->points_residual}}</h5>
+                    <h5 class="description-header">{{$this->puntos_grupales($refer->refer->id)}}</h5>
                     <span class="description-text">PVG</span>
                     </div>
 
