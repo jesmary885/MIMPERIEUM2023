@@ -32,7 +32,7 @@ class StatusOrder extends Component
                 $user1= User::where('id',$user_refer->refer_id)->first();
                 
                 $user1->update([
-                    'points_residual' => ($ptos_order * 0.05) + $user1->points_residual,
+                    'points_residual' => ($ptos_order * 0.01) + $user1->points_residual,
                     'acum_points' =>  $user1->acum_points + $ptos_order
                 ]);
 
@@ -44,8 +44,8 @@ class StatusOrder extends Component
                 $ganancia_bono->order_id = $order_id;
                 $ganancia_bono->status= 'pendiente';
                 $ganancia_bono->bono= 'residual';
-                $ganancia_bono->total= ($ptos_order * 0.05);
-                $ganancia_bono->description= 'Comisión del 5% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
+                $ganancia_bono->total= ($ptos_order * 0.01);
+                $ganancia_bono->description= 'Comisión del 1% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
                 $ganancia_bono->save();
 
                 $cont=$cont+1;
@@ -59,7 +59,7 @@ class StatusOrder extends Component
                       $user2= User::where('id',$this->user_refer1->refer_id)->first();
                 
                       $user2->update([
-                          'points_residual' => ($ptos_order * 0.05) + $user2->points_residual,
+                          'points_residual' => ($ptos_order * 0.01) + $user2->points_residual,
                           'acum_points' =>  $user2->acum_points + $ptos_order
                       ]);
                       
@@ -70,8 +70,8 @@ class StatusOrder extends Component
                         $ganancia_bono->order_id = $order_id;
                         $ganancia_bono->status= 'pendiente';
                         $ganancia_bono->bono= 'residual';
-                        $ganancia_bono->total= ($ptos_order * 0.06);
-                        $ganancia_bono->description= 'Comisión del 6% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
+                        $ganancia_bono->total= ($ptos_order * 0.01);
+                        $ganancia_bono->description= 'Comisión del 1% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
                         $ganancia_bono->save();
                     }
                     else $cont = 6;
@@ -86,7 +86,7 @@ class StatusOrder extends Component
                         $user3= User::where('id',$this->user_refer2->refer_id)->first();
                 
                         $user3->update([
-                            'points_residual' => ($ptos_order * 0.05) + $user3->points_residual,
+                            'points_residual' => ($ptos_order * 0.01) + $user3->points_residual,
                             'acum_points' =>  $user3->acum_points + $ptos_order
                         ]);
                         
@@ -97,8 +97,8 @@ class StatusOrder extends Component
                         $ganancia_bono->order_id = $order_id;
                         $ganancia_bono->status= 'pendiente';
                         $ganancia_bono->bono= 'residual';
-                        $ganancia_bono->total= ($ptos_order * 0.07);
-                        $ganancia_bono->description= 'Comisión del 7% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
+                        $ganancia_bono->total= ($ptos_order * 0.01);
+                        $ganancia_bono->description= 'Comisión del 1% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
                         $ganancia_bono->save();
                     }
                     else $cont = 6;
@@ -113,7 +113,7 @@ class StatusOrder extends Component
                         $user4= User::where('id',$this->user_refer3->refer_id)->first();
                 
                         $user4->update([
-                            'points_residual' => ($ptos_order * 0.05) + $user4->points_residual,
+                            'points_residual' => ($ptos_order * 0.01) + $user4->points_residual,
                             'acum_points' =>  $user4->acum_points + $ptos_order
                         ]);
                         $cont=$cont+1;
@@ -123,8 +123,8 @@ class StatusOrder extends Component
                         $ganancia_bono->order_id = $order_id;
                         $ganancia_bono->status= 'pendiente';
                         $ganancia_bono->bono= 'residual';
-                        $ganancia_bono->total= ($ptos_order * 0.08);
-                        $ganancia_bono->description= 'Comisión del 8% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
+                        $ganancia_bono->total= ($ptos_order * 0.01);
+                        $ganancia_bono->description= 'Comisión del 1% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
                         $ganancia_bono->save();
                     }
                     else $cont = 6;
@@ -139,7 +139,7 @@ class StatusOrder extends Component
                         $user5= User::where('id',$this->user_refer4->refer_id)->first();
                 
                         $user5->update([
-                            'points_residual' => ($ptos_order * 0.05) + $user5->points_residual,
+                            'points_residual' => ($ptos_order * 0.01) + $user5->points_residual,
                             'acum_points' =>  $user5->acum_points + $ptos_order
                         ]);
 
@@ -150,8 +150,8 @@ class StatusOrder extends Component
                         $ganancia_bono->order_id = $order_id;
                         $ganancia_bono->status= 'pendiente';
                         $ganancia_bono->bono= 'residual';
-                        $ganancia_bono->total= ($ptos_order * 0.09);
-                        $ganancia_bono->description= 'Comisión del 9% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
+                        $ganancia_bono->total= ($ptos_order * 0.01);
+                        $ganancia_bono->description= 'Comisión del 1% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
                         $ganancia_bono->save();
                     }
                 else $cont = 6;
@@ -165,13 +165,13 @@ class StatusOrder extends Component
                     $user6= User::where('id',$this->user_refer4->refer_id)->first();
                 
                     $user6->update([
-                            'points_residual' => ($ptos_order * 0.05) + $user6->points_residual,
+                            'points_residual' => ($ptos_order * 0.01) + $user6->points_residual,
                             'acum_points' =>  $user6->acum_points + $ptos_order
                         ]);
 
                     if($this->user_refer5){
 
-                        User::find($this->user_refer5->refer_id)->increment('points_residual',($ptos_order * 0.10),'acum_points',$ptos_order);
+                        User::find($this->user_refer5->refer_id)->increment('points_residual',($ptos_order * 0.01),'acum_points',$ptos_order);
                         $cont=$cont+1;
 
                         $ganancia_bono = new GananciaBono();
@@ -179,8 +179,8 @@ class StatusOrder extends Component
                         $ganancia_bono->order_id = $order_id;
                         $ganancia_bono->status= 'pendiente';
                         $ganancia_bono->bono= 'residual';
-                        $ganancia_bono->description= 'Comisión del 10% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
-                        $ganancia_bono->total= ($ptos_order * 0.10);
+                        $ganancia_bono->description= 'Comisión del 1% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
+                        $ganancia_bono->total= ($ptos_order * 0.01);
                         $ganancia_bono->save();
 
                         $cont = 6;
@@ -267,7 +267,7 @@ class StatusOrder extends Component
                 $ganancia_bono->order_id = $this->order->id;
                 $ganancia_bono->status= 'pendiente';
                 $ganancia_bono->bono= 'compra';
-                $ganancia_bono->total= ($this->order->points_total * 0.40);
+                $ganancia_bono->total= ($this->order->points_total * 0.10);
                 $ganancia_bono->save();
     
                 $payment = new Payment();
@@ -292,10 +292,7 @@ class StatusOrder extends Component
             }
     
             return redirect(route('admin.orders.index'));
-
         }
-      
-       
     }
 
     public function render()

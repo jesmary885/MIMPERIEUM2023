@@ -45,7 +45,7 @@ class CreateNewUser implements CreatesNewUsers
                     'phone' => $input['phone'],
                     'dni' => $input['dni'],
                     'password' => Hash::make($input['password']),
-                    'status' => 'activo'
+                    'status' => 'inactivo_para_comisionar'
                 ])->assignRole('cliente');
 
                 $digitos = strlen($user->id);

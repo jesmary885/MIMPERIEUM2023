@@ -8,7 +8,7 @@
                     <ul class="slides">
                         @foreach ($product->images as $image)
 
-                        @if ($product->images->count())
+                            @if ($product->images->count())
              
                             <li data-thumb=" {{ Storage::url($image->url) }}">
                                 <img src=" {{ Storage::url($image->url) }}" />
