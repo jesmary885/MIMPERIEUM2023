@@ -250,7 +250,7 @@ class indexController extends Controller
         $rango_nombre = $user->rango->name;
         $directos =  Partner::where('refer_id',auth()->id())->count(); 
 
-        $ganancia_compra = ($user->points * 0.40);
+        $ganancia_compra = ($user->points * 0.10);
         $ganancia_global = $user->points_global;
         $ganancia_residual = $user->points_residual;
         $ptos_residual_compra = $user->acum_points;
@@ -265,7 +265,7 @@ class indexController extends Controller
         $cont = 0;
         $cont2 = 0;
 
-        $saldo_disponible = ($user->points * 0.40) + $user->points_residual + $user->points_global;
+        $saldo_disponible = ($user->points * 0.10) + $user->points_residual + $user->points_global;
 
         $saldo_pagado = GananciaBono::where('user_id',auth()->id())
             ->where('status','pagado')
