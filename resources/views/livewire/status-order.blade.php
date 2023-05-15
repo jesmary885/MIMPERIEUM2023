@@ -5,25 +5,44 @@
         <p class="text-gray-700 uppercase"><span class="font-semibold">Número de orden:</span>
             Orden-{{ $order->id }}</p>
 
+            @if($order->status == "1")
  
-            <div class="flex space-x-3 mt-4">
+                <div class="flex space-x-3 mt-4">
 
-                <x-jet-label>
-                    <input wire:model="status" type="radio" name="status" value="2" class="mr-2">
-                    ENTREGADO
-                </x-jet-label>
+                    <x-jet-label>
+                        <input wire:model="status" type="radio" name="status" value="2" class="mr-2">
+                        ENTREGADO
+                    </x-jet-label>
 
-                <x-jet-label>
-                    <input wire:model="status" type="radio" name="status" value="3" class="mr-2">
-                    ANULADO
-                </x-jet-label>
-            </div>
+                    <x-jet-label>
+                        <input wire:model="status" type="radio" name="status" value="3" class="mr-2">
+                        ANULADO
+                    </x-jet-label>
+                </div>
 
-            <div class="flex mt-4">
-                <x-jet-button class="ml-auto bg-lime-700 hover:bg-lime-800" wire:click="update">
-                    Actualizar
-                </x-jet-button>
-            </div>
+                <div class="flex mt-4">
+                
+                    <x-jet-button class="ml-auto bg-lime-700 hover:bg-lime-800" wire:click="update">
+                        Actualizar
+                    </x-jet-button>
+                
+                </div>
+
+            @else
+
+                @if($order->status == "2")
+                <div class="mt-2">
+                    <p class="text-gray-600 text-lg font-bold">ORDEN ENTREGADA</p>
+                </div>
+                @endif
+
+                @if($order->status == "3")
+                <div class="mt-2">
+                    <p class="text-gray-600 text-lg">ORDEN ANULADA</p>
+                </div>
+                @endif
+
+            @endif
         
     </div>
 

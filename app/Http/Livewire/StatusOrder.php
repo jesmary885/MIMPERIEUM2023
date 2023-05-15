@@ -222,7 +222,7 @@ class StatusOrder extends Component
 
     public function update(){
 
-        if($this->order->status != $this->status){
+        if($this->order->status == 1){
             $this->order->status = $this->status;
             $this->order->save();
     
