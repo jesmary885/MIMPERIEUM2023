@@ -10,16 +10,16 @@
 
 
 @if($rol_user == 2)
-    <div class="callout callout-info w-1/2">
+    <div class="callout callout-info sm:w-full md:w-1/2">
 
         @if($user->status == "inactivo_para_comisionar")
 
         <div class="flex">
-            <p class="font-bold text-md text-gray-500">
+            <p class="font-bold sm:text-md md:text-lg text-gray-500">
                     ESTADO ACTUAL:
             </p>
 
-            <p class="font-bold text-md text-red-500 ml-2">
+            <p class="font-bold sm:text-md md:text-lg text-red-500 ml-2">
                     INACTIVO PARA COMISIONAR
             </p>
         </div>
@@ -30,7 +30,7 @@
 
         <div class="flex justify-center">
 
-        <p class="font-bold text-lg text-cyan-200">
+        <p class="font-bold sm:text-md md:text-lg text-cyan-200">
                 ACTIVO PARA COMISIONAR
             </p>
 
@@ -190,9 +190,9 @@
             Rango y calificación:
         </h2>
 
-        <div class="grid sm:grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-6">
         
-            <div >
+            <div class="overflow-x-auto">
                 <div class="small-box bg-info">
                     <div class="inner">
                         <h3>{{$rango_nombre}}</h3>
@@ -221,7 +221,7 @@
                 </div>
             </div>
 
-            <div class="mt-0 md:col-span-2">
+            <div class="mt-0 md:col-span-2 overflow-x-auto">
                 <span class=" text-gray-600 ml-2 font-semibold">{{$porcentaje_total}}% </span>
 
                 <div class="progress ml-2 mr-2 mt-0 mb-0">
@@ -264,7 +264,7 @@
                     </div>
                 </div>
 
-                <div class="card card-info mx-2">
+                <div class="card card-info mx-2 overflow-x-auto">
                     <div class="card-header">
                         <h3 class="card-title font-bold">ENLACE DE REFERENCIA</h3>
                         <div class="card-tools">
