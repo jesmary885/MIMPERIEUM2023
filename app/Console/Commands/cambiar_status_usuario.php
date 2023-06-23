@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Order;
 use App\Models\Partner;
 use App\Models\User;
+use DateTime;
 use Illuminate\Console\Command;
 
 class cambiar_status_usuario extends Command
@@ -26,23 +27,20 @@ class cambiar_status_usuario extends Command
     {
         $this->warn("Iniciando desactivar_comision..");
 
-        $mes = date('m');
-        $ano = date('Y');
-
-        $fecha_inicio = $ano.'-'.$mes.'-01';
-        $fecha_fin = $ano.'-'.$mes.'-28';
+        $date = new DateTime();
+        $fecha_actual = date("Y-m-d h:i:s");
+        $fecha_actual= new DateTime($fecha_actual);
 
         $users=User::all();
 
         foreach ($users as $user){
 
             if($user->status == 'activo'){
-                $points_total = Order::where('status','2')
-                ->where('user_id',$user->id)
-                ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
-                ->sum('points_total'); // saco el total en categoria de bienestar
 
-                if($points_total < 10){
+             
+                $proxima_fecha= new DateTime($user->last_activate);
+
+                if($fecha_actual > $proxima_fecha){
                     $user->update([
                         'status' => 'inactivo_para_comisionar'
                     ]);

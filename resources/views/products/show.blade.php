@@ -46,15 +46,28 @@
                 <p class="text-2xl font-semibold text-trueGray-700 my-4">S/ {{ $product->price }}</p>
                 <p class="text-2xl font-semibold text-trueGray-700 my-4">{{ $product->points }} puntos</p>
 
-                <div class="bg-white rounded-lg shadow-lg mb-6">
+                {{--<div class="bg-white rounded-lg shadow-lg mb-6">
                     <div class="p-4 flex items-center">
                         <span class="flex items-center justify-center h-10 w-10 rounded-full bg-lime-700">
                             <i class="fas fa-truck text-sm text-white"></i>
                         </span>
                         
+                         <div class="ml-4">
+                            <p class="text-lg font-semibold text-lime-700">ENVIO CONTRA ENTREGA</p>
+                        </div>
+                    </div>
+                </div>--}}
+
+                <div class="bg-white rounded-lg shadow-lg mb-6">
+                    <div class="p-4 flex items-center">
+                        <span class="flex items-center justify-center h-10 w-10 rounded-full bg-lime-700">
+                            <i class="fas fa-home text-sm text-white"></i>
+                        </span>
+                        
                         <div class="ml-4">
-                            <p class="text-lg font-semibold text-lime-700">Retiralo en tienda</p>
-                            <!-- <p>Recibelo el {{ Date::now()->addDay(7)->locale('es')->format('l j F') }}</p> -->
+
+                            @livewire('products.change-direction')
+
                         </div>
                     </div>
                 </div>

@@ -153,7 +153,10 @@
                     </p>
                 </div>
 
-                <div>
+                <div class="flex">
+                    <x-button class="bg-red-700 hover:bg-red-800 mr-2" wire:click="destroy" wire:loading.attr="disabled">
+                        Cancelar pedido
+                    </x-button>
                     <x-button class="bg-lime-700 hover:bg-lime-800" wire:click="finish" wire:loading.attr="disabled">
                         Finalizar compra
                     </x-button>

@@ -33,6 +33,7 @@ class Balance extends Component
             $registros = Payment::where('user_id',auth()->id())
             ->where('status','pagado')
             ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
+            ->latest('id')
             ->paginate(15);
 
             $registro_total = Payment::where('user_id',auth()->id())
@@ -51,6 +52,7 @@ class Balance extends Component
 
             $registros = Payment::where('user_id',auth()->id())
             ->where('status','pagado')
+            ->latest('id')
             ->paginate(15);
 
             $registro_total = Payment::where('user_id',auth()->id())

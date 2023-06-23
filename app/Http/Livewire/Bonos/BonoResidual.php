@@ -59,6 +59,7 @@ class BonoResidual extends Component
             $registros = GananciaBono::where('user_id',auth()->id())
             ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
             ->where('bono','residual')
+            ->latest('id')
             ->paginate(15);
 
         $registro_total_pagados = GananciaBono::where('user_id',auth()->id())
@@ -71,6 +72,7 @@ class BonoResidual extends Component
         else{
             $registros = GananciaBono::where('user_id',auth()->id())
             ->where('bono','residual')
+            ->latest('id')
             ->paginate(15);
 
         $registro_total_pagados = GananciaBono::where('user_id',auth()->id())

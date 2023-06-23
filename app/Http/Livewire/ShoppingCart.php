@@ -33,64 +33,86 @@ class ShoppingCart extends Component
 
     public function finish(){
 
-        $puntos_calcular = 0;
+        $user = User::where('id',Auth::id())->first();
+
+        $soles_completos = 0;
+        $caracter=",";
+        $subtotal_t = (str_replace($caracter,"",Cart::subtotal()));
+
+        if($user->direction != null && $user->phone != null && $user->referencia != null && $user->departamento != null && $user->provincia != null && $user->distrito != null){
+            
+            if($user->soles_en_mes >= 100) $soles_completos = 1;
+            
+            else{
+
+                /*$puntos_calcular = 0;
         
-        foreach (Cart::content() as $item2) {
-            $puntos_calcular = ($item2->options['points'] *  $item2->qty) + $puntos_calcular;
-        }
+                foreach (Cart::content() as $item2) {
+                    $puntos_calcular = ($item2->options['points'] *  $item2->qty) + $puntos_calcular;
+                }*/
 
-        if($puntos_calcular >= 100){
-            $fecha = date("d-m-Y");
+                if($subtotal_t >= 100) $soles_completos = 1;
+            }
 
-            $puntos = 0;
-            $puntos_category = 0;
+            if($soles_completos == 1){
+                $fecha = date("d-m-Y");
 
-            foreach (Cart::content() as $item) {
+                $puntos = 0;
+                $puntos_category = 0;
+
+                foreach (Cart::content() as $item) {
+                    
+                    $puntos = ($item->options['points'] *  $item->qty) + $puntos;
+
+                    if($item->options['category'] == 1) $puntos_category = ($item->options['points'] *  $item->qty) + $puntos_category;
+                }
+
                 
-                $puntos = ($item->options['points'] *  $item->qty) + $puntos;
+               
 
-                if($item->options['category'] == 1) $puntos_category = ($item->options['points'] *  $item->qty) + $puntos_category;
+                $order = new Order();
+                $order->user_id = auth()->user()->id;
+                $order->total = $subtotal_t;
+                $order->content = Cart::content();
+                $order->status = 1;
+                $order->points_total = $puntos;
+                $order->points_total_category = $puntos_category;
+                $order->save();
+
+                foreach (Cart::content() as $item) {
+                    discount($item);
+                }
+
+                $data = [
+                    'productos' => Cart::content(),
+                    'total' => $subtotal_t,
+                    'fecha' => $fecha,
+                    'nro_orden' => $order->id,  
+                    'cliente' =>  auth()->user()->name,
+                    'cliente_code' =>  auth()->user()->code,
+                ];
+            
+                $pdf = PDF::loadView('order.exportPdf',$data)->output();
+
+                Cart::destroy();
+
+                return response()->streamDownload(
+                    fn () => print($pdf),
+                    "Pedido de productos.pdf"
+                );
+
             }
 
-            $caracter=",";
-            $subtotal_t = (str_replace($caracter,"",Cart::subtotal()));
-
-            $order = new Order();
-            $order->user_id = auth()->user()->id;
-            $order->total = $subtotal_t;
-            $order->content = Cart::content();
-            $order->status = 1;
-            $order->points_total = $puntos;
-            $order->points_total_category = $puntos_category;
-            $order->save();
-
-            foreach (Cart::content() as $item) {
-                discount($item);
+            else{
+                $this->emit('errorSize', 'Su orden ha sumado '.$subtotal_t.' Soles, y debe tener un mínimo de 100 Soles para ser procesada');
             }
-
-            $data = [
-                'productos' => Cart::content(),
-                'total' => $subtotal_t,
-                'fecha' => $fecha,
-                'nro_orden' => $order->id,  
-                'cliente' =>  auth()->user()->name,
-                'cliente_code' =>  auth()->user()->code,
-            ];
-        
-            $pdf = PDF::loadView('order.exportPdf',$data)->output();
-
-            Cart::destroy();
-
-            return response()->streamDownload(
-                fn () => print($pdf),
-                "Pedido de productos.pdf"
-            );
-
         }
 
         else{
-            $this->emit('errorSize', 'Su orden ha sumado '.$puntos_calcular.' puntos, y debe tener un mínimo de 100 puntos para ser procesada');
+            $this->emit('errorSize', 'Debe completar todos los datos de su dirección de domicio para procesar su compra');
         }
+
+        
     }
 
     public function volver(){

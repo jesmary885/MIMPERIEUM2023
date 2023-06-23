@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Partner;
 use App\Models\Payment;
 use App\Models\User;
+use DateTime;
 use Illuminate\Http\Request;
 
 class indexController extends Controller
@@ -16,6 +17,32 @@ class indexController extends Controller
 
         $user= User::where('id',auth()->id())->first();
         $rol_user = $user->roles->first()->id;
+
+
+        if($user->status == "activo"){
+
+            $date = new DateTime();
+            $fecha_actual = date("Y-m-d h:i:s");
+
+            $fecha_actual= new DateTime($fecha_actual);
+            $proxima_fecha = strtotime($user->last_activate);
+
+            $mes_restantes = date("m",$proxima_fecha);
+            $dias_restantes = date("d",$proxima_fecha);
+            $horas_restantes = date("h",$proxima_fecha);
+            $minutos_restantes = date("i",$proxima_fecha);
+            $ano_restantes = date("Y",$proxima_fecha);
+
+        }
+
+        else{
+
+            $mes_restantes = 0;
+            $dias_restantes = 0;
+            $horas_restantes = 0;
+            $minutos_restantes = 0;
+            $ano_restantes = 0;
+        }
 
         // ------------ DASHBOARD DEL ADMINISTRADOR
 
@@ -380,6 +407,7 @@ class indexController extends Controller
             }
         }
 
-        return view('admin.index',compact('users_diamantes','users_corona','users_embajador','users_imprerial','c_pendientes_cobrar','ptos_diarios','ptos_trimestre','ptos_anual','ptos_total','facturacion_dia','facturacion_mes','facturacion_ano','facturacion_total','data2','rol_user','ganancia_global','code_user','indirectos','rango_id','refers_direct','width_barra','porcentaje_total','puntos_faltantes','saldo_disponible','saldo_pagado','rango_nombre','ganancia_compra','ganancia_residual','ptos_residual_compra','directos','c_pagar_mes','c_pagadas_mes','c_pagadas_ano','c_pagadas_total','af_mes','af_act_mes','af_total','af_rango'));
+
+        return view('admin.index',compact('ano_restantes','minutos_restantes','mes_restantes','dias_restantes','horas_restantes','user','users_diamantes','users_corona','users_embajador','users_imprerial','c_pendientes_cobrar','ptos_diarios','ptos_trimestre','ptos_anual','ptos_total','facturacion_dia','facturacion_mes','facturacion_ano','facturacion_total','data2','rol_user','ganancia_global','code_user','indirectos','rango_id','refers_direct','width_barra','porcentaje_total','puntos_faltantes','saldo_disponible','saldo_pagado','rango_nombre','ganancia_compra','ganancia_residual','ptos_residual_compra','directos','c_pagar_mes','c_pagadas_mes','c_pagadas_ano','c_pagadas_total','af_mes','af_act_mes','af_total','af_rango'));
     }
 }

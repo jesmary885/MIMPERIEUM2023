@@ -14,7 +14,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\cambiar_rango',
+        'App\Console\Commands\cambiar_status_usuario',
+        'App\Console\Commands\comisionar_rangos',
     ];
 
     /**
@@ -50,7 +52,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('cambiar:rango')->dailyAt('00:00'); //a diario a las 00:00
         $schedule->command('comisionar:global')->quarterly(); // primer dia de cada trimestre 
-        $schedule->command('desactivar_comision:users')->monthly(28,'00:00'); // dia 28 de cada mes a las 00:000
+        $schedule->command('desactivar_comision:users')->everyMinute(); // dia 28 de cada mes a las 00:000
     }
 
     /**

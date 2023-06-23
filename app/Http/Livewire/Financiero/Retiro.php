@@ -28,11 +28,13 @@ class Retiro extends Component
         $user = User::where('id',auth()->id())->first();
 
         $this->disponible = ($user->points*0.10) + $user->points_residual + $user->points_global;
-        $dia = date('m');
+        
+        $dia = date('l');
 
         if($this->disponible > 0){
             
-            if($dia == 1 || $dia == 2 || $dia == 3 || $dia == 4 || $dia ==5) 
+            //if($dia == 'Sunday') 
+            if($dia == 'Friday') 
             {
                 $this->activar = 1;
             }
@@ -51,12 +53,14 @@ class Retiro extends Component
                 ->where('status','pagado')
                 ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
                 ->where('description','Pago de comisión')
+                ->latest('id')
                 ->paginate(15);
             }
             else{
                 $registros = Payment::where('user_id',auth()->id())
                 ->where('status','pagado')
                 ->where('description','Pago de comisión')
+                ->latest('id')
                 ->paginate(15);
             }
         }
@@ -70,12 +74,14 @@ class Retiro extends Component
                 $registros = Payment::where('user_id',auth()->id())
                 ->whereBetween('created_at',[$fecha_inicio,$fecha_fin])
                 ->where('status','pendiente')
+                ->latest('id')
                 ->paginate(15);
             }
 
             else{
                 $registros = Payment::where('user_id',auth()->id())
                 ->where('status','pendiente')
+                ->latest('id')
                 ->paginate(15);
 
             }

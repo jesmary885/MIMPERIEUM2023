@@ -75,10 +75,10 @@ class comisionar_rangos extends Command
         $cant_rango_4 = User::where('rango_id',4)->count();
         $cant_rango_5 = User::where('rango_id',5)->count();
 
-        if($cant_rango_2 > 0) $comision_rango_2 = ($points_total * 0.01) / $cant_rango_2;
-        if($cant_rango_3 > 0) $comision_rango_3 = ($points_total * 0.01) / $cant_rango_3;
-        if($cant_rango_4 > 0) $comision_rango_4 = ($points_total * 0.01) / $cant_rango_4;
-        if($cant_rango_5 > 0) $comision_rango_5 = ($points_total * 0.01) / $cant_rango_5;
+        if($cant_rango_2 > 0) $comision_rango_2 = ($points_total * 0.025) / $cant_rango_2;
+        if($cant_rango_3 > 0) $comision_rango_3 = ($points_total * 0.025) / $cant_rango_3;
+        if($cant_rango_4 > 0) $comision_rango_4 = ($points_total * 0.025) / $cant_rango_4;
+        if($cant_rango_5 > 0) $comision_rango_5 = ($points_total * 0.025) / $cant_rango_5;
 
         foreach ($users as $user){
 
@@ -101,7 +101,7 @@ class comisionar_rangos extends Command
                     $ganancia_blono_user = new GananciaBono;
                     $ganancia_blono_user->user_id = $user->id;
                     $ganancia_blono_user->status = 'pendiente';
-                    $ganancia_blono_user->description = 'Comisión del 1% del valor en puntos de ventas de la compañia, entre'. $cant_rango_2 .' persona(s) del rango Diamante';
+                    $ganancia_blono_user->description = 'Comisión del 2.5% del valor en puntos de ventas de la compañia, entre'. $cant_rango_2 .' persona(s) del rango Diamante';
                     $ganancia_blono_user->bono = 'global';
                     $ganancia_blono_user->total = $comision_rango_2;
                     $ganancia_blono_user->save();
@@ -114,7 +114,7 @@ class comisionar_rangos extends Command
                     $ganancia_blono_user = new GananciaBono;
                     $ganancia_blono_user->user_id = $user->id;
                     $ganancia_blono_user->status = 'pendiente';
-                    $ganancia_blono_user->description = 'Comisión del 1% del valor en puntos de ventas de la compañia, entre'. $cant_rango_3 .' persona(s) del rango Corona';
+                    $ganancia_blono_user->description = 'Comisión del 2.5% del valor en puntos de ventas de la compañia, entre'. $cant_rango_3 .' persona(s) del rango Corona';
                     $ganancia_blono_user->bono = 'global';
                     $ganancia_blono_user->total = $comision_rango_3;
                     $ganancia_blono_user->save();
@@ -127,7 +127,7 @@ class comisionar_rangos extends Command
                     $ganancia_blono_user = new GananciaBono;
                     $ganancia_blono_user->user_id = $user->id;
                     $ganancia_blono_user->status = 'pendiente';
-                    $ganancia_blono_user->description = 'Comisión del 1% del valor en puntos de ventas de la compañia, entre'. $cant_rango_4 .' persona(s) del rango Embajador';
+                    $ganancia_blono_user->description = 'Comisión del 2.5% del valor en puntos de ventas de la compañia, entre'. $cant_rango_4 .' persona(s) del rango Embajador';
                     $ganancia_blono_user->bono = 'global';
                     $ganancia_blono_user->total = $comision_rango_4;
                     $ganancia_blono_user->save();
@@ -140,7 +140,7 @@ class comisionar_rangos extends Command
                     $ganancia_blono_user = new GananciaBono;
                     $ganancia_blono_user->user_id = $user->id;
                     $ganancia_blono_user->status = 'pendiente';
-                    $ganancia_blono_user->description = 'Comisión del 1% del valor en puntos de ventas de la compañia, entre'. $cant_rango_5 .' persona(s) del rango Imperial';
+                    $ganancia_blono_user->description = 'Comisión del 2.5% del valor en puntos de ventas de la compañia, entre'. $cant_rango_5 .' persona(s) del rango Imperial';
                     $ganancia_blono_user->bono = 'global';
                     $ganancia_blono_user->total = $comision_rango_5;
                     $ganancia_blono_user->save();

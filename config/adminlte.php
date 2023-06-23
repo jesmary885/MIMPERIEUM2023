@@ -347,14 +347,14 @@ return [
             'can' => 'home',
             'submenu' => [
                 [
-                    'text' => 'Comprar',
+                    'text' => 'Productos',
                     'route'  => 'tienda',
                     'icon'    => '	fas fa-circle',
                     'icon_color' => 'gray',
         
                 ],
                 [
-                    'text'    => 'Ordenes',
+                    'text'    => 'Pedidos',
                     'route'     => 'orders.index',
                     'icon'    => '	fas fa-circle',
                     'icon_color' => 'gray',
@@ -389,7 +389,7 @@ return [
             'can' => 'home',
             'submenu' => [
                 [
-                    'text' => 'Recompra',
+                    'text' => 'Compra',
                     'icon'    => '	fas fa-circle',
                     'icon_color' => 'gray',
                     'route'  => 'admin.bono_compra',

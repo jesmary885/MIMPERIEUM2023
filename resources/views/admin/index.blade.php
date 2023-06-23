@@ -10,16 +10,52 @@
 
 
 @if($rol_user == 2)
-    <div class="callout callout-info">
-        <h5 class="text-lg font-bold">Enlace de referencia:</h5>
-        <div class="md:flex">
-        <div class="overflow-x-auto flex">
-            <p id="enlace_copy" class="sm:text-xs md:text-lg text-gray-600 font-medium mt-2">http://mimperium.com/registro/{{$code_user}}</p>
+    <div class="callout callout-info w-1/2">
 
-            <button class="ml-2 btn btn-sm mt-1 text-bold" title="Copiar" id="button_copy"><i class="fas fa-paste text-blue-500 text-lg"></i></button>
+        @if($user->status == "inactivo_para_comisionar")
+
+        <div class="flex">
+            <p class="font-bold text-md text-gray-500">
+                    ESTADO ACTUAL:
+            </p>
+
+            <p class="font-bold text-md text-red-500 ml-2">
+                    INACTIVO PARA COMISIONAR
+            </p>
+        </div>
+
+        @else
+
+        <div class="portada " id="portada">
+
+        <div class="flex justify-center">
+
+        <p class="font-bold text-lg text-cyan-200">
+                ACTIVO PARA COMISIONAR
+            </p>
 
         </div>
-        
+
+            
+
+            <div>
+
+                <div id="cuenta">
+
+
+                </div>
+
+                <div class="flex justify-center ">
+                    <p class="font-bold text-sm text-cyan-200">
+                        Tiempo restante
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+        @endif
+
 
         </div>
     </div>
@@ -94,7 +130,7 @@
             <div class="small-box bg-info">
                 <div class="inner">
                     <h3>S/{{$ganancia_compra}}</h3>
-                    <p class="sm:text-xs md:text-md font-bold">BONO RECOMPRA</p>
+                    <p class="sm:text-xs md:text-md font-bold">BONO COMPRA</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-cart-arrow-down"></i>
@@ -228,10 +264,28 @@
                     </div>
                 </div>
 
-                
+                <div class="card card-info mx-2">
+                    <div class="card-header">
+                        <h3 class="card-title font-bold">ENLACE DE REFERENCIA</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body" style="display: block;">
+                        <div class="flex">
+                            <p id="enlace_copy" class="text-lg text-gray-600 font-medium mt-2">http://mimperium.com/registro/{{$code_user}}</p>
+
+                            <button class="ml-2 btn btn-sm mt-1 text-bold" title="Copiar" id="button_copy"><i class="fas fa-paste text-blue-500 text-lg"></i></button>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
 
+            
         </div>
 
         
@@ -602,14 +656,21 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+
+    <link rel="stylesheet" href="{{ asset('vendor/css_contador/estilos.css') }}">
+
+ 
 @stop
 
 @section('js')
 
+
+<script src="{{ asset('vendor/dist/simplyCountdown.min.js') }}"></script>
+
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
+    <script>
 
             var boton = document.getElementById("button_copy");
             boton.addEventListener("click", copiarAlPortapapeles, false);
@@ -631,4 +692,37 @@
                     })
             }
     </script>
+
+    <script>
+        simplyCountdown('#cuenta', {
+            year: <?php echo $ano_restantes?>, // required
+            month: <?php echo $mes_restantes?>, // required
+            day: <?php echo $dias_restantes?>, // required
+            hours: <?php echo $horas_restantes?>, // Default is 0 [0-23] integer
+            minutes: <?php echo $minutos_restantes?>, // Default is 0 [0-59] integer
+            seconds: 0, // Default is 0 [0-59] integer
+            words: { //words displayed into the countdown
+                days: { singular: 'Día', plural: 'Dias' },
+                hours: { singular: 'Hora', plural: 'Horas' },
+                minutes: { singular: 'Minuto', plural: 'Minutos' },
+                seconds: { singular: 'segundo', plural: 'segundos' }
+            },
+            plural: true, //use plurals
+            inline: false, //set to true to get an inline basic countdown like : 24 days, 4 hours, 2 minutes, 5 seconds
+            inlineClass: 'simply-countdown-inline', //inline css span class in case of inline = true
+            // in case of inline set to false
+            enableUtc: true, //Use UTC as default
+            onEnd: function() {
+                return; 
+            }, //Callback on countdown end, put your own function here
+            refresh: 1000, // default refresh every 1s
+            sectionClass: 'simply-section', //section css class
+            amountClass: 'simply-amount', // amount css class
+            wordClass: 'simply-word', // word css class
+            zeroPad: false,
+            countUp: false
+        });
+    </script>
+
+
 @stop
