@@ -22,17 +22,17 @@ class indexController extends Controller
         if($user->status == "activo"){
 
             $date = new DateTime();
-            $fecha_actual = date("Y-m-d h:i:s");
+            $fecha_actual = date("Y-m-d H:i:s");
 
             $fecha_actual= new DateTime($fecha_actual);
+
             $proxima_fecha = strtotime($user->last_activate);
 
             $mes_restantes = date("m",$proxima_fecha);
             $dias_restantes = date("d",$proxima_fecha);
-            $horas_restantes = date("h",$proxima_fecha);
-            $minutos_restantes = date("i",$proxima_fecha);
+            $horas_restantes = date("H",$proxima_fecha);
+            $minutos_restantes = date("I",$proxima_fecha);
             $ano_restantes = date("Y",$proxima_fecha);
-
         }
 
         else{

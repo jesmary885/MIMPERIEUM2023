@@ -273,7 +273,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="card-body" style="display: block;">
+                    <div class="card-body overflow-x-auto" style="display: block;">
                         <div class="flex">
                             <p id="enlace_copy" class="text-lg text-gray-600 font-medium mt-2">http://mimperium.com/registro/{{$code_user}}</p>
 
