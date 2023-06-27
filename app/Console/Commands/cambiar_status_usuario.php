@@ -28,7 +28,7 @@ class cambiar_status_usuario extends Command
         $this->warn("Iniciando desactivar_comision..");
 
         $date = new DateTime();
-        $fecha_actual = date("Y-m-d h:i:s");
+        $fecha_actual = date("Y-m-d H:i:s");
         $fecha_actual= new DateTime($fecha_actual);
 
         $users=User::all();

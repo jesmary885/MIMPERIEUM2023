@@ -56,6 +56,17 @@
                 <p class="text-sm text-gray-500 ml-4 mt-2">Código: {{$order->user->code}} </p>
                 <p class="text-sm text-gray-500 ml-4 mt-2">Fecha de compra: {{  \Carbon\Carbon::parse($order->created_at)->format('d-m-Y') }} </p>
         </div>
+
+        <div class="mt-2 flex">
+            <p class="text-lime-800 text-lg font-bold mr-2">Dirección de envio:</p>
+
+
+                <button class="text-gray-600 text-lg hover:text-lime-800"
+                    wire:click="ver_direction('{{$order->user->id}}')">
+                    <i class="fas fa-eye"></i>
+                </button>
+            
+        </div>
             <hr class="m-2">
 
 
@@ -63,9 +74,9 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Precio</th>
-                    <th>Cant</th>
-                    <th>Total</th>
+                    <th class="text-center">Precio</th>
+                    <th class="text-center">Cant</th>
+                    <th class="text-center">Total</th>
                 </tr>
             </thead>
 
@@ -103,6 +114,22 @@
             </tbody>
         </table>
     </div>
+
+    @push('js')
+        <script>
+            livewire.on('comment', function(ms){
+                    Swal.fire({
+                title: ms,
+                showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+                }
+                })
+            })
+        </script>
+    @endpush
 
 
 

@@ -314,4 +314,15 @@ class StatusOrder extends Component
         return view('livewire.status-order', compact('items', 'envio'));
         
     }
+
+    public function ver_direction($user){
+        $user = User::where('id',$user)->first();
+
+        $this->emit('comment','<p class="text-sm m-0 p-0 text-gray-500 text-justify font-bold">1-. Dirección: '.$user->direction .'</p>
+        <p class="text-sm m-0 p-0 text-gray-500 text-justify font-bold">2-. Referencia: '.$user->direction .'</p> 
+        <p class="text-sm m-0 p-0 text-gray-500 text-justify font-bold">3-. Teléfono: '.$user->phone .'</p> 
+        <p class="text-sm m-0 p-0 text-gray-500 text-justify font-bold">4-. Departamento: '.$user->departamento .'</p> 
+        <p class="text-sm m-0 p-0 text-gray-500 text-justify font-bold">5-. Provincia: '.$user->provincia .'</p> 
+        <p class="text-sm m-0 p-0 text-gray-500 text-justify font-bold">6-. Distrito: '.$user->distrito .'</p>');
+    }
 }

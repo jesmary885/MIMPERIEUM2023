@@ -33,9 +33,9 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Precio</th>
-                        <th>Cant</th>
-                        <th>Total</th>
+                        <th >Precio</th>
+                        <th >Cant</th>
+                        <th >Total</th>
                     </tr>
                 </thead>
 
@@ -53,15 +53,15 @@
                                 </div>
                             </td>
 
-                            <td class="text-center">
+                            <td >
                                S/ {{ $item->price }}
                             </td>
 
-                            <td class="text-center">
+                            <td >
                                 {{ $item->qty }}
                             </td>
 
-                            <td class="text-center">
+                            <td >
                               S/  {{ $item->price * $item->qty }} 
                             </td>
                         </tr>

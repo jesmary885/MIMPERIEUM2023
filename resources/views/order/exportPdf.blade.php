@@ -144,7 +144,8 @@
 <body>
     <header>
         <div>
-            <img src="/storage/img/MIPERIUM.png" alt="logo">
+
+            <img src="storage/img/MIPERIUM.png" alt="logo">
         </div>
         <div>
             <table id="datos">
