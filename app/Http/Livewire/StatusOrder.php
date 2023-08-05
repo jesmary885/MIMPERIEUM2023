@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\GananciaBono;
 use App\Models\Partner;
 use App\Models\Payment;
+use App\Models\Porcentaje;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -31,9 +32,13 @@ class StatusOrder extends Component
             if($cont == 0){//actualizando el primer nivel por encima mio el 5%
 
                 $user1= User::where('id',$user_refer->refer_id)->first();
+
+                $porcentaje_bono_residual_n1 = (Porcentaje::first()->bono_residual_n1) / 100;
+                $porcentaje_bono_residual_n1_inicial = (Porcentaje::first()->bono_residual_n1);
+
                 
                 $user1->update([
-                    'points_residual' => ($ptos_order * 0.01) + $user1->points_residual,
+                    'points_residual' => ($ptos_order *  $porcentaje_bono_residual_n1) + $user1->points_residual,
                     'acum_points' =>  $user1->acum_points + $ptos_order
                 ]);
 
@@ -45,8 +50,8 @@ class StatusOrder extends Component
                 $ganancia_bono->order_id = $order_id;
                 $ganancia_bono->status= 'pendiente';
                 $ganancia_bono->bono= 'residual';
-                $ganancia_bono->total= ($ptos_order * 0.01);
-                $ganancia_bono->description= 'Comisión del 1% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
+                $ganancia_bono->total= ($ptos_order *  $porcentaje_bono_residual_n1);
+                $ganancia_bono->description= 'Comisión del '.$porcentaje_bono_residual_n1_inicial.' % por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
                 $ganancia_bono->save();
 
                 $cont=$cont+1;
@@ -57,10 +62,13 @@ class StatusOrder extends Component
 
                     if($this->user_refer1){
 
+                    $porcentaje_bono_residual_n2 = (Porcentaje::first()->bono_residual_n2) / 100;
+                    $porcentaje_bono_residual_n2_inicial = (Porcentaje::first()->bono_residual_n2);
+
                       $user2= User::where('id',$this->user_refer1->refer_id)->first();
                 
                       $user2->update([
-                          'points_residual' => ($ptos_order * 0.01) + $user2->points_residual,
+                          'points_residual' => ($ptos_order * $porcentaje_bono_residual_n2) + $user2->points_residual,
                           'acum_points' =>  $user2->acum_points + $ptos_order
                       ]);
                       
@@ -72,7 +80,7 @@ class StatusOrder extends Component
                         $ganancia_bono->status= 'pendiente';
                         $ganancia_bono->bono= 'residual';
                         $ganancia_bono->total= ($ptos_order * 0.01);
-                        $ganancia_bono->description= 'Comisión del 1% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
+                        $ganancia_bono->description= 'Comisión del '.$porcentaje_bono_residual_n2_inicial.' % por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
                         $ganancia_bono->save();
                     }
                     else $cont = 6;
@@ -84,7 +92,11 @@ class StatusOrder extends Component
                     $this->user_refer2 = Partner::where('user_id',$this->user_refer1->refer_id)->first();
 
                     if($this->user_refer2){
+
                         $user3= User::where('id',$this->user_refer2->refer_id)->first();
+
+                        $porcentaje_bono_residual_n3 = (Porcentaje::first()->bono_residual_n3) / 100;
+                        $porcentaje_bono_residual_n3_inicial = (Porcentaje::first()->bono_residual_n3);
                 
                         $user3->update([
                             'points_residual' => ($ptos_order * 0.01) + $user3->points_residual,
@@ -98,8 +110,8 @@ class StatusOrder extends Component
                         $ganancia_bono->order_id = $order_id;
                         $ganancia_bono->status= 'pendiente';
                         $ganancia_bono->bono= 'residual';
-                        $ganancia_bono->total= ($ptos_order * 0.01);
-                        $ganancia_bono->description= 'Comisión del 1% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
+                        $ganancia_bono->total= ($ptos_order * $porcentaje_bono_residual_n3);
+                        $ganancia_bono->description= 'Comisión del '.$porcentaje_bono_residual_n3_inicial.' % por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
                         $ganancia_bono->save();
                     }
                     else $cont = 6;
@@ -112,6 +124,9 @@ class StatusOrder extends Component
 
                     if($this->user_refer3 ){
                         $user4= User::where('id',$this->user_refer3->refer_id)->first();
+
+                        $porcentaje_bono_residual_n4 = (Porcentaje::first()->bono_residual_n4) / 100;
+                        $porcentaje_bono_residual_n4_inicial = (Porcentaje::first()->bono_residual_n4);
                 
                         $user4->update([
                             'points_residual' => ($ptos_order * 0.02) + $user4->points_residual,
@@ -124,8 +139,8 @@ class StatusOrder extends Component
                         $ganancia_bono->order_id = $order_id;
                         $ganancia_bono->status= 'pendiente';
                         $ganancia_bono->bono= 'residual';
-                        $ganancia_bono->total= ($ptos_order * 0.02);
-                        $ganancia_bono->description= 'Comisión del 2% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
+                        $ganancia_bono->total= ($ptos_order *  $porcentaje_bono_residual_n4);
+                        $ganancia_bono->description= 'Comisión del '.$porcentaje_bono_residual_n4_inicial.' % por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
                         $ganancia_bono->save();
                     }
                     else $cont = 6;
@@ -138,6 +153,9 @@ class StatusOrder extends Component
 
                 if($this->user_refer4 ){
                         $user5= User::where('id',$this->user_refer4->refer_id)->first();
+
+                        $porcentaje_bono_residual_n5 = (Porcentaje::first()->bono_residual_n5) / 100;
+                        $porcentaje_bono_residual_n5_inicial = (Porcentaje::first()->bono_residual_n5);
                 
                         $user5->update([
                             'points_residual' => ($ptos_order * 0.02) + $user5->points_residual,
@@ -151,8 +169,8 @@ class StatusOrder extends Component
                         $ganancia_bono->order_id = $order_id;
                         $ganancia_bono->status= 'pendiente';
                         $ganancia_bono->bono= 'residual';
-                        $ganancia_bono->total= ($ptos_order * 0.02);
-                        $ganancia_bono->description= 'Comisión del 2% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
+                        $ganancia_bono->total= ($ptos_order * $porcentaje_bono_residual_n5);
+                        $ganancia_bono->description= 'Comisión del '.$porcentaje_bono_residual_n5_inicial.' % por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
                         $ganancia_bono->save();
                     }
                 else $cont = 6;
@@ -172,6 +190,9 @@ class StatusOrder extends Component
 
                     if($this->user_refer5){
 
+                        $porcentaje_bono_residual_n6 = (Porcentaje::first()->bono_residual_n6) / 100;
+                        $porcentaje_bono_residual_n6_inicial = (Porcentaje::first()->bono_residual_n6);
+
                         User::find($this->user_refer5->refer_id)->increment('points_residual',($ptos_order * 0.02),'acum_points',$ptos_order);
                         $cont=$cont+1;
 
@@ -180,8 +201,8 @@ class StatusOrder extends Component
                         $ganancia_bono->order_id = $order_id;
                         $ganancia_bono->status= 'pendiente';
                         $ganancia_bono->bono= 'residual';
-                        $ganancia_bono->description= 'Comisión del 2% por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
-                        $ganancia_bono->total= ($ptos_order * 0.02);
+                        $ganancia_bono->description= 'Comisión del '.$porcentaje_bono_residual_n6_inicial.' % por compra de '.$ptos_order.' puntos, de referido '.$user_refer->refer->name;
+                        $ganancia_bono->total= ($ptos_order * $porcentaje_bono_residual_n6);
                         $ganancia_bono->save();
 
                         $cont = 6;
@@ -229,6 +250,7 @@ class StatusOrder extends Component
     
             //Agregando puntos al usuario de la compra
             if($this->status == 2){
+                $porcentaje_bono_compra = (Porcentaje::first()->bono_compra) / 100;
                 $user = User::where('id',$this->order->user_id)->first();
                 $this->add_points_partners($user->id,$this->order->points_total,$this->order->id);
     
@@ -275,7 +297,7 @@ class StatusOrder extends Component
                 $ganancia_bono->order_id = $this->order->id;
                 $ganancia_bono->status= 'pendiente';
                 $ganancia_bono->bono= 'compra';
-                $ganancia_bono->total= ($this->order->points_total * 0.10);
+                $ganancia_bono->total= ($this->order->points_total * $porcentaje_bono_compra);
                 $ganancia_bono->save();
     
                 $payment = new Payment();

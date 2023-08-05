@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Order;
+use App\Models\Porcentaje;
 use App\Models\User;
 use Livewire\Component;
 use PDF;
@@ -39,9 +40,12 @@ class ShoppingCart extends Component
         $caracter=",";
         $subtotal_t = (str_replace($caracter,"",Cart::subtotal()));
 
+    
+        $total_comisionar = Porcentaje::first()->monto_activacion;
+
         if($user->direction != null && $user->phone != null && $user->referencia != null && $user->departamento != null && $user->provincia != null && $user->distrito != null){
             
-            if($user->soles_en_mes >= 100) $soles_completos = 1;
+            if($user->soles_en_mes >= $total_comisionar) $soles_completos = 1;
             
             else{
 
@@ -51,7 +55,7 @@ class ShoppingCart extends Component
                     $puntos_calcular = ($item2->options['points'] *  $item2->qty) + $puntos_calcular;
                 }*/
 
-                if($subtotal_t >= 100) $soles_completos = 1;
+                if($subtotal_t >= $total_comisionar) $soles_completos = 1;
             }
 
             if($soles_completos == 1){
@@ -104,7 +108,7 @@ class ShoppingCart extends Component
             }
 
             else{
-                $this->emit('errorSize', 'Su orden ha sumado '.$subtotal_t.' Soles, y debe tener un mínimo de 100 Soles para ser procesada');
+                $this->emit('errorSize', 'Su orden ha sumado '.$subtotal_t.' Soles, y debe tener un mínimo de '.$total_comisionar.' Soles para ser procesada');
             }
         }
 

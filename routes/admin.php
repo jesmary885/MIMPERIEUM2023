@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\OrderController;
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\indexController;
+use App\Http\Controllers\Admin\PorcentajesController;
 use App\Http\Controllers\RangoController;
 use App\Http\Controllers\viewsController;
 use App\Http\Livewire\Admin\ShowCategory;
@@ -71,6 +72,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('rangos', [RangoController::class, 'index'])->name('admin.rangos');
 
     Route::get('pagos', [RangoController::class, 'pagos'])->name('admin.pagos');
+
+    Route::get('porcentajes', [PorcentajesController::class, 'index'])->name('admin.porcentajes');
+
 
   
     //Route::get('pagos', PaymentUserComponent::class)->name('admin.my_payments.index');

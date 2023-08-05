@@ -337,6 +337,14 @@ return [
                         'icon'    => '	fas fa-circle',
                         'icon_color' => 'gray',
                     ],
+
+                    [
+                        'text' => 'Porcentajes y comisión',
+                        'route'  => 'admin.porcentajes',
+                        'icon'    => '	fas fa-circle',
+                        'icon_color' => 'gray',
+                    ],
+
                 ],
             
         ],
