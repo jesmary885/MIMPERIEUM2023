@@ -255,7 +255,7 @@ class StatusOrder extends Component
                 $this->add_points_partners($user->id,$this->order->points_total,$this->order->id);
     
                 $puntos_totales = $this->puntos_guardados + $this->order->points_total;
-                $puntos_acumu = $this->puntos_acumulados + $puntos_totales;
+                $puntos_acumu = $this->puntos_acumulados + $this->order->points_total;
     
                 if($user->status == 'inactivo_para_comisionar'){
                     $items = json_decode($this->order->content);
