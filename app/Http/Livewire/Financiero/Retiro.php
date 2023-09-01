@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Financiero;
 
 use App\Models\GananciaBono;
 use App\Models\Payment;
+use App\Models\Porcentaje;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -27,7 +28,9 @@ class Retiro extends Component
     {
         $user = User::where('id',auth()->id())->first();
 
-        $this->disponible = ($user->points*0.10) + $user->points_residual + $user->points_global;
+        $porcentaje_bono_compra = (Porcentaje::first()->bono_compra) / 100;
+
+        $this->disponible = ($user->points*$porcentaje_bono_compra) + $user->points_residual + $user->points_global;
         
         $dia = date('l');
 

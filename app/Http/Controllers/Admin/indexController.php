@@ -7,6 +7,7 @@ use App\Models\GananciaBono;
 use App\Models\Order;
 use App\Models\Partner;
 use App\Models\Payment;
+use App\Models\Porcentaje;
 use App\Models\User;
 use DateTime;
 use Illuminate\Http\Request;
@@ -277,7 +278,9 @@ class indexController extends Controller
         $rango_nombre = $user->rango->name;
         $directos =  Partner::where('refer_id',auth()->id())->count(); 
 
-        $ganancia_compra = ($user->points * 0.10);
+        $porcentaje_bono_compra = (Porcentaje::first()->bono_compra) / 100;
+
+        $ganancia_compra = ($user->points * $porcentaje_bono_compra );
         $ganancia_global = $user->points_global;
         $ganancia_residual = $user->points_residual;
         $ptos_residual_compra = $user->acum_points;
@@ -292,7 +295,9 @@ class indexController extends Controller
         $cont = 0;
         $cont2 = 0;
 
-        $saldo_disponible = ($user->points * 0.10) + $user->points_residual + $user->points_global;
+        
+
+        $saldo_disponible = ($user->points * $porcentaje_bono_compra) + $user->points_residual + $user->points_global;
 
         $saldo_pagado = GananciaBono::where('user_id',auth()->id())
             ->where('status','pagado')

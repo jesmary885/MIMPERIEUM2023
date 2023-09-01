@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Financiero;
 
 use App\Models\GananciaBono;
 use App\Models\Payment;
+use App\Models\Porcentaje;
 use App\Models\RetirementAccount;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
@@ -36,7 +37,9 @@ class RetiroCreate extends Component
 
         $user_solicitante = User::where('id',auth()->id())->first();
 
-        $this->disponible = ($user_solicitante->points * 0.40) + $user_solicitante->points_residual  + $user_solicitante->points_global;
+        $porcentaje_bono_compra = (Porcentaje::first()->bono_compra) / 100;
+
+        $this->disponible = ($user_solicitante->points * $porcentaje_bono_compra) + $user_solicitante->points_residual  + $user_solicitante->points_global;
         return view('livewire.financiero.retiro-create');
     }
 
