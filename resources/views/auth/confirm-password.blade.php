@@ -1,11 +1,15 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <div class="flex justify-center">
+                <a href="/" class="mt-6 mb-2">
+                        <img src="img/MIPERIUM.png" class="block h-20 w-40 alt="">
+                    </a>
+              </div>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+            Esta es un área segura de la aplicación. Confirme su contraseña antes de continuar.
         </div>
 
         <x-jet-validation-errors class="mb-4" />
