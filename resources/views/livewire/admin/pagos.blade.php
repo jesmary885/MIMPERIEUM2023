@@ -158,6 +158,11 @@
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Solicitante
                         </th>
+
+                        <th scope="col"
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Datos bancarios
+                        </th>
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Doc
@@ -186,6 +191,11 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     {{$registros_pendiente->user->name}}
                                 </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    @livewire('admin.datos-pago', ['usuario' => $registros_pendiente->user],key($registros_pendiente->id))
+                                </td>
+
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 <button class="text-green-600 text-lg hover:text-green-900"
                                     
@@ -243,6 +253,11 @@
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Solicitante
                         </th>
+
+                        <th scope="col"
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Datos bancarios
+                        </th>
                    
                     </tr>
                 </thead>
@@ -263,6 +278,10 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     {{$registro->user->name}}
+                                    </td>
+
+                                    <td class="text-center">
+                                        @livewire('admin.datos-pago', ['usuario' => $registro->user],key($registro->id))
                                     </td>
                                 </tr>
                     @endforeach

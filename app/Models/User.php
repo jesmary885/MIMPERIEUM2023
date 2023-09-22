@@ -70,6 +70,11 @@ class User extends Authenticatable
         return $this->hasMany(Partner::class);
     }
 
+    public function cuentas(){
+        return $this->hasMany(RetirementAccount::class);
+    }
+
+
     public function rango(){
         return $this->belongsTo(Rango::class);
     }
