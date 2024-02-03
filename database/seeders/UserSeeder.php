@@ -25,6 +25,8 @@ class UserSeeder extends Seeder
             'password' => bcrypt('12345678'),
             'dni' => '123456789',
             'code' => '00000000000',
+            'rango_id' => '1',
+            'pais_id' => '89',
             'status' => 'activo',
             'points' => 0,
             'points_residual' => 0,

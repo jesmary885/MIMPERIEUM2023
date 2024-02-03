@@ -57,4 +57,16 @@ class RangoController extends Controller
         return view('admin.pagos');
     }
 
+    //contenido de la web
+
+    public function contenido_web(){
+        return view('admin.contenido_web');
+    }
+
+    //pagos de membresia
+
+    public function pago_membresia(){
+        return view('admin.pago_membresia');
+    }
+
 }

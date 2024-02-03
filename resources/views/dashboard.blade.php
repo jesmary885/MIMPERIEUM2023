@@ -140,89 +140,99 @@
         <h1 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl">QUIENES SOMOS</h1>
 
         <p class="mt-4 text-center text-gray-500 font-semibold">
-Somos un proyecto que busca juntar todas las posibilidades para hacer negocio en un solo lugar. Nuestro objetivo es analizar los mercados o industrias más rentables e incorporar a nuestro proyecto con el fin de posicionar una marca que ocupe todo en un solo lugar.
-Contaremos con productos y servicio de alta demanda, que serán promocionados por nuestros consumidores a través del Network Markenting.</p>
+            @if($contenido_quienes_somos)
+            {{$contenido_quienes_somos->texto1}}
+            @else
+            @endif
 
-        <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-2 xl:gap-12">
+        </p>
+
+
+            <div class="mt-8 xl:mt-12">
+
+                <div class="flexslider">
+                    <ul class="slides">
+                        @forelse($imagenes_quienes_somos as $imagen_qs)
+                            <li>
+                                <div class="w-full h-96 bg-white rounded-lg sahdow-lg">
+
+                                
+
+                                    <div class="block h-96 bg-cover bg-center" style="background-image: url({{Storage::url($imagen_qs->url)}});" >
+                                        <div class="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50">
+                                            <p class="text-center text-3xl font-bold capitalize text-gray-200 lg:text-4xl">{{$imagen_qs->texto1}}</p>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        @empty
+
+                        @endforelse
+                    </ul>
+
+                    <div class="custom-navigation">
+                        <div class="custom-controls-container"></div>
+                    </div>
+                </div>
+
+            </div>
             
-            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
-                <img class="h-full w-full rounded-lg object-cover" src="img/bienestar.jfif" alt="" />
-                <h3 class="mt-4 text-2xl font-bold capitalize text-gray-600 group-hover:text-white">BIENESTAR</h3>
-            </div>
-
-            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
-                <img class="h-full w-full rounded-lg object-cover" src="img/hogar.jfif" alt="" />
-                <h3 class="mt-4 text-2xl font-bold capitalize  text-gray-600 group-hover:text-white">HOGAR</h3>
-            </div>
-
-            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
-                <img class="h-full w-full rounded-lg object-cover" src="img/cuidado_personal.jfif" />
-                <h3 class="mt-4 text-2xl font-bold capitalize  text-gray-600 group-hover:text-white">CUIDADO PERSONAL</h3>
-            </div>
-
-            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
-                <img class="h-full w-full rounded-lg object-cover" src="img/tecnologia.jfif" alt="" />
-                <h3 class="mt-4 text-2xl font-bold capitalize  text-gray-600 group-hover:text-white">TECNOLOGÍA</h3>
-            </div>
 
 
-     
-        </div>
-        <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-1 xl:mt-12 xl:grid-cols-1 xl:gap-12">
-         
-            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
-                <img class="h-full w-full md:w-1/2 rounded-lg object-cover" src="img/sdigital.jfif" alt="" />
-                <h3 class="mt-4 text-2xl font-bold capitalize  text-gray-600 group-hover:text-white">SERVICIOS DIGITALES</h3>
-            </div>
-     
-        </div>
     </div>
     </section>
 
 <section class="bg-white dark:bg-gray-900">
             <div class="container px-6 py-10 mx-auto" id="equipo">
                 <h2 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl">CORPORATIVO</h2>
-                
-                <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300 ">
-                    Mi objetivo al fundar MIMPERIUM es poder darle la posibilidad a cualquier persona con cualquier nivel de experiencia en los negocios una oportunidad única, legítima y de bajo acceso.
-                </p>
 
-                <p class="max-w-2xl mx-auto text-center text-gray-500 dark:text-gray-300">
-                    MIMPERIUM EIRL
-                </p>
-                <p class="max-w-2xl mx-auto text-center text-gray-500 dark:text-gray-300 mt-0">
-                    RUC: 20610374281
-                </p>
-                
-                
-           
-                <div class="flex flex-col items-center">
-                    <div class="p-8 flex flex-col items-center w-1/2 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
-                    <img class="object-cover sm:w-full sm:h-full md:w-80 md:h-80 rounded-full ring-4 ring-gray-300" src="img/Juan.jpeg" alt="">
-                        
-                        <h3 class="mt-4 sm:text-md md:text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Juan Huaman</h3>
-                        
-                        <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Fundador</p>
-                        
-                        <div class="flex mt-3 -mx-2">
-                           
+                @if($contenido_corporativo)
 
-                            <a href="https://web.facebook.com/profile.php?id=100068524603945" class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
-                                aria-label="Facebook">
-                                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M2.00195 12.002C2.00312 16.9214 5.58036 21.1101 10.439 21.881V14.892H7.90195V12.002H10.442V9.80204C10.3284 8.75958 10.6845 7.72064 11.4136 6.96698C12.1427 6.21332 13.1693 5.82306 14.215 5.90204C14.9655 5.91417 15.7141 5.98101 16.455 6.10205V8.56104H15.191C14.7558 8.50405 14.3183 8.64777 14.0017 8.95171C13.6851 9.25566 13.5237 9.68693 13.563 10.124V12.002H16.334L15.891 14.893H13.563V21.881C18.8174 21.0506 22.502 16.2518 21.9475 10.9611C21.3929 5.67041 16.7932 1.73997 11.4808 2.01722C6.16831 2.29447 2.0028 6.68235 2.00195 12.002Z">
-                                    </path>
-                                </svg>
-                            </a>
+                    <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300 ">
+                        {{$contenido_corporativo->texto1}}
+                    </p>
 
-                        
+                    <p class="max-w-2xl mx-auto text-center text-gray-500 dark:text-gray-300">
+                        {{$contenido_corporativo->texto2}}
+                    </p>
+                    <p class="max-w-2xl mx-auto text-center text-gray-500 dark:text-gray-300 mt-0">
+                        {{$contenido_corporativo->texto3}}
+                    </p>
+
+                    <div class="flex flex-col items-center">
+                        <div class="p-8 flex flex-col items-center w-1/2 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
+                        <img class="object-cover sm:w-full sm:h-full md:w-80 md:h-80 rounded-full ring-4 ring-gray-300" src="{{Storage::url($contenido_corporativo->url)}}" alt="">
+                            
+                            <h3 class="mt-4 sm:text-md md:text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Juan Huaman</h3>
+                            
+                            <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Fundador</p>
+                            
+                            <div class="flex mt-3 -mx-2">
+                            
+
+                                <a href="https://web.facebook.com/profile.php?id=100068524603945" class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                                    aria-label="Facebook">
+                                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M2.00195 12.002C2.00312 16.9214 5.58036 21.1101 10.439 21.881V14.892H7.90195V12.002H10.442V9.80204C10.3284 8.75958 10.6845 7.72064 11.4136 6.96698C12.1427 6.21332 13.1693 5.82306 14.215 5.90204C14.9655 5.91417 15.7141 5.98101 16.455 6.10205V8.56104H15.191C14.7558 8.50405 14.3183 8.64777 14.0017 8.95171C13.6851 9.25566 13.5237 9.68693 13.563 10.124V12.002H16.334L15.891 14.893H13.563V21.881C18.8174 21.0506 22.502 16.2518 21.9475 10.9611C21.3929 5.67041 16.7932 1.73997 11.4808 2.01722C6.16831 2.29447 2.0028 6.68235 2.00195 12.002Z">
+                                        </path>
+                                    </svg>
+                                </a>
+
+                            
+                            </div>
+
                         </div>
-
+                            
                     </div>
-                        
-                </div>
+           
+                @else
+
+                @endif
+                
+                
             </div>
         </section>
 
@@ -232,113 +242,41 @@ Contaremos con productos y servicio de alta demanda, que serán promocionados po
         <div class="text-center">
         <h2 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl">PRODUCTOS</h2>
 
-        <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">Algunos de nuestros productos de alta calidad</p>
+        @if($contenido_productos)
+
+        <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">{{$contenido_productos->texto1}}</p>
+
+        @else
+
+        @endif
         </div>
 
-         <div class="glider-contain">
+        <div class="glider-contain">
             <ul class="glider">
+                @forelse($imagenes_productos as $imagen_p)
+
                 <li class="bg-white rounded-lg shadow mr-4">
                         <a href="#">
                             <article>
                                 <figure>
-                                    <img class="h-full w-full object-cover object-center" src="img/moringa.jpeg" alt="">
+                                    <img class=" h-52  w-full object-fill" src="{{Storage::url($imagen_p->url)}}"alt="">
                                 </figure>
                                 
                                 <div class="py-4 px-6">
                                     <h1 class="mt-2 text-xl font-semibold  text-gray-700 group-hover:text-white">
-                                    Moringa
-                                            
+                                        {{$imagen_p->texto1}}
+
                                     </h1>
-                                    <p class="text-sm  text-gray-700 group-hover:text-white text-justify">Considerada un antibiótico natural, es una planta con múltiples usos y beneficios medicinales. Sus propiedades antiinflamatorias, antimicrobianas, antioxidantes.</p>
+                                    <p class="text-sm  text-gray-700 group-hover:text-white text-justify">{{$imagen_p->texto2}}</p>
                                 </div>
                             </article>
                         </a>
                 </li>
-                <li class="bg-white rounded-lg shadow mr-4">
-                        <a href="#">
-                            <article>
-                                <figure>
-                                    <img class="h-full w-full object-cover object-center" src="img/espirulina.jpeg" alt="">
-                                </figure>
-                                
-                                <div class="py-4 px-6">
-                                    <h1 class="mt-2 text-xl font-semibold  text-gray-700 group-hover:text-white">
-                                    Spirulina
-                                            
-                                    </h1>
-                                    <p class="text-sm  text-gray-700 group-hover:text-white text-justify">Microalga de color azul verdosa que sirve para favorecer la pérdida de peso, proteger al corazón y al cerebro, regular el azúcar en la sangre.</p>
-                                </div>
-                            </article>
-                        </a>
-                </li>
-                <li class="bg-white rounded-lg shadow mr-4">
-                        <a href="#">
-                            <article>
-                                <figure>
-                                    <img class="h-full w-full object-cover object-center" src="img/colageno.jpeg" alt="">
-                                </figure>
-                                
-                                <div class="py-4 px-6">
-                                    <h1 class="mt-2 text-xl font-semibold  text-gray-700 group-hover:text-white">
-                                    Colágeno
-                                            
-                                    </h1>
-                                    <p class="text-sm  text-gray-700 group-hover:text-white text-justify">Proteína que se encuentra en nuestro organismo y que representa el 30% del total de proteínas del cuerpo humano.</p>
-                                </div>
-                            </article>
-                        </a>
-                </li>
-                <li class="bg-white rounded-lg shadow mr-4">
-                        <a href="#">
-                            <article>
-                                <figure>
-                                    <img class="h-full w-full object-cover object-center" src="img/detergente.jfif" alt="">
-                                </figure>
-                                
-                                <div class="py-4 px-6">
-                                    <h1 class="mt-2 text-xl font-semibold  text-gray-700 group-hover:text-white">
-                                    Detergente
-                                            
-                                    </h1>
-                                    <p class="text-sm  text-gray-700 group-hover:text-white text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </article>
-                        </a>
-                </li>
-                <li class="bg-white rounded-lg shadow mr-4">
-                        <a href="#">
-                            <article>
-                                <figure>
-                                    <img class="h-full w-full object-cover object-center" src="img/lavavajillas.jfif" alt="">
-                                </figure>
-                                
-                                <div class="py-4 px-6">
-                                    <h1 class="mt-2 text-xl font-semibold  text-gray-700 group-hover:text-white">
-                                    Lavavajillas
-                                            
-                                    </h1>
-                                    <p class="text-sm  text-gray-700 group-hover:text-white text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </article>
-                        </a>
-                </li>
-                <li class="bg-white rounded-lg shadow mr-4">
-                        <a href="#">
-                            <article>
-                                <figure>
-                                    <img class="h-full w-full object-cover object-center" src="img/jabon_liquido.jfif" alt="">
-                                </figure>
-                                
-                                <div class="py-4 px-6">
-                                    <h1 class="mt-2 text-xl font-semibold  text-gray-700 group-hover:text-white">
-                                    Jabón liquido
-                                            
-                                    </h1>
-                                    <p class="text-sm  text-gray-700 group-hover:text-white text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </article>
-                        </a>
-                </li>
+
+                @empty
+
+                @endforelse
+
             </ul>
         
             <button aria-label="Previous" class="glider-prev">«</button>
@@ -399,12 +337,18 @@ Contaremos con productos y servicio de alta demanda, que serán promocionados po
     <div id="informacion" class="container mx-auto px-6 py-10">
         <h2 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl">COMO GANAR DINERO CON NOSOTROS</h2>
 
-        <video src="/video/videoplayback.mp4" class="w-full p-4 mt-2" controls></video>
+        @if($video_ganar_dinero)
+
+        <video src="{{Storage::url($video_ganar_dinero->url)}}" class="w-full p-4 mt-2" controls></video>
+
+        @else
+
+        @endif
   
     </div>
     </section>
 
-    <section class="bg-white dark:bg-gray-900">
+    {{-- <section class="bg-white dark:bg-gray-900">
     <div id="informacion" class="container mx-auto px-6 py-10">
         <h2 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl">NUESTROS SOCIOS</h2>
 
@@ -428,7 +372,7 @@ Contaremos con productos y servicio de alta demanda, que serán promocionados po
         </div>
   
     </div>
-    </section>
+    </section> --}}
  
 
     <footer class="bg-white dark:bg-gray-900">
@@ -492,6 +436,23 @@ Contaremos con productos y servicio de alta demanda, que serán promocionados po
             })
 
       
+        </script>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+{{-- FlexSlider --}}
+        <script src="{{ asset('vendor/FlexSlider/jquery.flexslider-min.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+                $('.flexslider').flexslider({
+                    animation: "slide",
+                    controlsContainer: $(".custom-controls-container"),
+                    customDirectionNav: $(".custom-navigation a")
+                });
+            });
+
         </script>
         
     </body>

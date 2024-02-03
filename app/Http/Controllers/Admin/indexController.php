@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contenidoweb;
 use App\Models\GananciaBono;
 use App\Models\Order;
+use App\Models\PagosMembresia;
 use App\Models\Partner;
 use App\Models\Payment;
 use App\Models\Porcentaje;
@@ -14,16 +16,51 @@ use Illuminate\Http\Request;
 
 class indexController extends Controller
 {
+
+    public function dashboard(){
+
+        $contenido_quienes_somos = Contenidoweb::where('area','texto_quienes_somos')->first() ?? [];
+        $imagenes_quienes_somos = Contenidoweb::where('area','imagenes_quienes_somos')->get() ?? [];
+
+        $contenido_corporativo = Contenidoweb::where('area','corporativo')->first() ?? [];
+
+        $contenido_productos = Contenidoweb::where('area','texto_productos')->first() ?? [];
+        $imagenes_productos = Contenidoweb::where('area','productos')->get() ?? [];
+
+        $video_ganar_dinero = Contenidoweb::where('area','ganar_dinero')->first() ?? [];
+
+
+
+        return view('dashboard',compact('contenido_productos','contenido_quienes_somos','imagenes_quienes_somos','contenido_corporativo','imagenes_productos','video_ganar_dinero'));
+
+        
+    }
     public function index(){
+
+        $fecha_actual = date("Y-m-d H:i:s");
 
         $user= User::where('id',auth()->id())->first();
         $rol_user = $user->roles->first()->id;
+
+        $pendiente_pago = PagosMembresia::where('user_id',auth()->id())
+            ->where('status','pendiente')
+            ->count();
+
+        $proximo_pago = date("Y-m-d H:i:s",strtotime($user->last_activate." -4 days"));
+        
+        if($user->last_activate == '') $activar_pagar = 0;
+        else{
+            if($proximo_pago <= $fecha_actual) $activar_pagar = 1;
+            else $activar_pagar = 0;     
+        }
+
+           
 
 
         if($user->status == "activo"){
 
             $date = new DateTime();
-            $fecha_actual = date("Y-m-d H:i:s");
+            
 
             $fecha_actual= new DateTime($fecha_actual);
 
@@ -276,7 +313,7 @@ class indexController extends Controller
         $code_user = $user->code;
         $rango_id = $user->rango_id;
         $rango_nombre = $user->rango->name;
-        $directos =  Partner::where('refer_id',auth()->id())->count(); 
+        $directos =  Partner::where('refer_id',87777777/9)->count(); 
 
         $porcentaje_bono_compra = (Porcentaje::first()->bono_compra) / 100;
 
@@ -413,6 +450,11 @@ class indexController extends Controller
         }
 
 
-        return view('admin.index',compact('ano_restantes','minutos_restantes','mes_restantes','dias_restantes','horas_restantes','user','users_diamantes','users_corona','users_embajador','users_imprerial','c_pendientes_cobrar','ptos_diarios','ptos_trimestre','ptos_anual','ptos_total','facturacion_dia','facturacion_mes','facturacion_ano','facturacion_total','data2','rol_user','ganancia_global','code_user','indirectos','rango_id','refers_direct','width_barra','porcentaje_total','puntos_faltantes','saldo_disponible','saldo_pagado','rango_nombre','ganancia_compra','ganancia_residual','ptos_residual_compra','directos','c_pagar_mes','c_pagadas_mes','c_pagadas_ano','c_pagadas_total','af_mes','af_act_mes','af_total','af_rango'));
+        return view('admin.index',compact('activar_pagar','pendiente_pago','ano_restantes','minutos_restantes','mes_restantes','dias_restantes','horas_restantes','user','users_diamantes','users_corona','users_embajador','users_imprerial','c_pendientes_cobrar','ptos_diarios','ptos_trimestre','ptos_anual','ptos_total','facturacion_dia','facturacion_mes','facturacion_ano','facturacion_total','data2','rol_user','ganancia_global','code_user','indirectos','rango_id','refers_direct','width_barra','porcentaje_total','puntos_faltantes','saldo_disponible','saldo_pagado','rango_nombre','ganancia_compra','ganancia_residual','ptos_residual_compra','directos','c_pagar_mes','c_pagadas_mes','c_pagadas_ano','c_pagadas_total','af_mes','af_act_mes','af_total','af_rango'));
+    }
+
+    public function pagar_membresia(){
+        $isopen = 'true';
+        return view('pago.reporte_pago',compact('isopen'));
     }
 }

@@ -10,55 +10,76 @@
 
 
 @if($rol_user == 2)
-    <div class="callout callout-info sm:w-full md:w-1/2">
+    <div class="md:flex md:justify-between">
+        <div class="callout callout-info md:mr-2 sm:w-full md:w-1/2">
 
-        @if($user->status == "inactivo_para_comisionar")
-
-        <div class="flex">
-            <p class="font-bold sm:text-md md:text-lg text-gray-500">
-                    ESTADO ACTUAL:
-            </p>
-
-            <p class="font-bold sm:text-md md:text-lg text-red-500 ml-2">
-                    INACTIVO PARA COMISIONAR
-            </p>
-        </div>
-
-        @else
-
-        <div class="portada " id="portada">
-
-        <div class="flex justify-center">
-
-        <p class="font-bold sm:text-md md:text-lg text-cyan-200">
-                ACTIVO PARA COMISIONAR
-            </p>
-
-        </div>
-
-            
-
-            <div>
-
-                <div id="cuenta">
-
-
-                </div>
-
-                <div class="flex justify-center ">
-                    <p class="font-bold text-sm text-cyan-200">
-                        Tiempo restante
+            @if($user->status == "inactivo_para_comisionar")
+    
+                <div class="flex">
+                    <p class="font-bold sm:text-md md:text-lg text-gray-500">
+                            ESTADO ACTUAL:
                     </p>
-
+        
+                    <p class="font-bold sm:text-md md:text-lg text-red-500 ml-2">
+                            INACTIVO PARA COMISIONAR
+                    </p>
                 </div>
+    
+            @else
+    
+                <div class="portada " id="portada">
+        
+                    <div class="flex justify-center">
+            
+                        <p class="font-bold sm:text-md md:text-lg text-cyan-200">
+                                ACTIVO PARA COMISIONAR
+                        </p>
+            
+                    </div>
+        
+                    
+        
+                    <div>
+        
+                        <div id="cuenta">
+        
+        
+                        </div>
+        
+                        <div class="flex justify-center ">
+                            <p class="font-bold text-sm text-cyan-200">
+                                Tiempo restante
+                            </p>
+        
+                        </div>
+        
+                    </div>
+                </div>
+            @endif
+    
+    
+        </div>
+ 
 
+
+        @if($user->status == 'inactivo' && $pendiente_pago == 0 || $activar_pagar == 1)
+        <div class="callout callout-info md:ml-2 sm:w-full md:w-1/2">
+         
+            <div class=" flex justify-center mt-5 ">
+                @livewire('admin.pagar-membresia')
             </div>
+       
         </div>
+
         @endif
-
-
-        </div>
     </div>
+
+        
+        
+
+    
+
+
 
     <h2 class="text-gray-600 font-bold p-2 text-lg">
         Comisiones y referidos:

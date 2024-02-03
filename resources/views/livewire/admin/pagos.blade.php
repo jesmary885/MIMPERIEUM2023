@@ -280,7 +280,7 @@
                                     {{$registro->user->name}}
                                     </td>
 
-                                    <td class="text-center">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         @livewire('admin.datos-pago', ['usuario' => $registro->user],key($registro->id))
                                     </td>
                                 </tr>

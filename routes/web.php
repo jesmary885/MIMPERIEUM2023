@@ -13,15 +13,12 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\viewsController;
 use App\Http\Livewire\ShoppingCart;
 use App\Http\Livewire\CreateOrder;
-
 use App\Http\Livewire\PaymentOrder;
-
 use App\Http\Controllers\WebhooksController;
 use App\Models\Order;
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+
+Route::get('/', [indexController::class, 'dashboard'])->name('dashboard');
 
 /*
 Route::post('/registro', 'RegisterController@create')->name('Registro_create');
@@ -34,6 +31,8 @@ Route::post('/registro', [RegisterController::class, 'create'])->name('Registro_
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/home', [indexController::class, 'index'])->name('home');
+
+    Route::get('/pagar_membresia', [indexController::class, 'pagar_membresia'])->name('pagar_membresia');
 
     Route::get('/tienda', WelcomeController::class)->name('tienda');
 
@@ -73,4 +72,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('retiro', [RangoController::class, 'retiro'])->name('admin.retiro');
     Route::get('cuentas', [RangoController::class, 'cuentas'])->name('admin.cuentas');
     Route::get('solicitud_retiro', [RangoController::class, 'solicitud'])->name('admin.solicitud');
+
+    Route::get('contenido_web', [RangoController::class, 'contenido_web'])->name('admin.contenido_web');
+
+    Route::get('admin_pagos_membresia', [RangoController::class, 'pago_membresia'])->name('admin.pago_membresia');
 });

@@ -1,7 +1,7 @@
 <div>
     <x-jet-form-section submit="save">
         <x-slot name="title">
-            Editar el monto de activación para comisionar
+            Editar el monto de membresía
         </x-slot>
 
         <x-slot name="description">
@@ -11,7 +11,7 @@
         <x-slot name="form">
             <div class="col-span-6 sm:col-span-4">
                 <x-jet-label>
-                    Monto de activación
+                    Costo de membresía
                 </x-jet-label>
 
                 <div class="flex">
@@ -30,7 +30,7 @@
         <x-slot name="actions">
 
             <x-jet-action-message class="mr-3" on="saved">
-                Categoría subcategoría
+                Guardado
             </x-jet-action-message>
 
             <x-jet-button>

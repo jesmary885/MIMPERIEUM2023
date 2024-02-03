@@ -18,25 +18,16 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'Bienestar',
-                'slug' => Str::slug('Bienestar'),
+                'name' => 'LINEA - ASEO HOGAR + 900 ML',
+                'slug' => Str::slug('LINEA-ASEO-HOGAR-+-900-ML'),
                 'image' => 'categories/cuidado.jpg',
             ],
             [
-                'name' => 'Hogar',
-                'slug' => Str::slug('Hogar'),
+                'name' => 'LINEA - ASEO HOGAR - GALON',
+                'slug' => Str::slug('LINEA-ASEO-HOGAR-GALON'),
                 'image' => 'categories/hogar.jpg',
             ],
-            [
-                'name' => 'Cuidado personal',
-                'slug' => Str::slug('cuidado-personal'),
-                'image' => 'categories/cuidado.jpg',
-            ],
-            [
-                'name' => 'Digital',
-                'slug' => Str::slug('Digital'),
-                'image' => 'categories/tecnologia.jpg',
-            ],
+         
     
 
         ];

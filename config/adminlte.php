@@ -345,6 +345,20 @@ return [
                         'icon_color' => 'gray',
                     ],
 
+                    [
+                        'text' => 'Pagos de membresia',
+                        'route'  => 'admin.pago_membresia',
+                        'icon'    => '	fas fa-circle',
+                        'icon_color' => 'gray',
+                    ],
+
+                    [
+                        'text' => 'Contenido de la web',
+                        'route'  => 'admin.contenido_web',
+                        'icon'    => '	fas fa-circle',
+                        'icon_color' => 'gray',
+                    ],
+
                 ],
             
         ],

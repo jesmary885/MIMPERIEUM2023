@@ -79,5 +79,9 @@ class User extends Authenticatable
         return $this->belongsTo(Rango::class);
     }
 
+    public function pais(){
+        return $this->belongsTo(Pais::class);
+    }
+
  
 }

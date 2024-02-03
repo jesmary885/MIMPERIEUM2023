@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actions\Fortify\PasswordValidationRules;
+use App\Models\Pais;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
@@ -19,14 +20,20 @@ class RegisterController extends Controller
 
     protected $guard;
 
+    public $paises;
+
     public function __construct(StatefulGuard $guard)
     {
         $this->guard = $guard;
+       
     }
 
  
     public function index($code=''){
-        return view('auth.register',compact('code'));
+
+        $paises = Pais::all();
+
+        return view('auth.register',compact('code','paises'));
     }
 
     public function create(Request $request)
@@ -37,6 +44,7 @@ class RegisterController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required'],
+            'pais_id' => ['required'],
             'dni' => ['required'],
             'direction' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -49,18 +57,19 @@ class RegisterController extends Controller
                 'direction' => $request['direction'],
                 'phone' => $request['phone'],
                 'password' => Hash::make($request['password']),
-                'status' => 'inactivo_para_comisionar',
+                'status' => 'inactivo',
                 'points' => 0,
                 'points_residual' => 0,
                 'dni' => $request['dni'],
                 'rango_id' => 1,
                 'acum_points' => 0,
                 'points_global' => 0,
+                'pais_id' => $request['pais_id'],
             ])->assignRole('cliente');
 
             $digitos = strlen($user->id);
 
-                     if($digitos == 1) $code = '00000000000'.($user->id - 1);
+                    /* if($digitos == 1) $code = '00000000000'.($user->id - 1);
                 elseif ($digitos == 2) $code = '0000000000'.($user->id - 1);
                 elseif ($digitos == 3) $code = '000000000'.($user->id - 1);
                 elseif ($digitos == 4) $code = '00000000'.($user->id - 1);
@@ -70,7 +79,11 @@ class RegisterController extends Controller
                 elseif ($digitos == 8) $code = '000'.($user->id - 1);
                 elseif ($digitos == 9) $code = '00'.($user->id - 1);
                 elseif ($digitos == 10) $code ='0'.($user->id - 1);
-                else $code = $user->id;
+                else $code = $user->id;*/
+
+                $pais_nombre = Pais::where('id',$request['pais_id'])->first()->name;
+
+                $code = $pais_nombre.$request['dni'];
         
                 $user->update([
                     'code' => $code,

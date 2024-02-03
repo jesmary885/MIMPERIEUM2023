@@ -257,9 +257,9 @@ class StatusOrder extends Component
                 $puntos_totales = $this->puntos_guardados + $this->order->points_total;
                 $puntos_acumu = $this->puntos_acumulados + $this->order->points_total;
     
-                if($user->status == 'inactivo_para_comisionar'){
+              /*  if($user->status == 'inactivo'){
                     $items = json_decode($this->order->content);
-                    $count_points = 0;
+                    $count_points = 0;*/
 
                     //aqui vas a colocar la nueva fecha last_activate que vas a sumar la fecha de hoy mas 30 dias
                     
@@ -270,7 +270,7 @@ class StatusOrder extends Component
                         }
                     }*/
 
-                    $fecha_actual = date("Y-m-d h:s");
+                  /*  $fecha_actual = date("Y-m-d h:s");
                     $proxima_fecha = date("Y-m-d h:s",strtotime($fecha_actual."+ 30 days"));
     
                     //if($count_points >= 10){
@@ -285,7 +285,7 @@ class StatusOrder extends Component
                         ]);
     
                     //}
-                }
+                }*/
     
                 $user->update([
                     'points' => $puntos_totales,

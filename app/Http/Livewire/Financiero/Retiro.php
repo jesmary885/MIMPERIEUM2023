@@ -34,7 +34,7 @@ class Retiro extends Component
         
         $dia = date('l');
 
-        if($this->disponible > 0){
+        if($this->disponible > 0 && $user->status == 'activo'){
             
             if($dia == 'Sunday') 
            // if($dia == 'Friday') 

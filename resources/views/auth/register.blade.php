@@ -69,6 +69,18 @@
                             <input id="dni" class="pl-2 w-full text-gray-600 font-semibold border-transparent focus:border-transparent focus:ring-0" type="number" name="dni" placeholder="DNI" value="{{ old('dni') }}" />
                         </div>
                     </div>
+
+                    <div class="w-full flex items-center border-2 mb-6 py-2 px-3 rounded-2xl mr-2">
+                        <select name="pais_id" id="pais_id" class="pl-2 w-full text-gray-600 font-semibold border-transparent focus:border-transparent focus:ring-0">
+                            <option value="" selected> Seleccione su pais </option>
+                            @foreach ($paises as $pais)
+                                <option value="{{$pais->id}}">{{$pais->name}}</option>
+                            @endforeach
+                        </select>
+                        <x-jet-input-error for="pais_id" />
+                        <label for="pais_id" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-3 scale-75 top-1 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-3 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Pais</label>
+                    </div>
+
                     
 
                     <x-jet-input-error for="direction" />

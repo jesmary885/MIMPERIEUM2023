@@ -24,6 +24,9 @@ class CreateUsersTable extends Migration
              $table->unsignedBigInteger('rango_id')->nullable();
              $table->foreign('rango_id')->references('id')->on('rangos');
 
+             $table->unsignedBigInteger('pais_id')->nullable();
+             $table->foreign('pais_id')->references('id')->on('pais');
+
             $table->string('dni')->nullable();
             $table->string('code')->nullable();
             $table->string('phone')->nullable();

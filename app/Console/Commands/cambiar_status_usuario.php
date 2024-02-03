@@ -42,13 +42,13 @@ class cambiar_status_usuario extends Command
 
                 if($fecha_actual > $proxima_fecha){
                     $user->update([
-                        'status' => 'inactivo_para_comisionar'
+                        'status' => 'inactivo'
                     ]);
 
                     $partner = Partner::where('user_id',$user->id)->first();
          
                     $partner->update([
-                        'status' => 'inactivo_para_comisionar',
+                        'status' => 'inactivo',
                     ]);
                 }
             }
