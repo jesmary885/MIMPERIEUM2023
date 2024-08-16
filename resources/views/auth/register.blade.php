@@ -2,7 +2,7 @@
 <x-guest-layout>
     <style>
     .login_img_section {
-    background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(/storage/img/fondo_2_login.jfif) center center;
+    background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(/img/fondo_2_login.jfif) center center;
     background-repeat: no-repeat;
     background-size: cover  
     }
@@ -22,7 +22,7 @@
             <div>
               <div class="flex justify-center">
                 <a href="/" class="mt-6">
-                        <img src="/storage/img/MIPERIUM.png" class="block h-20 w-40 alt="">
+                        <img src="/img/logo huchu.png" class="block h-20 w-44">
                     </a>
               </div>
             </div>
@@ -78,7 +78,7 @@
                             @endforeach
                         </select>
                         <x-jet-input-error for="pais_id" />
-                        <label for="pais_id" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-3 scale-75 top-1 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-75 peer-focus:-translate-y-3 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Pais</label>
+             
                     </div>
 
                     

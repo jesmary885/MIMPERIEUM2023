@@ -64,8 +64,29 @@
 
         @if($user->status == 'inactivo' && $pendiente_pago == 0 || $activar_pagar == 1)
         <div class="callout callout-info md:ml-2 sm:w-full md:w-1/2">
+            <div class="flex items-center space-x-4">
+                <div class="p-2 bg-gray-200 rounded-full">
+                    <!-- Icon from Heroicons (https://heroicons.com/) -->
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" viewBox="0 0 20 20"><path d="M19.388.405a.605.605 0 0 0-1.141.399c.929 2.67-.915 4.664-2.321 5.732l-.568-.814c-.191-.273-.618-.5-.95-.504l-3.188.014a2.162 2.162 0 0 0-1.097.338L.729 12.157a1.01 1.01 0 0 0-.247 1.404l4.269 6.108c.32.455.831.4 1.287.082l9.394-6.588c.27-.191.582-.603.692-.918l.998-3.145c.11-.314.043-.793-.148-1.066l-.346-.496c1.888-1.447 3.848-4.004 2.76-7.133zm-4.371 9.358a1.608 1.608 0 0 1-2.24-.396 1.614 1.614 0 0 1 .395-2.246 1.607 1.607 0 0 1 1.868.017c-.272.164-.459.26-.494.275a.606.606 0 0 0 .259 1.153c.086 0 .174-.02.257-.059.194-.092.402-.201.619-.33a1.615 1.615 0 0 1-.664 1.586z"/></svg>
+                   
+
+                  
+
+                    
+
+
+                </div>
+                <div>
+                    <div class="text-gray-600 text-sm">Costo de Membresía</div>
+                    <div class="text-gray-900 text-2xl font-semibold">
+                        {{$costo_membresia}} Soles
+                      
+                    </div>
+                </div>
+            </div>
          
-            <div class=" flex justify-center mt-5 ">
+            <div class=" flex justify-center mt-2 ">
                 @livewire('admin.pagar-membresia')
             </div>
        
@@ -178,7 +199,7 @@
             <div class="small-box bg-info">
                 <div class="inner">
                     <h3>S/0</h3>
-                    <p class="sm:text-xs md:text-md font-bold">BONO LIDERAZGO</p>
+                    <p class="sm:text-xs md:text-md font-bold">BONO MEMBRESÍA</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-child"></i>
@@ -296,7 +317,7 @@
                     </div>
                     <div class="card-body overflow-x-auto" style="display: block;">
                         <div class="flex">
-                            <p id="enlace_copy" class="text-lg text-gray-600 font-medium mt-2">http://mimperium.com/registro/{{$code_user}}</p>
+                            <p id="enlace_copy" class="text-lg text-gray-600 font-medium mt-2">http://mimperium.club/registro/{{$code_user}}</p>
 
                             <button class="ml-2 btn btn-sm mt-1 text-bold" title="Copiar" id="button_copy"><i class="fas fa-paste text-blue-500 text-lg"></i></button>
                         </div>

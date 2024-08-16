@@ -21,35 +21,23 @@
                         
                         <hr class="mt-2 mb-2">
 
-               
+                        <div class="flex justify-between">
+                            <div class="form-group w-full mr-2 mt-2">
+                                    <label class="w-full text-justify text-gray-600 text-md">Titulo</label>
+                                    <input type="text" wire:model="titulo" class="form-control rounded" id="formGroupExampleInput">
+                                    <x-jet-input-error for="titulo" />
+                            </div>
+                      
+                        </div>
 
-                            <div class="row ml-3 mr-3">
-                                <div class="col">
-                                    <div class="w-50 h-50">
-                  
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <input type="file" value="file" wire:model="file" id="file" class="block w-full py-1.5 text-sm font-normal text-gray-400 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" accept="image/*">
-                                        @error('file')
-                                        <small class="text-danger">{{$message}}</small>
-                                        @enderror
-                                        
-                                    </div>
-                                </div>
-                            </div> 
-
-
-                           
-
-                 
-
-                            
-                           
-
-                            
-
+                        <div class="flex justify-between">
+                            <div class="form-group w-full mr-2 mt-2">
+                                    <label class="w-full text-justify text-gray-600 text-md">URL</label>
+                                    <input type="text" wire:model="url" class="form-control rounded" id="formGroupExampleInput">
+                                    <x-jet-input-error for="url" />
+                            </div>
+                      
+                        </div>
 
                     </div>
                     <div class="modal-footer">

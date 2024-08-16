@@ -39,12 +39,15 @@ class QuienesSomos extends Component
 
         $texto1_mod = Contenidoweb::where('area','texto_quienes_somos')->first();
 
-        if($texto1_mod ){
+ 
+
+        if($texto1_mod){
             $texto1_mod->update([
                 'texto1' => $this->texto1,
             ]);
         }
         else{
+
             $texto1_mod = new Contenidoweb();
             $texto1_mod->texto1 =  $this->texto1;
             $texto1_mod->area =  'texto_quienes_somos';

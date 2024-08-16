@@ -31,7 +31,7 @@
             <div>
               <div class="flex justify-center">
                 <a href="/" class="mt-6 mb-2">
-                        <img src="img/MIPERIUM.png" class="block h-20 w-40 alt="">
+                        <img src="img/logo huchu.png" class="block h-20 w-44 alt="">
                     </a>
               </div>
               <div class="flex justify-center" >

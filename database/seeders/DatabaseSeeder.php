@@ -22,11 +22,12 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('subcategories');
         Storage::makeDirectory('products');
 */
+        $this->call(PaisSeeder::class);
         $this->call(RangoSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(CategorySeeder::class);
-        $this->call(PaisSeeder::class);
+        
         $this->call(PorcentajeSeeder::class);
        // $this->call(ProductSeeder::class);
     }

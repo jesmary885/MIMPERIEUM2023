@@ -41,7 +41,7 @@ class ShoppingCart extends Component
         $subtotal_t = (str_replace($caracter,"",Cart::subtotal()));
 
     
-        $total_comisionar = Porcentaje::first()->monto_activacion;
+        $total_comisionar = 100;//Porcentaje::first()->monto_activacion;
 
         if($user->direction != null && $user->phone != null && $user->referencia != null && $user->departamento != null && $user->provincia != null && $user->distrito != null){
             

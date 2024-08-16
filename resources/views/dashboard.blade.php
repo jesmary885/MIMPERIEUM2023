@@ -83,7 +83,7 @@
 
 
             <a href="/" class="mx-0 md:mx-6">
-                <img src="img/MIPERIUM.png" class="block h-12 md:h-14 w-28 md:w-32 alt="">
+                <img src="img/logo huchu.png" class="block h-12 md:h-14 w-32 md:w-36 alt="">
             </a>
 
             <div class="hidden lg:block -mx-4 flex-1">
@@ -259,7 +259,7 @@
                         <a href="#">
                             <article>
                                 <figure>
-                                    <img class=" h-52  w-full object-fill" src="{{Storage::url($imagen_p->url)}}"alt="">
+                                    <img class=" h-80 w-full object-fill " src="{{Storage::url($imagen_p->url)}}"alt="">
                                 </figure>
                                 
                                 <div class="py-4 px-6">
@@ -335,15 +335,42 @@
 
     <section class="bg-white dark:bg-gray-900">
     <div id="informacion" class="container mx-auto px-6 py-10">
-        <h2 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl">COMO GANAR DINERO CON NOSOTROS</h2>
+        <h2 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl mb-4">COMO GANAR DINERO CON NOSOTROS</h2>
 
-        @if($video_ganar_dinero)
+        <div class="glider-contain ">
+            <ul class="glider">
+                @forelse($video_ganar_dinero as $video)
 
-        <video src="{{Storage::url($video_ganar_dinero->url)}}" class="w-full p-4 mt-2" controls></video>
+                <li class="bg-white rounded-lg shadow mr-4">
+                        <a href="#">
+                            <article>
+                                <figure>
 
-        @else
+                                    <iframe class="w-full" height="315" src="{{$video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-        @endif
+                                </figure>
+                                
+                                <div class="py-4 px-6 flex justify-center">
+                                    <h1 class="mt-2 text-xl font-semibold  text-gray-700 group-hover:text-white">
+                                        {{$video->texto1}}
+
+                                    </h1>
+
+                                </div>
+                            </article>
+                        </a>
+                </li>
+
+                @empty
+
+                @endforelse
+
+            </ul>
+        
+            <button aria-label="Previous" class="glider-prev">«</button>
+            <button aria-label="Next" class="glider-next">»</button>
+            <div role="tablist" class="dots"></div>
+        </div> 
   
     </div>
     </section>
@@ -377,7 +404,7 @@
 
     <footer class="bg-white dark:bg-gray-900">
     <section class="h-12 bg-gradient-to-r p-4 from-lime-700 text-center via-lime-800 to-lime-900 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900">
-    <h3 class="text-gray-300 text-md font-bold"> COPYRIGHT© 2023 - MIMPERIUM</h3>
+    <h3 class="text-gray-300 text-md font-bold"> COPYRIGHT© 2023 - HUCHU SAC</h3>
         
     </section>
 

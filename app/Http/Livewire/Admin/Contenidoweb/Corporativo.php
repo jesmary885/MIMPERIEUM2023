@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class Corporativo extends Component
 {
-    public $texto1, $texto2, $texto3, $imagen, $cont_img,$texto;
+    public $texto1, $texto2, $texto3, $imagen, $cont_img,$texto,$accion;
 
     protected $listeners = ['render' => 'render'];
 
@@ -50,34 +50,28 @@ class Corporativo extends Component
         $rules = $this->rules;
         $this->validate($rules);
 
-        $texto_mod = Contenidoweb::where('area','corporativo')->first();
-
-        if($this->accion == 'edit'){
-
-            if($texto_mod)
 
 
-            $url = Storage::put('img', $this->file);
+        $texto1_mod = Contenidoweb::where('area','corporativo')->first();
 
-            $texto_mod->update([
-                'url' => $url, 
+        if($texto1_mod){
+            $texto1_mod->update([
+                'texto1' => $this->texto1,
+                'texto2' => $this->texto2,
+                'texto3' => $this->texto3,
             ]);
-
         }
-
         else{
 
-            $url = Storage::put('img', $this->file);
+            $texto1_mod = new Contenidoweb();
+            $texto1_mod->texto1 =  $this->texto1;
+            $texto1_mod->texto2 =  $this->texto2;
+            $texto1_mod->texto3 =  $this->texto3;
+            $texto1_mod->area =  'corporativo';
+            $texto1_mod->save();
 
-            $texto_mod->update([
-                'url' => $url, 
-            ]);
         }
 
-        
-
-
-        $this->reset(['isopen']);
         $this->emitTo('admin.contenidoweb.corporativo','render');
         $this->emit('alert','Datos procesados correctamente');
     }

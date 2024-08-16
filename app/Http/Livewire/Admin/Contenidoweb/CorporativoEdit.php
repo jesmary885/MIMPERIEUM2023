@@ -45,9 +45,6 @@ class CorporativoEdit extends Component
 
         if($this->accion == 'edit'){
 
-            if($texto_mod)
-
-
             $url = Storage::put('img', $this->file);
 
             $texto_mod->update([

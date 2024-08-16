@@ -54,7 +54,7 @@ class Productos extends Component
             $texto1_mod->save();
         }
 
-        $this->reset(['isopen']);
+  
         $this->emitTo('admin.contenidoweb.productos','render');
         $this->emit('alert','Dato modificado correctamente');
     }

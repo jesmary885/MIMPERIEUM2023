@@ -27,7 +27,9 @@ class indexController extends Controller
         $contenido_productos = Contenidoweb::where('area','texto_productos')->first() ?? [];
         $imagenes_productos = Contenidoweb::where('area','productos')->get() ?? [];
 
-        $video_ganar_dinero = Contenidoweb::where('area','ganar_dinero')->first() ?? [];
+        $video_ganar_dinero = Contenidoweb::where('area','ganar_dinero')->get() ?? [];
+
+
 
 
 
@@ -38,6 +40,8 @@ class indexController extends Controller
     public function index(){
 
         $fecha_actual = date("Y-m-d H:i:s");
+
+        $costo_membresia = Porcentaje::first()->monto_activacion;
 
         $user= User::where('id',auth()->id())->first();
         $rol_user = $user->roles->first()->id;
@@ -450,7 +454,7 @@ class indexController extends Controller
         }
 
 
-        return view('admin.index',compact('activar_pagar','pendiente_pago','ano_restantes','minutos_restantes','mes_restantes','dias_restantes','horas_restantes','user','users_diamantes','users_corona','users_embajador','users_imprerial','c_pendientes_cobrar','ptos_diarios','ptos_trimestre','ptos_anual','ptos_total','facturacion_dia','facturacion_mes','facturacion_ano','facturacion_total','data2','rol_user','ganancia_global','code_user','indirectos','rango_id','refers_direct','width_barra','porcentaje_total','puntos_faltantes','saldo_disponible','saldo_pagado','rango_nombre','ganancia_compra','ganancia_residual','ptos_residual_compra','directos','c_pagar_mes','c_pagadas_mes','c_pagadas_ano','c_pagadas_total','af_mes','af_act_mes','af_total','af_rango'));
+        return view('admin.index',compact('costo_membresia','activar_pagar','pendiente_pago','ano_restantes','minutos_restantes','mes_restantes','dias_restantes','horas_restantes','user','users_diamantes','users_corona','users_embajador','users_imprerial','c_pendientes_cobrar','ptos_diarios','ptos_trimestre','ptos_anual','ptos_total','facturacion_dia','facturacion_mes','facturacion_ano','facturacion_total','data2','rol_user','ganancia_global','code_user','indirectos','rango_id','refers_direct','width_barra','porcentaje_total','puntos_faltantes','saldo_disponible','saldo_pagado','rango_nombre','ganancia_compra','ganancia_residual','ptos_residual_compra','directos','c_pagar_mes','c_pagadas_mes','c_pagadas_ano','c_pagadas_total','af_mes','af_act_mes','af_total','af_rango'));
     }
 
     public function pagar_membresia(){

@@ -11,10 +11,12 @@ class GanarDineroEdit extends Component
 {
     use WithFileUploads;
 
-    public  $imagen, $file ,$isopen = false,$accion;
+    public  $video,$isopen = false,$accion,$titulo,$url;
+
 
     protected $rules = [
-        'file' => 'required',
+        'titulo' => 'required',
+        'url' => 'required',
     ];
 
     public function open()
@@ -28,6 +30,11 @@ class GanarDineroEdit extends Component
 
 
     public function mount(){
+
+        if($this->accion == 'edit'){
+            $this->titulo = $this->video->texto1;
+            $this->url = $this->video->url;
+        }   
         
 
     }
@@ -37,34 +44,29 @@ class GanarDineroEdit extends Component
     }
 
     public function save(){
+  
+
         $rules = $this->rules;
         $this->validate($rules);
 
-        $texto_mod = Contenidoweb::where('area','ganar_dinero')->first();
-
         if($this->accion == 'edit'){
 
-            if($texto_mod)
-
-
-            $url = Storage::put('img', $this->file);
-
-            $texto_mod->update([
-                'url' => $url, 
+            $this->video->update([
+                'texto1' => $this->titulo,
+                'url' => $this->url, 
             ]);
-
+            
         }
 
         else{
 
-            $url = Storage::put('img', $this->file);
+            $ima = new Contenidoweb();
+            $ima->texto1 =  $this->titulo;
+            $ima->url =  $this->url;
+            $ima->area =  'ganar_dinero';
+            $ima->save();
 
-            $texto1_mod = new Contenidoweb();
-            $texto1_mod->url =  $url;
-            $texto1_mod->area =  'ganar_dinero';
-            $texto1_mod->save();
         }
-
 
         $this->reset(['isopen']);
         $this->emitTo('admin.contenidoweb.ganar-dinero','render');
