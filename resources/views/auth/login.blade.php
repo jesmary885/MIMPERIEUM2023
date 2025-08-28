@@ -31,11 +31,11 @@
             <div>
               <div class="flex justify-center">
                 <a href="/" class="mt-6 mb-2">
-                        <img src="img/logo huchu.png" class="block h-20 w-44 alt="">
+                        <img src="img/logo w.png" class="block h-32 w-48 alt="">
                     </a>
               </div>
               <div class="flex justify-center" >
-                <h1 class="text-lime-700 font-bold text-3xl mb-6 mt-4">Bienvenido</h1>
+                <h1 class="  text-cyan-700  font-bold text-2xl mb-6 mt-4">Bienvenido</h1>
               </div>
             </div>
               
@@ -53,7 +53,7 @@
                 </svg>
                 <input class="pl-2 w-full border-transparent focus:border-transparent focus:ring-0" type="password" name="password" id="password" placeholder="Contraseña" />
             </div>
-              <button type="submit" class="block w-full bg-lime-700 mt-5 py-2 rounded-2xl hover:bg-lime-800 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">Ingresar</button>
+              <button type="submit" class="block w-full bg-cyan-700 mt-5 py-2 rounded-2xl hover:bg-cyan-800 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">Ingresar</button>
               <div class="flex justify-between mt-4">
               @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
@@ -62,7 +62,7 @@
                 @endif
                
 
-                <a href="{{ route('Registro') }}" class="text-sm ml-2 hover:text-lime-700 cursor-pointer hover:-translate-y-1 duration-500 transition-all">Aún no tienes una cuenta?</a>
+                <a href="{{ route('Registro') }}" class="text-sm ml-2 hover:text-cyan-700 cursor-pointer hover:-translate-y-1 duration-500 transition-all">Aún no tienes una cuenta?</a>
               </div>
               
             </form>

@@ -1,12 +1,18 @@
 @extends('adminlte::page')
 
-@section('title', 'MIMPERIUM')
+@section('title', 'Global Market')
 
 @section('content_header')
     <h1></h1>
 @stop
 
 @section('content')
+
+<style>
+    .boton-tienda {
+    text-decoration: none !important;
+}
+</style>
 
 
 @if($rol_user == 2)
@@ -31,7 +37,7 @@
         
                     <div class="flex justify-center">
             
-                        <p class="font-bold sm:text-md md:text-lg text-cyan-200">
+                        <p class="font-bold sm:text-md md:text-lg text-cyan-700">
                                 ACTIVO PARA COMISIONAR
                         </p>
             
@@ -47,7 +53,7 @@
                         </div>
         
                         <div class="flex justify-center ">
-                            <p class="font-bold text-sm text-cyan-200">
+                            <p class="font-bold text-sm text-cyan-700">
                                 Tiempo restante
                             </p>
         
@@ -78,7 +84,7 @@
 
                 </div>
                 <div>
-                    <div class="text-gray-600 text-sm">Costo de Membresía</div>
+                    <div class="text-gray-600 text-sm">Compra minima mensual</div>
                     <div class="text-gray-900 text-2xl font-semibold">
                         {{$costo_membresia}} Soles
                       
@@ -87,7 +93,11 @@
             </div>
          
             <div class=" flex justify-center mt-2 ">
-                @livewire('admin.pagar-membresia')
+                {{-- @livewire('admin.pagar-membresia') --}}
+
+                  <a href="{{ route('tienda') }}" class="boton-tienda  justify-center items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-800 active:bg-gray-800 focus:outline-none focus:border-gray-800 focus:shadow-outline-$color disabled:opacity-25 transition no-underline">COMPRAR EN TIENDA</a>
+
+               
             </div>
        
         </div>
@@ -195,7 +205,7 @@
             </div>
         </div>
 
-        <div class="col-lg-3 col-6">
+        {{-- <div class="col-lg-3 col-6">
             <div class="small-box bg-info">
                 <div class="inner">
                     <h3>S/0</h3>
@@ -207,13 +217,13 @@
                 </div>
                     <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-        </div>
+        </div> --}}
 
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-3 col-12">
             <div class="small-box bg-info">
                 <div class="inner">
                     <h3>S/{{$ganancia_global}}</h3>
-                    <p class="sm:text-xs md:text-md font-bold">BONO GLOBAL</p>
+                    <p class="sm:text-xs md:text-md font-bold">BONO GLOBAL Y EQUIPO</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-chess-queen"></i>
@@ -254,10 +264,9 @@
                             </h3>
                         </div>
                         <div class="card-body">
-                            <p class="font-bold text-gray-600">DIAMANTES: {{$users_diamantes}}</p>
-                            <p class="font-bold text-gray-600">DIAMANTES CORONA: {{$users_corona}}</p>
-                            <p class="font-bold text-gray-600">DIAMANTES EMBAJADOR: {{$users_embajador}}</p>
-                            <p class="font-bold text-gray-600">DIAMANTES IMPERIAL: {{$users_imprerial}}</p>
+                            <p class="font-bold text-gray-600">SUPERVISOR LOCAL: {{$users_diamantes}}</p>
+                            <p class="font-bold text-gray-600">GERENTE NACIONAL: {{$users_corona}}</p>
+                            <p class="font-bold text-gray-600">DIRECTOR INTERNACIONAL: {{$users_embajador}}</p>
                         </div>
                     </div>
                 </div>
@@ -317,7 +326,7 @@
                     </div>
                     <div class="card-body overflow-x-auto" style="display: block;">
                         <div class="flex">
-                            <p id="enlace_copy" class="text-lg text-gray-600 font-medium mt-2">http://mimperium.club/registro/{{$code_user}}</p>
+                            <p id="enlace_copy" class="text-lg text-gray-600 font-medium mt-2">https://globalmarket.world/registro/{{$code_user}}</p>
 
                             <button class="ml-2 btn btn-sm mt-1 text-bold" title="Copiar" id="button_copy"><i class="fas fa-paste text-blue-500 text-lg"></i></button>
                         </div>

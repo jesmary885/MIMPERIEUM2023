@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'HUCHUSAC',
+    'title' => 'Global Market',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -64,7 +64,7 @@ return [
     */
 
     'logo' => null,
-    'logo_img' => 'img/logo_huchu-removebg-preview.png',
+    'logo_img' => 'img/logo w.png',
     'logo_img_class' => 'w-44 mx-auto my-0',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'null',

@@ -64,7 +64,7 @@ class PagoMembresia extends Component
 
         $user = User::where('id',$this->registroSelect->user_id)->first();
 
-        $proxima_fecha = date("Y-m-d H:i:s",strtotime($fecha_actual."+ 1 year"));
+        $proxima_fecha = date("Y-m-d H:i:s",strtotime($fecha_actual."+ 1 month"));
 
         $user->update([
             'status' => 'activo',

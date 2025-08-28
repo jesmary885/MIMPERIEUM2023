@@ -22,7 +22,7 @@
             <div>
               <div class="flex justify-center">
                 <a href="/" class="mt-6">
-                        <img src="/img/logo huchu.png" class="block h-20 w-44">
+                        <img src="img/logo w.png" class="block h-32 w-48 alt="">
                     </a>
               </div>
             </div>
@@ -136,7 +136,7 @@
 
                 
 
-                    <button type="submit" class="block w-full bg-lime-700 mt-5 py-2 rounded-2xl hover:bg-lime-800 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">Registrar</button>
+                    <button type="submit" class="block w-full bg-cyan-700 mt-5 py-2 rounded-2xl hover:bg-cyan-800 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">Registrar</button>
                     
                 </form>
 

@@ -345,8 +345,8 @@ class indexController extends Controller
             ->sum('total');
 
         if($user->rango_id == 1){
-            $puntos_faltantes = 20000 - $user->acum_points;
-            $porcentaje_total = ($user->acum_points * 100) / 20000;
+            $puntos_faltantes = 100000 - $user->acum_points;
+            $porcentaje_total = ($user->acum_points * 100) / 100000;
 
             $refers_direct = Partner::where('refer_id',auth()->id())
                 ->where('status','activo')

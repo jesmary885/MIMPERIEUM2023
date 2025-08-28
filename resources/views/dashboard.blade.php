@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>HUCHUSAC</title>
+        <title>Global Market</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -83,15 +83,15 @@
 
 
             <a href="/" class="mx-0 md:mx-6">
-                <img src="img/logo huchu.png" class="block h-12 md:h-14 w-32 md:w-36 alt="">
+                <img src="img/logo w.png" class="block h-28 md:h-28 w-32 md:w-36 alt="">
             </a>
 
             <div class="hidden lg:block -mx-4 flex-1">
                 <div class="flex">
-                    <a href="#nosotros" class="block mx-4 mt-2 text-sm font-semibold text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 dark:hover:text-indigo-400">Nosotros</a>
-                    <a href="#equipo" class="block mx-4 mt-2 text-sm font-semibold text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 dark:hover:text-indigo-400">Equipo</a>
-                    <a href="#productos" class="block mx-4 mt-2 text-sm font-semibold text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 dark:hover:text-indigo-400">Productos</a>                            
-                    <a href="#informacion" class="block mx-4 mt-2 text-sm font-semibold text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 dark:hover:text-indigo-400">Información</a>
+                    <a href="#nosotros" class="block mx-4 mt-2 text-sm font-semibold text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-cyan-600 dark:hover:text-indigo-400">Nosotros</a>
+                    <a href="#equipo" class="block mx-4 mt-2 text-sm font-semibold text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-cyan-600 dark:hover:text-indigo-400">Equipo</a>
+                    <a href="#productos" class="block mx-4 mt-2 text-sm font-semibold text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-cyan-600 dark:hover:text-indigo-400">Productos</a>                            
+                    <a href="#informacion" class="block mx-4 mt-2 text-sm font-semibold text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-cyan-600 dark:hover:text-indigo-400">Información</a>
 
                 </div>
                 
@@ -100,14 +100,14 @@
 
             <div class="block" align="right">
                 @auth
-                <a href="{{ route('home') }}" class="font-semibold text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Oficina online</a>
+                <a href="{{ route('home') }}" class="font-semibold text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-cyan-600 ">Oficina online</a>
                 
                 @else
 
                 <div class="flex" >
 
-                <a href="{{ route('login') }}" class="font-semibold mr-4 text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Iniciar sesión</a>
-                <a href="{{ route('Registro') }}" class="font-semibold text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-lime-600 ">Registrarse</a>
+                <a href="{{ route('login') }}" class="font-semibold mr-4 text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-cyan-600 ">Iniciar sesión</a>
+                <a href="{{ route('Registro') }}" class="font-semibold text-sm text-gray-700 mt-5 capitalize lg:mt-0 dark:text-gray-200 hover:text-cyan-600 ">Registrarse</a>
                 </div>
 
                 @endauth
@@ -137,7 +137,7 @@
 
     <section class="bg-white dark:bg-gray-900">
     <div class="container mx-auto px-6 py-10">
-        <h1 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl">QUIENES SOMOS</h1>
+        <h1 class="text-center text-3xl font-bold capitalize text-cyan-800 lg:text-4xl">QUIENES SOMOS</h1>
 
         <p class="mt-4 text-center text-gray-500 font-semibold">
             @if($contenido_quienes_somos)
@@ -185,7 +185,7 @@
 
 <section class="bg-white dark:bg-gray-900">
             <div class="container px-6 py-10 mx-auto" id="equipo">
-                <h2 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl">CORPORATIVO</h2>
+                <h2 class="text-center text-3xl font-bold capitalize text-cyan-800 lg:text-4xl">CORPORATIVO</h2>
 
                 @if($contenido_corporativo)
 
@@ -201,12 +201,12 @@
                     </p>
 
                     <div class="flex flex-col items-center">
-                        <div class="p-8 flex flex-col items-center w-1/2 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
+                        <div class="p-8 flex flex-col items-center w-1/2 transition-colors duration-200 transform cursor-pointer group hover:bg-cyan-700 rounded-xl">
                         <img class="object-cover sm:w-full sm:h-full md:w-80 md:h-80 rounded-full ring-4 ring-gray-300" src="{{Storage::url($contenido_corporativo->url)}}" alt="">
                             
                             <h3 class="mt-4 sm:text-md md:text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Juan Huaman</h3>
                             
-                            <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Fundador</p>
+                            <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Director de Marketing</p>
                             
                             <div class="flex mt-3 -mx-2">
                             
@@ -240,7 +240,7 @@
     <section class="bg-white dark:bg-gray-900">
     <div id="productos" class="container mx-auto px-6 py-10">
         <div class="text-center">
-        <h2 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl">PRODUCTOS</h2>
+        <h2 class="text-center text-3xl font-bold capitalize text-cyan-800 lg:text-4xl">PRODUCTOS</h2>
 
         @if($contenido_productos)
 
@@ -287,7 +287,7 @@
 
 
         <!-- <div class="mt-8 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-2 xl:grid-cols-3">
-            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
+            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-cyan-700 rounded-xl">
                 <div class="relative">
                     <img class="h-64 w-full rounded-lg object-cover object-center lg:h-80" src="img/moringa.jpeg" alt="" />
                 </div>
@@ -300,7 +300,7 @@
 
             </div>
 
-            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
+            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-cyan-700 rounded-xl">
                 <div class="relative">
                     <img class="h-64 w-full rounded-lg object-cover object-center lg:h-80" src="img/espirulina.jpeg" alt="" />
                 </div>
@@ -312,7 +312,7 @@
 
             </div>
 
-            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
+            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-cyan-700 rounded-xl">
                 <div class="relative">
                     <img class="h-64 w-full rounded-lg object-cover object-center lg:h-80" src="img/colageno.jpeg" alt="" />
                 </div>
@@ -335,7 +335,7 @@
 
     <section class="bg-white dark:bg-gray-900">
     <div id="informacion" class="container mx-auto px-6 py-10">
-        <h2 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl mb-4">COMO GANAR DINERO CON NOSOTROS</h2>
+        <h2 class="text-center text-3xl font-bold capitalize text-cyan-800 lg:text-4xl mb-4">COMO GANAR DINERO CON NOSOTROS</h2>
 
         <div class="glider-contain ">
             <ul class="glider">
@@ -377,21 +377,21 @@
 
     {{-- <section class="bg-white dark:bg-gray-900">
     <div id="informacion" class="container mx-auto px-6 py-10">
-        <h2 class="text-center text-3xl font-bold capitalize text-lime-800 lg:text-4xl">NUESTROS SOCIOS</h2>
+        <h2 class="text-center text-3xl font-bold capitalize text-cyan-800 lg:text-4xl">NUESTROS SOCIOS</h2>
 
         <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3 xl:mt-12 xl:grid-cols-3 xl:gap-12">
             
-            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
+            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-cyan-700 rounded-xl">
                 <img class="h-full w-full rounded-lg object-cover" src="img/Bio.jfif" alt="" />
   
             </div>
 
-            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
+            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-cyan-700 rounded-xl">
                 <img class="h-full w-full rounded-lg object-cover" src="img/exlim.jfif" alt="" />
                
             </div>
 
-            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-lime-700 rounded-xl">
+            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-cyan-700 rounded-xl">
                 <img class="h-full w-full rounded-lg object-cover" src="img/San joaquin.jfif" />
                
             </div>
@@ -403,8 +403,8 @@
  
 
     <footer class="bg-white dark:bg-gray-900">
-    <section class="h-12 bg-gradient-to-r p-4 from-lime-700 text-center via-lime-800 to-lime-900 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900">
-    <h3 class="text-gray-300 text-md font-bold"> COPYRIGHT© 2023 - HUCHU SAC</h3>
+    <section class="h-12 bg-gradient-to-r p-4 from-cyan-700 text-center via-cyan-800 to-cyan-900 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900">
+    <h3 class="text-gray-300 text-md font-bold"> COPYRIGHT© 2023 - Global Market</h3>
         
     </section>
 

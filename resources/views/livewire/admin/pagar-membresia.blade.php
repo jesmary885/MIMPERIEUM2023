@@ -1,7 +1,7 @@
 <div>
 
     <x-jet-button  wire:click="open">
-        PAGAR MEMBRESÍA
+        COMPRAR EN 
     </x-jet-button>
 
     @if ($isopen)
