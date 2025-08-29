@@ -11,7 +11,7 @@
         <x-slot name="form">
             <div class="col-span-6 sm:col-span-4">
                 <x-jet-label>
-                    Rango Diamante
+                    Supervisor Local
                 </x-jet-label>
 
                 <div class="flex">
@@ -24,7 +24,7 @@
 
             <div class="col-span-6 sm:col-span-4">
                 <x-jet-label>
-                    Rango Diamante Corona
+                    Gerente Nacional
                 </x-jet-label>
 
                 <div class="flex">
@@ -37,7 +37,7 @@
 
             <div class="col-span-6 sm:col-span-4">
                 <x-jet-label>
-                    Rango Diamante Embajador
+                    Director Internacional
                 </x-jet-label>
 
                 <div class="flex">
@@ -48,20 +48,7 @@
                 <x-jet-input-error for="bono_global_r4" />
             </div>
 
-            <div class="col-span-6 sm:col-span-4">
-                <x-jet-label>
-                    Rango Diamante Imperial
-                </x-jet-label>
 
-                <div class="flex">
-                <x-jet-input wire:model="bono_global_r5" type="text" class="w-1/3" /> <p class="mt-2 font-bold ml-2">%</p>
-
-                </div>
-
-                
-
-                <x-jet-input-error for="bono_global_r5" />
-            </div>
 
         </x-slot>
 

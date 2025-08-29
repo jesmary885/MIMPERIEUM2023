@@ -61,33 +61,7 @@
                 <x-jet-input-error for="bono_residual_n4" />
             </div>
 
-            <div class="col-span-6 sm:col-span-4">
-                <x-jet-label>
-                    Nivel 5
-                </x-jet-label>
-
-                <div class="flex">
-
-                <x-jet-input wire:model="bono_residual_n5" type="text" class="w-1/3" /> <p class="mt-2 font-bold ml-2">%</p>
-
-                </div>
-                <x-jet-input-error for="bono_residual_n5" />
-            </div>
-
-            <div class="col-span-6 sm:col-span-4">
-                <x-jet-label>
-                    Nivel 6
-                </x-jet-label>
-
-                <div class="flex">
-
-                <x-jet-input wire:model="bono_residual_n6" type="text" class="w-1/3" /> <p class="mt-2 font-bold ml-2">%</p>
-
-                </div>
-                <x-jet-input-error for="bono_residual_n6" />
-            </div>
-
-
+           
 
         </x-slot>
 
