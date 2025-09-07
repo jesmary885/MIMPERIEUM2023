@@ -57,7 +57,7 @@ class RegisterController extends Controller
                 'direction' => $request['direction'],
                 'phone' => $request['phone'],
                 'password' => Hash::make($request['password']),
-                'status' => 'inactivo',
+                'status' => 'activo',
                 'points' => 0,
                 'points_residual' => 0,
                 'dni' => $request['dni'],
