@@ -19,7 +19,7 @@
     <div class="md:flex md:justify-between">
         <div class="callout callout-info md:mr-2 sm:w-full md:w-1/2">
 
-            @if($user->status == "inactivo_para_comisionar")
+            @if($user->status == "inactivo")
     
                 <div class="flex">
                     <p class="font-bold sm:text-md md:text-lg text-gray-500">
@@ -67,8 +67,6 @@
         </div>
  
 
-
-        @if($user->status == 'inactivo' && $pendiente_pago == 0 || $activar_pagar == 1)
         <div class="callout callout-info md:ml-2 sm:w-full md:w-1/2">
             <div class="flex items-center space-x-4">
                 <div class="p-2 bg-gray-200 rounded-full">
@@ -101,8 +99,6 @@
             </div>
        
         </div>
-
-        @endif
     </div>
 
         

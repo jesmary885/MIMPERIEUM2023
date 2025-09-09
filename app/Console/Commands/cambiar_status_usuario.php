@@ -41,15 +41,31 @@ class cambiar_status_usuario extends Command
                 $proxima_fecha= new DateTime($user->last_activate);
 
                 if($fecha_actual > $proxima_fecha){
-                    $user->update([
-                        'status' => 'inactivo'
-                    ]);
 
-                    $partner = Partner::where('user_id',$user->id)->first();
+                    $fecha_sumada_2 = $proxima_fecha->modify('+2 days');
+
+                    if($fecha_sumada_2 > $fecha_actual) {
+                        $user->update([
+                            'status' => 'activo_dia_gracia'
+                        ]);
+
+                    }
+                    else{
+
+                        $user->update([
+                            'status' => 'inactivo'
+                        ]);
+
+                        $partner = Partner::where('user_id',$user->id)->first();
          
-                    $partner->update([
-                        'status' => 'inactivo',
-                    ]);
+                        $partner->update([
+                            'status' => 'inactivo',
+                        ]);
+
+                        }
+                    
+
+                    
                 }
             }
         }

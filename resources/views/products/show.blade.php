@@ -72,11 +72,11 @@
                     </div>
                 </div>
 
-                @if($user_status == 'activo')
+                {{-- @if($user_status == 'activo') --}}
 
                 @livewire('add-cart-item', ['product' => $product])
 
-                @endif
+                {{-- @endif --}}
 
             </div>
         </div>

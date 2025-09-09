@@ -289,6 +289,18 @@ class StatusOrder extends Component
     
                     //}
                 }*/
+
+                if($user->status == 'inactivo'|| $user->status == 'activo_dia_gracia'){
+
+                    $fecha_actual = date("Y-m-d h:s");
+                    $proxima_fecha = date("Y-m-d h:s",strtotime($fecha_actual."+ 30 days"));
+
+                     $user->update([
+                            'status' => 'activo',
+                            'last_activate' => $proxima_fecha,
+                    ]);
+
+                }
     
                 $user->update([
                     'points' => $puntos_totales,
