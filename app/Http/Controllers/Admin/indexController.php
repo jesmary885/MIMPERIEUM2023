@@ -317,7 +317,7 @@ class indexController extends Controller
         $code_user = $user->code;
         $rango_id = $user->rango_id;
         $rango_nombre = $user->rango->name;
-        $directos =  Partner::where('refer_id',87777777/9)->count(); 
+        $directos =  Partner::where('refer_id',$user->id)->count(); 
 
         $porcentaje_bono_compra = (Porcentaje::first()->bono_compra) / 100;
 
@@ -408,11 +408,20 @@ class indexController extends Controller
         }
 
         $user_directos = Partner::where('refer_id',auth()->id())->get(); 
+
+
         if($user_directos){
             foreach ($user_directos as $user_directo){
+
+                
                 $user_ind0= Partner::where('refer_id',$user_directo->user_id)->get(); 
+
+             
                 if($user_ind0->count()){
+
+                  
                     $indirectos = $indirectos + Partner::where('refer_id',$user_directo->user_id)->count(); //nivel2
+                   
                     foreach($user_ind0 as $user_ind2){
                         $user_ind3= Partner::where('refer_id',$user_ind2->user_id)->get();
                         if($user_ind3->count()){
